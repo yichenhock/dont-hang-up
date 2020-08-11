@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/bg/bg.png" type="Texture" id=1]
+[ext_resource path="res://scenes/menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/bg/booth.png" type="Texture" id=3]
+[ext_resource path="res://scenes/phone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bg/dooropened.png" type="Texture" id=5]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+vec4 texturePointSmooth(sampler2D tex, vec2 uv) {
+	vec2 size = vec2(textureSize(tex, 0));
+	vec2 pixel = vec2(1.0) / size;
+	uv -= pixel * vec2(0.5);
+	vec2 uv_pixels = uv * size;
+	vec2 delta_pixel = fract(uv_pixels) - vec2(0.5);
+	vec2 ddxy = fwidth(uv_pixels);
+	vec2 mip = log2(ddxy) - 0.5;
+	return textureLod(tex, uv + (clamp(delta_pixel / ddxy, 0.0, 1.0) - delta_pixel) * pixel, min(mip.x, mip.y));
+}
+
+void fragment() {
+	vec4 Texture = texturePointSmooth(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR = Texture.rgba;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="phoneBooth" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ -85.0 ]
+}
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="phonebooth" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="doorOpened" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="phone" parent="." instance=ExtResource( 4 )]
+margin_left = 109.0
+margin_top = 196.0
+margin_right = 109.0
+margin_bottom = 196.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
+position = Vector2( 135.337, 305.312 )
+scale = Vector2( 1.35161, 3.04472 )
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/BackBufferCopy"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.13
+margin_top = -100.276
+margin_right = -100.13
+margin_bottom = -100.276
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource( 2 )]

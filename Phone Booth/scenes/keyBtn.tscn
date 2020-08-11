@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/bg/phone/btns/key-btn-pressed.png" type="Texture" id=1]
+[ext_resource path="res://assets/bg/phone/btns/key-btn.png" type="Texture" id=2]
+[ext_resource path="res://scenes/btn.gd" type="Script" id=3]
+
+[node name="keyBtn" type="TextureButton"]
+margin_right = 17.0
+margin_bottom = 18.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="symbol" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="." to="." method="button_down"]
+[connection signal="button_up" from="." to="." method="button_up"]

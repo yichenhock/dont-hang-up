@@ -1,0 +1,266 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://assets/fonts/pixelplay.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/topBtn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/sideBtn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/keyBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bg/phone/phone-base.png" type="Texture" id=5]
+[ext_resource path="res://assets/bg/phone/btns/cross.png" type="Texture" id=6]
+[ext_resource path="res://assets/bg/phone/btns/square.png" type="Texture" id=7]
+[ext_resource path="res://assets/bg/phone/btns/triangle.png" type="Texture" id=8]
+[ext_resource path="res://assets/bg/phone/btns/1.png" type="Texture" id=9]
+[ext_resource path="res://assets/bg/phone/btns/2.png" type="Texture" id=10]
+[ext_resource path="res://assets/bg/phone/btns/4.png" type="Texture" id=11]
+[ext_resource path="res://assets/bg/phone/btns/6.png" type="Texture" id=12]
+[ext_resource path="res://assets/bg/phone/btns/5.png" type="Texture" id=13]
+[ext_resource path="res://assets/bg/phone/btns/7.png" type="Texture" id=14]
+[ext_resource path="res://assets/bg/phone/btns/8.png" type="Texture" id=15]
+[ext_resource path="res://assets/bg/phone/btns/3.png" type="Texture" id=16]
+[ext_resource path="res://assets/bg/phone/btns/9.png" type="Texture" id=17]
+[ext_resource path="res://assets/bg/phone/btns/hash.png" type="Texture" id=18]
+[ext_resource path="res://assets/bg/phone/btns/star.png" type="Texture" id=19]
+[ext_resource path="res://assets/bg/phone/btns/0.png" type="Texture" id=20]
+[ext_resource path="res://assets/bg/phone/btns/down.png" type="Texture" id=21]
+[ext_resource path="res://assets/bg/phone/btns/up.png" type="Texture" id=22]
+[ext_resource path="res://assets/bg/phone/btns/clr.png" type="Texture" id=23]
+[ext_resource path="res://assets/bg/phone/btns/ok.png" type="Texture" id=24]
+[ext_resource path="res://assets/bg/phone/insert-coin.png" type="Texture" id=25]
+[ext_resource path="res://assets/bg/phone/insert-coin-pressed.png" type="Texture" id=26]
+[ext_resource path="res://assets/bg/phone/return-handle.png" type="Texture" id=27]
+[ext_resource path="res://assets/bg/phone/return-handle-pressed.png" type="Texture" id=28]
+[ext_resource path="res://assets/bg/phone/change-lid.png" type="Texture" id=29]
+[ext_resource path="res://assets/bg/phone/coin-compartment-lid.png" type="Texture" id=30]
+[ext_resource path="res://assets/bg/phone/unhook.png" type="Texture" id=31]
+[ext_resource path="res://assets/bg/phone/hook.png" type="Texture" id=32]
+[ext_resource path="res://assets/bg/phone/handle.png" type="Texture" id=33]
+
+[node name="phone" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phonebase" type="TextureRect" parent="."]
+margin_right = 125.0
+margin_bottom = 225.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="display" type="Label" parent="."]
+margin_left = 48.5
+margin_top = 9.5
+margin_right = 114.5
+margin_bottom = 38.5
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0352941, 0.0588235, 0.0588235, 1 )
+text = "PT
+PAYPHONES"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btns" type="GridContainer" parent="."]
+margin_left = 47.5
+margin_top = 48.5
+margin_right = 113.5
+margin_bottom = 138.5
+custom_constants/vseparation = 1
+custom_constants/hseparation = 0
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cross" parent="btns" instance=ExtResource( 2 )]
+margin_bottom = 14.0
+image = ExtResource( 6 )
+
+[node name="square" parent="btns" instance=ExtResource( 2 )]
+margin_left = 17.0
+margin_right = 34.0
+margin_bottom = 14.0
+image = ExtResource( 7 )
+
+[node name="triangle" parent="btns" instance=ExtResource( 2 )]
+margin_left = 34.0
+margin_right = 51.0
+margin_bottom = 14.0
+image = ExtResource( 8 )
+
+[node name="Control" type="Control" parent="btns"]
+margin_left = 51.0
+margin_right = 66.0
+margin_bottom = 14.0
+
+[node name="keyBtn1" parent="btns" instance=ExtResource( 4 )]
+margin_top = 15.0
+margin_bottom = 33.0
+image = ExtResource( 9 )
+
+[node name="keyBtn2" parent="btns" instance=ExtResource( 4 )]
+margin_left = 17.0
+margin_top = 15.0
+margin_right = 34.0
+margin_bottom = 33.0
+image = ExtResource( 10 )
+
+[node name="keyBtn3" parent="btns" instance=ExtResource( 4 )]
+margin_left = 34.0
+margin_top = 15.0
+margin_right = 51.0
+margin_bottom = 33.0
+image = ExtResource( 16 )
+
+[node name="up" parent="btns" instance=ExtResource( 3 )]
+margin_left = 51.0
+margin_top = 18.0
+margin_right = 66.0
+margin_bottom = 30.0
+size_flags_vertical = 4
+image = ExtResource( 22 )
+
+[node name="keyBtn4" parent="btns" instance=ExtResource( 4 )]
+margin_top = 34.0
+margin_bottom = 52.0
+image = ExtResource( 11 )
+
+[node name="keyBtn5" parent="btns" instance=ExtResource( 4 )]
+margin_left = 17.0
+margin_top = 34.0
+margin_right = 34.0
+margin_bottom = 52.0
+image = ExtResource( 13 )
+
+[node name="keyBtn6" parent="btns" instance=ExtResource( 4 )]
+margin_left = 34.0
+margin_top = 34.0
+margin_right = 51.0
+margin_bottom = 52.0
+image = ExtResource( 12 )
+
+[node name="down" parent="btns" instance=ExtResource( 3 )]
+margin_left = 51.0
+margin_top = 37.0
+margin_right = 66.0
+margin_bottom = 49.0
+size_flags_vertical = 4
+image = ExtResource( 21 )
+
+[node name="keyBtn7" parent="btns" instance=ExtResource( 4 )]
+margin_top = 53.0
+margin_bottom = 71.0
+image = ExtResource( 14 )
+
+[node name="keyBtn8" parent="btns" instance=ExtResource( 4 )]
+margin_left = 17.0
+margin_top = 53.0
+margin_right = 34.0
+margin_bottom = 71.0
+image = ExtResource( 15 )
+
+[node name="keyBtn9" parent="btns" instance=ExtResource( 4 )]
+margin_left = 34.0
+margin_top = 53.0
+margin_right = 51.0
+margin_bottom = 71.0
+image = ExtResource( 17 )
+
+[node name="clr" parent="btns" instance=ExtResource( 3 )]
+margin_left = 51.0
+margin_top = 56.0
+margin_right = 66.0
+margin_bottom = 68.0
+size_flags_vertical = 4
+image = ExtResource( 23 )
+
+[node name="star" parent="btns" instance=ExtResource( 4 )]
+margin_top = 72.0
+margin_bottom = 90.0
+image = ExtResource( 19 )
+
+[node name="keyBtn0" parent="btns" instance=ExtResource( 4 )]
+margin_left = 17.0
+margin_top = 72.0
+margin_right = 34.0
+margin_bottom = 90.0
+image = ExtResource( 20 )
+
+[node name="hash" parent="btns" instance=ExtResource( 4 )]
+margin_left = 34.0
+margin_top = 72.0
+margin_right = 51.0
+margin_bottom = 90.0
+image = ExtResource( 18 )
+
+[node name="ok" parent="btns" instance=ExtResource( 3 )]
+margin_left = 51.0
+margin_top = 75.0
+margin_right = 66.0
+margin_bottom = 87.0
+size_flags_vertical = 4
+image = ExtResource( 24 )
+
+[node name="insertCoin" type="TextureButton" parent="."]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 37.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="returnHandle" type="TextureButton" parent="."]
+margin_left = 2.0
+margin_top = 27.0
+margin_right = 36.0
+margin_bottom = 38.0
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hook" type="TextureButton" parent="."]
+margin_left = 11.0
+margin_top = 63.0
+margin_right = 42.0
+margin_bottom = 95.0
+texture_normal = ExtResource( 31 )
+texture_pressed = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="changeLid" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 190.0
+margin_right = 54.0
+margin_bottom = 215.0
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="compartmentLid" type="TextureRect" parent="."]
+margin_left = 62.0
+margin_top = 178.0
+margin_right = 114.0
+margin_bottom = 216.0
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="handle" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 39.0
+margin_right = 48.0
+margin_bottom = 162.0
+texture = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/chain/link_sprite.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/phone/chain.png" type="Texture" id=2]
+
+[node name="link" type="PinJoint2D"]
+bias = 0.9
+disable_collision = false
+softness = 0.2
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

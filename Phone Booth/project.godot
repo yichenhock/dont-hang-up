@@ -8,20 +8,36 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "DialogueAction",
+"language": "GDScript",
+"path": "res://data/DialogueAction.gd"
+}, {
+"base": "Control",
+"class": "DialogueBox",
+"language": "GDScript",
+"path": "res://data/DialogueBox.gd"
+} ]
 _global_script_class_icons={
-
+"DialogueAction": "",
+"DialogueBox": ""
 }
 
 [application]
 
 config/name="Don't Hang Up"
 run/main_scene="res://scenes/phoneBooth.tscn"
+boot_splash/image="res://assets/graphics/dialling.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.0235294, 0.0313726, 0.0352941, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-Audio="*res://scripts/Audio.gd"
+Audio="*res://scenes/audio.tscn"
+Data="*res://data/Data.gd"
 
 [display]
 
@@ -29,6 +45,7 @@ window/size/width=450
 window/size/height=750
 window/size/resizable=false
 window/handheld/orientation="portrait"
+mouse_cursor/custom_image="res://assets/graphics/ui/cursor.png"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -53,6 +70,24 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+right_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+z={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [rendering]

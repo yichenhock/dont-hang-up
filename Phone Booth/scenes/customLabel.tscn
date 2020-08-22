@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/tres/EnterCommand.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/speech.gd" type="Script" id=2]
+
+[node name="customText" type="RichTextLabel"]
+margin_right = 320.0
+margin_bottom = 28.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "My mind feels strangely blank..."
+scroll_active = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="typeTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="typeTimer" to="." method="_on_typeTimer_timeout"]

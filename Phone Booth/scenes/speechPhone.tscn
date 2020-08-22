@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/customLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/speechPhone.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphics/ui/bubble-phone.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/indicator.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "indicate"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("indicator:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, -60 ), Vector2( 200, -57 ) ]
+}
+
+[node name="speechPhone" type="Control"]
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogue" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
+margin_left = 25.0
+margin_top = -73.0
+margin_right = 217.0
+margin_bottom = -58.0
+grow_vertical = 0
+rect_clip_content = false
+custom_colors/default_color = Color( 0.937255, 1, 0.913725, 1 )
+visible_characters = 101
+text = "some text here"
+fit_content_height = true
+text_to_show = "Oh, I didn't know you would be so kind as to do that for me, thank you! I'm forever grateful for it. "
+
+[node name="speechBubble" type="NinePatchRect" parent="dialogue"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -25.0
+margin_top = -5.0
+margin_right = 10.0
+margin_bottom = 58.0
+texture = ExtResource( 4 )
+patch_margin_left = 63
+patch_margin_top = 10
+patch_margin_right = 15
+patch_margin_bottom = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="indicator" type="TextureRect" parent="."]
+modulate = Color( 0.701961, 0.733333, 0.643137, 0.745098 )
+margin_left = 200.0
+margin_top = -60.0
+margin_right = 215.0
+margin_bottom = -52.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="indicatorAnim" type="AnimationPlayer" parent="."]
+autoplay = "indicate"
+anims/indicate = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="character_displayed" from="dialogue" to="." method="_on_dialogue_character_displayed"]
+[connection signal="fully_displayed" from="dialogue" to="." method="_on_dialogue_fully_displayed"]

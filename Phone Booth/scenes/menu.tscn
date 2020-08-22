@@ -1,30 +1,102 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/bg/door.png" type="Texture" id=1]
-[ext_resource path="res://assets/bg/donthangup.png" type="Texture" id=2]
+[ext_resource path="res://shaders/chromaticAberration.shader" type="Shader" id=1]
+[ext_resource path="res://assets/graphics/donthangup.png" type="Texture" id=2]
+[ext_resource path="res://scenes/menuOption.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu.gd" type="Script" id=4]
+[ext_resource path="res://assets/textures/grain_texture.jpg" type="Texture" id=5]
+[ext_resource path="res://scenes/danglingPhone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 225, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 114 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/amount = Vector2( 0.1, 0.1 )
+shader_param/offset_texture = ExtResource( 5 )
 
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="door" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 1 )
-__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.0784314 )
+rect_pivot_offset = Vector2( -376, 289 )
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="."]
+margin_left = 134.0
+margin_top = 204.0
+margin_right = 317.0
+margin_bottom = 355.0
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="cableStart" type="Position2D" parent="Title"]
+position = Vector2( 177, 6 )
+
+[node name="danglingPhone" parent="." instance=ExtResource( 6 )]
+position = Vector2( 310, 210 )
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 225, 384 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 225, 176 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 10, 280 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 439, 280 )
+shape = SubResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -32,27 +104,78 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -91.0
-margin_top = -211.0
+margin_top = 47.0
 margin_right = 92.0
-margin_bottom = -55.0
+margin_bottom = 203.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="TextureRect" parent="VBoxContainer"]
-margin_right = 183.0
-margin_bottom = 152.0
-texture = ExtResource( 2 )
+[node name="enter" parent="VBoxContainer" instance=ExtResource( 3 )]
+modulate = Color( 1, 0.0784314, 0, 1 )
+margin_bottom = 28.0
+option_text = "ENTER"
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 156.0
-margin_right = 183.0
+[node name="phonebook" parent="VBoxContainer" instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
+margin_top = 32.0
+margin_bottom = 60.0
+option_text = "PHONE BOOK"
+
+[node name="options" parent="VBoxContainer" instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
+margin_top = 64.0
+margin_bottom = 92.0
+option_text = "OPTIONS"
+
+[node name="credits" parent="VBoxContainer" instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
+margin_top = 96.0
+margin_bottom = 124.0
+option_text = "CREDITS"
+
+[node name="leave" parent="VBoxContainer" instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
+margin_top = 128.0
 margin_bottom = 156.0
+option_text = "LEAVE"
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "ENTER"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fadeOut = SubResource( 3 )
+
+[node name="chromaticAbberation" type="BackBufferCopy" parent="."]
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="chromaticAbberation"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="footer" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -24.0
+margin_top = -53.0
+margin_right = 24.0
+margin_bottom = -33.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="VBoxContainer/enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="VBoxContainer/phonebook" to="." method="_on_phonebook_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]

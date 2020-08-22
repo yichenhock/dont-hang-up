@@ -1,41 +1,287 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://assets/bg/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/bg.png" type="Texture" id=1]
 [ext_resource path="res://scenes/menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/bg/booth.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/booth.png" type="Texture" id=3]
 [ext_resource path="res://scenes/phone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/bg/dooropened.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/dooropened.png" type="Texture" id=5]
+[ext_resource path="res://scenes/coins.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/phoneBooth.gd" type="Script" id=7]
+[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/graphics/door.png" type="Texture" id=9]
+[ext_resource path="res://scenes/uiInstructions.gd" type="Script" id=10]
+[ext_resource path="res://assets/graphics/ui/left-click.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/graphics/ui/z-btn.png" type="Texture" id=13]
+[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/fonts/tres/EnterCommand.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/graphics/wallet.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/ui/hourglass-sheet.png" type="Texture" id=17]
+[ext_resource path="res://scenes/remainingTime.gd" type="Script" id=18]
+[ext_resource path="res://scenes/wallet.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/fonts/tres/RootBeer.tres" type="DynamicFont" id=20]
+[ext_resource path="res://assets/fonts/tres/EnterCommand.-Italic.tres" type="DynamicFont" id=21]
+[ext_resource path="res://assets/fonts/tres/Microserif.tres" type="DynamicFont" id=22]
+[ext_resource path="res://assets/graphics/tart-card.png" type="Texture" id=23]
+[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/windowOverlay.gd" type="Script" id=25]
+[ext_resource path="res://assets/graphics/tart-card-small.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/crumpled-paper.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/paper-uncrumpled.png" type="Texture" id=28]
+[ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=29]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-vec4 texturePointSmooth(sampler2D tex, vec2 uv) {
-	vec2 size = vec2(textureSize(tex, 0));
-	vec2 pixel = vec2(1.0) / size;
-	uv -= pixel * vec2(0.5);
-	vec2 uv_pixels = uv * size;
-	vec2 delta_pixel = fract(uv_pixels) - vec2(0.5);
-	vec2 ddxy = fwidth(uv_pixels);
-	vec2 mip = log2(ddxy) - 0.5;
-	return textureLod(tex, uv + (clamp(delta_pixel / ddxy, 0.0, 1.0) - delta_pixel) * pixel, min(mip.x, mip.y));
+[sub_resource type="Animation" id=1]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorClosed:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorClosed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorOpened:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorOpened:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-void fragment() {
-	vec4 Texture = texturePointSmooth(SCREEN_TEXTURE, SCREEN_UV);
-	COLOR = Texture.rgba;
-}"
+[sub_resource type="Animation" id=2]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorClosed:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doorClosed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doorOpened:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doorOpened:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="Animation" id=3]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ Vector2( 0, 697 ), Vector2( 0, 750 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 750 ), Vector2( 0, 690 ), Vector2( 0, 697 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "time"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("hourglass:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("rectL:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ Vector2( 225, 750 ), Vector2( 0, 750 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rectL:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("rectR:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ Vector2( 225, 750 ), Vector2( 0, 750 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("rectR:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 5, 1 ),
+"update": 0,
+"values": [ Vector2( 225, 0 ), Vector2( 450, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("rectR:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="phoneBooth" type="Node2D"]
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_vertical_guides_": [ -85.0 ]
 }
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 225, 375 )
+current = true
+smoothing_enabled = true
+
 [node name="bg" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="phonebooth" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -44,34 +290,361 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="doorOpened" type="Sprite" parent="."]
-texture = ExtResource( 5 )
-centered = false
-
 [node name="phone" parent="." instance=ExtResource( 4 )]
 margin_left = 109.0
 margin_top = 196.0
 margin_right = 109.0
 margin_bottom = 196.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer"]
-visible = false
-position = Vector2( 135.337, 305.312 )
-scale = Vector2( 1.35161, 3.04472 )
-copy_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/BackBufferCopy"]
-material = SubResource( 2 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -100.13
-margin_top = -100.276
-margin_right = -100.13
-margin_bottom = -100.276
+[node name="wallet" type="TextureButton" parent="."]
+margin_left = 251.0
+margin_top = 372.0
+margin_right = 302.0
+margin_bottom = 393.0
+texture_normal = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="tartCard" type="TextureButton" parent="."]
+margin_left = 195.0
+margin_top = 421.0
+margin_right = 222.0
+margin_bottom = 437.0
+texture_normal = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crumpledPaper" type="TextureButton" parent="."]
+margin_left = 308.0
+margin_top = 373.0
+margin_right = 321.0
+margin_bottom = 387.0
+texture_normal = ExtResource( 27 )
+
+[node name="doorOpened" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="doorClosed" type="TextureRect" parent="."]
+mouse_filter = 0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="doorHandle" type="TextureButton" parent="doorClosed"]
+margin_left = 84.0
+margin_top = 342.0
+margin_right = 99.0
+margin_bottom = 406.0
+
+[node name="doorAnim" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 1 )
+anims/open = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="uiInstructions" type="HBoxContainer" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 24.0001
+rect_min_size = Vector2( 0, 24 )
+custom_constants/separation = 8
+alignment = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftClick" type="TextureRect" parent="CanvasLayer/uiInstructions"]
+margin_left = 135.0
+margin_top = 4.0
+margin_right = 148.0
+margin_bottom = 24.0
+size_flags_vertical = 8
+texture = ExtResource( 11 )
+
+[node name="interact" type="Label" parent="CanvasLayer/uiInstructions"]
+margin_left = 156.0
+margin_top = 2.0
+margin_right = 236.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 0 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
+text = "INTERACT"
+valign = 1
+
+[node name="zBtn" type="TextureRect" parent="CanvasLayer/uiInstructions"]
+margin_left = 244.0
+margin_top = 7.0
+margin_right = 261.0
+margin_bottom = 24.0
+size_flags_vertical = 8
+texture = ExtResource( 13 )
+
+[node name="zoomIn" type="Label" parent="CanvasLayer/uiInstructions"]
+margin_left = 269.0
+margin_top = 2.0
+margin_right = 314.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
+text = "ZOOM IN"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="uiAnim" type="AnimationPlayer" parent="CanvasLayer/uiInstructions"]
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer/uiInstructions"]
+one_shot = true
+
+[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
+margin_left = 101.0
+margin_top = 252.0
+margin_right = 101.0
+margin_bottom = 252.0
+
+[node name="remainingTime" type="Control" parent="CanvasLayer"]
+visible = false
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 72.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="Label" parent="CanvasLayer/remainingTime"]
+margin_left = 5.0
+margin_top = 28.0
+margin_right = 56.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
+text = "00:00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hourglass" type="Sprite" parent="CanvasLayer/remainingTime"]
+position = Vector2( 22, 0 )
+texture = ExtResource( 17 )
+centered = false
+hframes = 3
+
+[node name="timeAnim" type="AnimationPlayer" parent="CanvasLayer/remainingTime"]
+anims/time = SubResource( 5 )
+
+[node name="coins" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+
+[node name="wallet" parent="CanvasLayer" instance=ExtResource( 19 )]
+visible = false
+
+[node name="tartCard" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/tartCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="card" type="TextureRect" parent="CanvasLayer/tartCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -113.5
+margin_right = 167.0
+margin_bottom = 113.5
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="satisfaction" type="Label" parent="CanvasLayer/tartCard/card"]
+margin_left = 159.0
+margin_top = 33.5
+margin_right = 315.0
+margin_bottom = 65.5
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "SATISFACTION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="for men" type="Label" parent="CanvasLayer/tartCard/card"]
+margin_left = 158.0
+margin_top = 68.0
+margin_right = 220.0
+margin_bottom = 110.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "For Men
+With Special
+Needs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="number" type="Label" parent="CanvasLayer/tartCard/card"]
+margin_left = 157.0
+margin_top = 157.5
+margin_right = 210.0
+margin_bottom = 171.5
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 21 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "229 1284"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="CanvasLayer/tartCard" instance=ExtResource( 24 )]
+margin_top = 632.0
+margin_bottom = 661.0
+
+[node name="crumpledPaper" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/crumpledPaper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="paper" type="TextureRect" parent="CanvasLayer/crumpledPaper"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -113.5
+margin_right = 167.0
+margin_bottom = 113.5
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/crumpledPaper/paper"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -101.0
+margin_right = 148.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 29 )
+custom_colors/font_color = Color( 0.392157, 0.278431, 0.278431, 1 )
+text = "Whenever you want
+me back, call me at 1023903 xxx"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="CanvasLayer/crumpledPaper" instance=ExtResource( 24 )]
+margin_top = 632.0
+margin_bottom = 661.0
+
 [node name="menu" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+mouse_filter = 1
+
+[node name="firstTransit" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="rectL" type="ColorRect" parent="CanvasLayer/firstTransit"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -225.0
+margin_bottom = 6.10352e-05
+color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
+
+[node name="rectR" type="ColorRect" parent="CanvasLayer/firstTransit"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 225.0
+margin_right = 3.05176e-05
+margin_bottom = 6.10352e-05
+color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transitAnim" type="AnimationPlayer" parent="CanvasLayer/firstTransit"]
+autoplay = "open"
+anims/open = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+[connection signal="coin_inserted" from="phone" to="." method="_on_phone_coin_inserted"]
+[connection signal="picked_up" from="phone" to="." method="_on_phone_picked_up"]
+[connection signal="pressed" from="wallet" to="." method="_on_wallet_pressed"]
+[connection signal="pressed" from="tartCard" to="." method="_on_tartCard_pressed"]
+[connection signal="pressed" from="crumpledPaper" to="." method="_on_crumpledPaper_pressed"]
+[connection signal="pressed" from="doorClosed/doorHandle" to="." method="_on_doorHandle_pressed"]
+[connection signal="timeout" from="CanvasLayer/uiInstructions/Timer" to="CanvasLayer/uiInstructions" method="_on_Timer_timeout"]
+[connection signal="self_dialogue_finished" from="CanvasLayer/speechSelf" to="." method="_on_speechSelf_self_dialogue_finished"]
+[connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]
+[connection signal="coin_collected" from="CanvasLayer/wallet" to="." method="add_coin"]
+[connection signal="window_closed" from="CanvasLayer/wallet" to="." method="enable_zoom"]
+[connection signal="window_closed" from="CanvasLayer/tartCard" to="." method="enable_zoom"]
+[connection signal="pressed" from="CanvasLayer/tartCard/back" to="CanvasLayer/tartCard" method="_on_back_pressed"]
+[connection signal="window_closed" from="CanvasLayer/crumpledPaper" to="." method="enable_zoom"]
+[connection signal="pressed" from="CanvasLayer/crumpledPaper/back" to="CanvasLayer/crumpledPaper" method="_on_back_pressed"]
+[connection signal="enter_pressed" from="CanvasLayer/menu" to="." method="_on_menu_enter_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,40 +1,236 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://assets/fonts/pixelplay.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/topBtn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/sideBtn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/keyBtn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/bg/phone/phone-base.png" type="Texture" id=5]
-[ext_resource path="res://assets/bg/phone/btns/cross.png" type="Texture" id=6]
-[ext_resource path="res://assets/bg/phone/btns/square.png" type="Texture" id=7]
-[ext_resource path="res://assets/bg/phone/btns/triangle.png" type="Texture" id=8]
-[ext_resource path="res://assets/bg/phone/btns/1.png" type="Texture" id=9]
-[ext_resource path="res://assets/bg/phone/btns/2.png" type="Texture" id=10]
-[ext_resource path="res://assets/bg/phone/btns/4.png" type="Texture" id=11]
-[ext_resource path="res://assets/bg/phone/btns/6.png" type="Texture" id=12]
-[ext_resource path="res://assets/bg/phone/btns/5.png" type="Texture" id=13]
-[ext_resource path="res://assets/bg/phone/btns/7.png" type="Texture" id=14]
-[ext_resource path="res://assets/bg/phone/btns/8.png" type="Texture" id=15]
-[ext_resource path="res://assets/bg/phone/btns/3.png" type="Texture" id=16]
-[ext_resource path="res://assets/bg/phone/btns/9.png" type="Texture" id=17]
-[ext_resource path="res://assets/bg/phone/btns/hash.png" type="Texture" id=18]
-[ext_resource path="res://assets/bg/phone/btns/star.png" type="Texture" id=19]
-[ext_resource path="res://assets/bg/phone/btns/0.png" type="Texture" id=20]
-[ext_resource path="res://assets/bg/phone/btns/down.png" type="Texture" id=21]
-[ext_resource path="res://assets/bg/phone/btns/up.png" type="Texture" id=22]
-[ext_resource path="res://assets/bg/phone/btns/clr.png" type="Texture" id=23]
-[ext_resource path="res://assets/bg/phone/btns/ok.png" type="Texture" id=24]
-[ext_resource path="res://assets/bg/phone/insert-coin.png" type="Texture" id=25]
-[ext_resource path="res://assets/bg/phone/insert-coin-pressed.png" type="Texture" id=26]
-[ext_resource path="res://assets/bg/phone/return-handle.png" type="Texture" id=27]
-[ext_resource path="res://assets/bg/phone/return-handle-pressed.png" type="Texture" id=28]
-[ext_resource path="res://assets/bg/phone/change-lid.png" type="Texture" id=29]
-[ext_resource path="res://assets/bg/phone/coin-compartment-lid.png" type="Texture" id=30]
-[ext_resource path="res://assets/bg/phone/unhook.png" type="Texture" id=31]
-[ext_resource path="res://assets/bg/phone/hook.png" type="Texture" id=32]
-[ext_resource path="res://assets/bg/phone/handle.png" type="Texture" id=33]
+[ext_resource path="res://assets/graphics/phone/phone-base.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/phone/btns/cross.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/phone/btns/square.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/phone/btns/triangle.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/phone/btns/1.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/phone/btns/2.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/phone/btns/4.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/phone/btns/6.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/phone/btns/5.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/phone/btns/7.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/phone/btns/8.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/phone/btns/3.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/phone/btns/9.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/phone/btns/hash.png" type="Texture" id=18]
+[ext_resource path="res://assets/graphics/phone/btns/star.png" type="Texture" id=19]
+[ext_resource path="res://assets/graphics/phone/btns/0.png" type="Texture" id=20]
+[ext_resource path="res://assets/graphics/phone/btns/down.png" type="Texture" id=21]
+[ext_resource path="res://assets/graphics/phone/btns/up.png" type="Texture" id=22]
+[ext_resource path="res://assets/graphics/phone/btns/clr.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/phone/btns/ok.png" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/phone/insert-coin.png" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/phone/insert-coin-pressed.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/phone/return-handle.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/phone/return-handle-pressed.png" type="Texture" id=28]
+[ext_resource path="res://assets/graphics/phone/change-lid.png" type="Texture" id=29]
+[ext_resource path="res://assets/graphics/phone/coin-compartment-lid.png" type="Texture" id=30]
+[ext_resource path="res://assets/graphics/phone/unhook.png" type="Texture" id=31]
+[ext_resource path="res://assets/graphics/phone/hook.png" type="Texture" id=32]
+[ext_resource path="res://assets/graphics/phone/handset.png" type="Texture" id=33]
+[ext_resource path="res://assets/graphics/phone/handset-picked.png" type="Texture" id=34]
+[ext_resource path="res://assets/graphics/phone/handset-dropped.png" type="Texture" id=35]
+[ext_resource path="res://scenes/phone.gd" type="Script" id=36]
+[ext_resource path="res://assets/graphics/phone/change-lid-open.png" type="Texture" id=37]
+[ext_resource path="res://scenes/changeLid.gd" type="Script" id=38]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=39]
+[ext_resource path="res://assets/graphics/ui/bubble-popup.png" type="Texture" id=40]
+[ext_resource path="res://assets/graphics/ui/right-click.png" type="Texture" id=41]
+[ext_resource path="res://assets/graphics/phone/coin-before-insert.png" type="Texture" id=42]
+
+[sub_resource type="Animation" id=4]
+resource_name = "hide"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/rClick:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NinePatchRect:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 86, 33 ), Vector2( 48, 33 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "show"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/rClick:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NinePatchRect:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 48, 33 ), Vector2( 48, 33 ), Vector2( 86, 33 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "floating"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -41, 50 ), Vector2( -41, 48 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -41, 50 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, -5.0, 4.5 ]
+}
 
 [node name="phone" type="Control"]
+script = ExtResource( 36 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,19 +240,23 @@ margin_right = 125.0
 margin_bottom = 225.0
 texture = ExtResource( 5 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="display" type="Label" parent="."]
 margin_left = 48.5
-margin_top = 9.5
+margin_top = 7.5
 margin_right = 114.5
-margin_bottom = 38.5
+margin_bottom = 36.5
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0352941, 0.0588235, 0.0588235, 1 )
 text = "PT
 PAYPHONES"
 align = 1
+valign = 1
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -213,6 +413,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="popUp" type="Control" parent="insertCoin"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 15.0
+margin_top = -1.0
+margin_right = 15.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="insertCoin/popUp"]
+self_modulate = Color( 0.0196078, 0.027451, 0.0313726, 1 )
+margin_left = -9.0
+margin_top = -33.0
+margin_right = 39.0
+texture = ExtResource( 40 )
+patch_margin_left = 15
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="insertCoin/popUp"]
+margin_left = -5.0
+margin_top = -36.0
+margin_right = 74.0
+margin_bottom = -12.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rClick" type="TextureRect" parent="insertCoin/popUp/HBoxContainer"]
+visible = false
+margin_top = 4.0
+margin_right = 13.0
+margin_bottom = 24.0
+size_flags_vertical = 8
+texture = ExtResource( 41 )
+
+[node name="Label" type="Label" parent="insertCoin/popUp/HBoxContainer"]
+margin_left = 17.0
+margin_top = 2.0
+margin_right = 79.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 39 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
+text = "INSERT COIN"
+percent_visible = 0.0
+
+[node name="popUpAnim" type="AnimationPlayer" parent="insertCoin/popUp"]
+playback_speed = 1.7
+anims/hide = SubResource( 4 )
+anims/show = SubResource( 3 )
+
+[node name="coin" type="TextureRect" parent="insertCoin"]
+visible = false
+margin_left = 6.0
+margin_top = 2.0
+margin_right = 14.0
+margin_bottom = 14.0
+texture = ExtResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="returnHandle" type="TextureButton" parent="."]
 margin_left = 2.0
 margin_top = 27.0
@@ -229,38 +498,101 @@ margin_left = 11.0
 margin_top = 63.0
 margin_right = 42.0
 margin_bottom = 95.0
+disabled = true
 texture_normal = ExtResource( 31 )
 texture_pressed = ExtResource( 32 )
+texture_disabled = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="changeLid" type="TextureRect" parent="."]
+[node name="changeLid" type="TextureButton" parent="."]
 margin_left = 16.0
 margin_top = 190.0
 margin_right = 54.0
 margin_bottom = 215.0
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lidClose" type="TextureRect" parent="changeLid"]
+margin_right = 38.0
+margin_bottom = 25.0
+mouse_filter = 2
 texture = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="compartmentLid" type="TextureRect" parent="."]
-margin_left = 62.0
-margin_top = 178.0
-margin_right = 114.0
-margin_bottom = 216.0
-texture = ExtResource( 30 )
+[node name="lidOpen" type="TextureRect" parent="changeLid"]
+visible = false
+margin_left = 1.0
+margin_right = 37.0
+margin_bottom = 7.0
+mouse_filter = 2
+texture = ExtResource( 37 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="handle" type="TextureRect" parent="."]
-margin_left = 8.0
-margin_top = 39.0
-margin_right = 48.0
-margin_bottom = 162.0
-texture = ExtResource( 33 )
+[node name="compartmentLid" type="TextureButton" parent="."]
+margin_left = 62.0
+margin_top = 178.0
+margin_right = 114.0
+margin_bottom = 216.0
+texture_normal = ExtResource( 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="handset" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_top = 42.0
+margin_right = 40.0
+margin_bottom = 165.0
+texture_normal = ExtResource( 33 )
+
+[node name="handsetPicked" type="TextureRect" parent="."]
+visible = false
+margin_left = -41.0
+margin_top = 50.0
+margin_right = 35.0
+margin_bottom = 161.0
+rect_pivot_offset = Vector2( 37, 59 )
+mouse_filter = 2
+texture = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="handsetAnim" type="AnimationPlayer" parent="handsetPicked"]
+autoplay = "floating"
+anims/floating = SubResource( 1 )
+anims/shake = SubResource( 2 )
+
+[node name="handsetDropped" type="TextureRect" parent="."]
+visible = false
+margin_left = -9.0
+margin_top = 300.0
+margin_right = 67.0
+margin_bottom = 423.0
+rect_pivot_offset = Vector2( 37, 59 )
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="displayTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="callTimer" type="Timer" parent="."]
+[connection signal="gui_input" from="insertCoin" to="." method="_on_insertCoin_gui_input"]
+[connection signal="mouse_entered" from="insertCoin" to="." method="_on_insertCoin_mouse_entered"]
+[connection signal="mouse_exited" from="insertCoin" to="." method="_on_insertCoin_mouse_exited"]
+[connection signal="pressed" from="hook" to="." method="_on_hook_pressed"]
+[connection signal="pressed" from="changeLid" to="changeLid" method="_on_changeLid_pressed"]
+[connection signal="pressed" from="handset" to="." method="_on_handset_pressed"]
+[connection signal="timeout" from="displayTimer" to="." method="_on_displayTimer_timeout"]
+[connection signal="timeout" from="callTimer" to="." method="_on_callTimer_timeout"]

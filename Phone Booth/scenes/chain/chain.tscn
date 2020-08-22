@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/graphics/phone/chain.png" type="Texture" id=1]
+[ext_resource path="res://scenes/chain/chain.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="chain" type="Node2D"]
+script = ExtResource( 2 )
+loops = 20
+
+[node name="anchor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anchor"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="anchor/CollisionShape2D"]
+visible = false
+texture = ExtResource( 1 )

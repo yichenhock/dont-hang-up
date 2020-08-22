@@ -12,7 +12,7 @@ func stop(sound):
 	
 func pause(sound): 
 	get_node(sound).stream_paused = true
-	
+
 func unpause(sound): 
 	get_node(sound).stream_paused = false
 	

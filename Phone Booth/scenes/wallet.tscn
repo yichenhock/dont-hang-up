@@ -1,0 +1,1496 @@
+[gd_scene load_steps=51 format=2]
+
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/graphics/wallet/wallet-inside.png" type="Texture" id=2]
+[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/graphics/ui/btn2.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/wallet/coin-big-Sheet.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/ui/btn2-hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/wallet/id.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/wallet/id-hover.png" type="Texture" id=8]
+[ext_resource path="res://scenes/walletItem.gd" type="Script" id=9]
+[ext_resource path="res://scenes/wallet.gd" type="Script" id=10]
+[ext_resource path="res://assets/graphics/wallet/receipt.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/wallet/receipt-hover.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/wallet/organcard.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/wallet/organcard-hover.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/wallet/railcard.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/wallet/railcard-hover.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/wallet/polaroid.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/wallet/polaroid-hover.png" type="Texture" id=18]
+[ext_resource path="res://assets/graphics/wallet/banknote.png" type="Texture" id=19]
+[ext_resource path="res://assets/graphics/wallet/banknote-hover.png" type="Texture" id=20]
+[ext_resource path="res://assets/graphics/wallet/polaroid-front.png" type="Texture" id=21]
+[ext_resource path="res://assets/graphics/wallet/polaroid-scary.png" type="Texture" id=22]
+[ext_resource path="res://assets/graphics/wallet/polaroid-back.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/wallet/organ-front.png" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/wallet/organ-back.png" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/wallet/plastic-thing.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/wallet/railcard-back.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/wallet/railcard-front.png" type="Texture" id=28]
+[ext_resource path="res://assets/graphics/white-px.png" type="Texture" id=29]
+[ext_resource path="res://scenes/polaroidScary.gd" type="Script" id=30]
+[ext_resource path="res://assets/fonts/tres/EnterCommand.tres" type="DynamicFont" id=31]
+[ext_resource path="res://assets/fonts/tres/FreePixel.tres" type="DynamicFont" id=32]
+[ext_resource path="res://assets/fonts/tres/EnterCommand.-Italic.tres" type="DynamicFont" id=33]
+[ext_resource path="res://assets/graphics/wallet/checkbox.png" type="Texture" id=34]
+[ext_resource path="res://assets/graphics/wallet/checkbox-ticked.png" type="Texture" id=35]
+[ext_resource path="res://assets/fonts/tres/Notepen.tres" type="DynamicFont" id=36]
+[ext_resource path="res://assets/graphics/wallet/sig.png" type="Texture" id=37]
+[ext_resource path="res://assets/fonts/tres/mousetrap-small.tres" type="DynamicFont" id=38]
+[ext_resource path="res://assets/fonts/tres/LunchMenu.tres" type="DynamicFont" id=39]
+[ext_resource path="res://assets/graphics/wallet/id-front.png" type="Texture" id=40]
+[ext_resource path="res://assets/fonts/tres/EnterCommand-Bold.tres" type="DynamicFont" id=41]
+[ext_resource path="res://assets/graphics/wallet/id-back.png" type="Texture" id=42]
+[ext_resource path="res://assets/graphics/wallet/receipt-front.png" type="Texture" id=43]
+[ext_resource path="res://assets/graphics/wallet/receipt-back.png" type="Texture" id=44]
+[ext_resource path="res://assets/graphics/wallet/banknote-front.png" type="Texture" id=45]
+[ext_resource path="res://scenes/coinShine.gd" type="Script" id=46]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shine"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "shine"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "shine"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "shine"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[node name="wallet" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="wallet" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="walletInside" type="TextureRect" parent="wallet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.0
+margin_top = -97.5
+margin_right = 179.0
+margin_bottom = 97.5
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="idCard" type="TextureButton" parent="wallet"]
+margin_left = 80.0
+margin_top = 366.0
+margin_right = 209.0
+margin_bottom = 430.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/idCard"]
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/idCard"]
+visible = false
+margin_left = -5.0
+margin_top = -30.0
+margin_right = 128.0
+margin_bottom = 68.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="receipt" type="TextureButton" parent="wallet"]
+margin_left = 101.0
+margin_top = 327.0
+margin_right = 154.0
+margin_bottom = 337.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/receipt"]
+margin_right = 58.0
+margin_bottom = 12.0
+mouse_filter = 2
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/receipt"]
+visible = false
+margin_top = -8.0
+margin_right = 60.0
+margin_bottom = 12.0
+mouse_filter = 2
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="organCard" type="TextureButton" parent="wallet"]
+margin_left = 257.0
+margin_top = 323.0
+margin_right = 385.0
+margin_bottom = 335.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/organCard"]
+margin_top = -6.0
+margin_right = 128.0
+margin_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/organCard"]
+visible = false
+margin_top = -13.0
+margin_right = 128.0
+margin_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="railCard" type="TextureButton" parent="wallet"]
+margin_left = 259.0
+margin_top = 336.0
+margin_right = 387.0
+margin_bottom = 348.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/railCard"]
+margin_top = -14.0
+margin_right = 128.0
+margin_bottom = 19.0
+mouse_filter = 2
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/railCard"]
+visible = false
+margin_left = -1.0
+margin_top = -11.0
+margin_right = 129.0
+margin_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="polaroid" type="TextureButton" parent="wallet"]
+margin_left = 259.0
+margin_top = 357.0
+margin_right = 387.0
+margin_bottom = 369.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/polaroid"]
+margin_top = -6.0
+margin_right = 128.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/polaroid"]
+visible = false
+margin_top = -12.0
+margin_right = 128.0
+margin_bottom = 21.0
+mouse_filter = 2
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="banknote" type="TextureButton" parent="wallet"]
+margin_left = 115.0
+margin_top = 298.0
+margin_right = 216.0
+margin_bottom = 307.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="TextureRect" parent="wallet/banknote"]
+margin_top = -4.0
+margin_right = 116.0
+margin_bottom = 12.0
+mouse_filter = 2
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemHover" type="TextureRect" parent="wallet/banknote"]
+visible = false
+margin_left = -8.0
+margin_top = -11.0
+margin_right = 153.0
+margin_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plastic" type="TextureRect" parent="wallet"]
+margin_left = 80.0
+margin_top = 355.0
+margin_right = 208.0
+margin_bottom = 446.0
+mouse_filter = 2
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="idCard" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -375.0
+margin_right = 225.0
+margin_bottom = 375.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="TextureRect" parent="idCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -113.5
+margin_right = 179.5
+margin_bottom = 113.5
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="idCard/front"]
+margin_left = 106.0
+margin_top = 31.0
+margin_right = 301.0
+margin_bottom = 208.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="idCard/front/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 99.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "1.  WELLS
+2.  DOMINIC
+3.  11.03.19XX UNITED KINGDOM
+4a. 19.01.20XX
+4b. 18.01.20XX
+5.  WELLS1425832XY  42"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="idCard/front/VBoxContainer"]
+margin_top = 103.0
+margin_right = 195.0
+margin_bottom = 159.0
+custom_constants/separation = 0
+
+[node name="Label2" type="Label" parent="idCard/front/VBoxContainer/HBoxContainer"]
+margin_right = 18.0
+margin_bottom = 14.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "7.  "
+
+[node name="TextureRect" type="TextureRect" parent="idCard/front/VBoxContainer/HBoxContainer"]
+margin_left = 18.0
+margin_right = 155.0
+margin_bottom = 56.0
+texture = ExtResource( 37 )
+
+[node name="Label3" type="Label" parent="idCard/front/VBoxContainer"]
+margin_top = 163.0
+margin_right = 195.0
+margin_bottom = 177.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "8.  12 DONNER CRESCENT   WARRINGTON"
+
+[node name="Label" type="Label" parent="idCard/front"]
+margin_left = 79.5
+margin_top = 2.5
+margin_right = 273.5
+margin_bottom = 30.5
+custom_fonts/font = ExtResource( 41 )
+custom_colors/font_color = Color( 0.211765, 0.211765, 0.466667, 1 )
+text = "DRIVING LICENCE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="idCard"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -113.5
+margin_right = 179.5
+margin_bottom = 113.5
+texture = ExtResource( 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="polaroid" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="TextureRect" parent="polaroid"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -179.5
+margin_right = 108.0
+margin_bottom = 179.5
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="polaroid"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -179.5
+margin_right = 108.0
+margin_bottom = 179.5
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="polaroidScary" type="TextureRect" parent="polaroid"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -179.5
+margin_right = 108.0
+margin_bottom = 179.5
+texture = ExtResource( 22 )
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="leftEye" type="TextureRect" parent="polaroid/polaroidScary"]
+modulate = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+margin_left = 82.0
+margin_top = 126.0
+margin_right = 83.0
+margin_bottom = 127.0
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rightEye" type="TextureRect" parent="polaroid/polaroidScary"]
+modulate = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+margin_left = 115.0
+margin_top = 114.0
+margin_right = 116.0
+margin_bottom = 115.0
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="polaroid/polaroidScary"]
+wait_time = 0.2
+autostart = true
+
+[node name="receipt" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="TextureRect" parent="receipt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.5
+margin_top = -194.5
+margin_right = 96.5
+margin_bottom = 194.5
+texture = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="receipt/front"]
+margin_left = 16.0
+margin_top = 76.0
+margin_right = 175.0
+margin_bottom = 344.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="receipt/front/VBoxContainer"]
+margin_right = 159.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.129412, 0.121569, 0.152941, 1 )
+text = "TAXI N.                CT4913
+09/01/20XX  20:35
+DRIVER N.              192342
+
+RECIEIPT N.              9324
+
+START       09/01/20XX  20:04
+END        09/01/20XX  20:35
+
+FARE                    21.00
+BOOKING FEE             5.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="receipt/front/VBoxContainer"]
+margin_top = 194.0
+margin_right = 159.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.129412, 0.121569, 0.152941, 1 )
+text = "TOTAL         24.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="receipt/front/VBoxContainer"]
+margin_top = 220.0
+margin_right = 159.0
+margin_bottom = 268.0
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.129412, 0.121569, 0.152941, 1 )
+text = "Thanks, Have a nice day. 
+For Booking & Feedback
+Call 800-TAXI (800-8294)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="receipt"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.5
+margin_top = -194.5
+margin_right = 96.5
+margin_bottom = 194.5
+texture = ExtResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="organCard" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="TextureRect" parent="organCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -113.5
+margin_right = 179.5
+margin_bottom = 113.5
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="organCard/front"]
+margin_left = 102.5
+margin_top = 196.5
+margin_right = 183.5
+margin_bottom = 210.5
+rect_scale = Vector2( 2, 1.7 )
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "ORGAN DONATION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="organCard/front"]
+margin_left = 15.0
+margin_top = 6.0
+margin_right = 74.0
+margin_bottom = 20.0
+rect_scale = Vector2( 2, 1.7 )
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.768627, 0.823529, 0.741176, 1 )
+text = "DONOR CARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="organCard"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = -113.5
+margin_right = 179.5
+margin_bottom = 113.5
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="organCard/back"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 37.0
+margin_right = -20.0
+margin_bottom = 51.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="organCard/back/VBoxContainer"]
+margin_right = 319.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.768627, 0.823529, 0.741176, 1 )
+text = "KEEP THIS CARD WITH YOU AT ALL TIMES. "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+margin_top = 18.0
+margin_right = 319.0
+margin_bottom = 32.0
+custom_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 14.0
+size_flags_vertical = 4
+texture = ExtResource( 34 )
+
+[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer"]
+margin_left = 17.0
+margin_right = 257.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "I would like to give up my organs and tissues"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+margin_top = 36.0
+margin_right = 319.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer2"]
+margin_right = 7.0
+margin_bottom = 14.0
+size_flags_vertical = 4
+texture = ExtResource( 34 )
+
+[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer2"]
+margin_left = 17.0
+margin_right = 257.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "I would like to give up my organs and tissues"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+margin_top = 54.0
+margin_right = 319.0
+margin_bottom = 68.0
+custom_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer3"]
+margin_right = 7.0
+margin_bottom = 14.0
+size_flags_vertical = 4
+texture = ExtResource( 35 )
+
+[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer3"]
+margin_left = 17.0
+margin_right = 257.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "I would like to give up my organs and tissues"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+margin_top = 72.0
+margin_right = 319.0
+margin_bottom = 86.0
+custom_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer4"]
+margin_right = 7.0
+margin_bottom = 14.0
+size_flags_vertical = 4
+texture = ExtResource( 34 )
+
+[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer4"]
+margin_left = 17.0
+margin_right = 257.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "I would like to give up my organs and tissues"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="organCard/back"]
+margin_left = 20.0
+margin_top = 139.0
+margin_right = 353.0
+margin_bottom = 153.0
+custom_constants/separation = 90
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="organCard/back/HBoxContainer5"]
+margin_right = 66.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "Donor's name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="organCard/back/HBoxContainer5"]
+margin_left = 156.0
+margin_right = 247.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.701961, 0.733333, 0.643137, 1 )
+text = "Donor's signature"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="organCard/back"]
+margin_left = 38.5
+margin_top = 158.5
+margin_right = 134.5
+margin_bottom = 174.5
+custom_fonts/font = ExtResource( 36 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "DOMINIC WELLS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="line" type="TextureRect" parent="organCard/back"]
+modulate = Color( 0.701961, 0.733333, 0.643137, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.0
+margin_top = 62.5
+margin_right = 165.0
+margin_bottom = 63.5
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="organCard/back"]
+margin_left = 193.5
+margin_top = 141.5
+margin_right = 330.5
+margin_bottom = 197.5
+texture = ExtResource( 37 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="organCard/back"]
+margin_left = 20.5
+margin_top = 188.5
+margin_right = 339.5
+margin_bottom = 219.5
+custom_fonts/font = ExtResource( 33 )
+custom_colors/font_color = Color( 0.768627, 0.823529, 0.741176, 1 )
+text = "The Organ Donation and Transplant Association
+Join Us Today: 775-9289"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="railCard" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="TextureRect" parent="railCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -113.5
+margin_right = 182.0
+margin_bottom = 113.5
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="valid" type="Label" parent="railCard/front"]
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 247.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "VALID ONLY WITH TRAVEL TICKET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="railCard/front"]
+margin_left = 15.0
+margin_top = 34.0
+margin_right = 349.0
+margin_bottom = 178.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="railCard/front/HBoxContainer"]
+margin_right = 112.0
+margin_bottom = 144.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="classticket" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "ClassTicket type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="std" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 112.0
+margin_bottom = 36.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "STD  SEAT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="from" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 112.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "From"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="warrington" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 112.0
+margin_bottom = 72.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "WARRINGTON CTL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="to" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 112.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "To"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cambridge" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 112.0
+margin_bottom = 108.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "CAMBRIDGE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coachSeats" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 108.0
+margin_right = 112.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "CoachSeats"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SEAT" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 112.0
+margin_bottom = 144.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "A    63A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="railCard/front/HBoxContainer"]
+margin_left = 126.0
+margin_right = 334.0
+margin_bottom = 144.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_right = 208.0
+margin_bottom = 20.0
+custom_constants/separation = 40
+
+[node name="date" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 87.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Date of issue "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="price" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 127.0
+margin_right = 154.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Price"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 208.0
+margin_bottom = 36.0
+custom_constants/separation = 55
+
+[node name="date2" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+margin_right = 72.0
+margin_bottom = 16.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "11-DMR-XX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="price2" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+margin_left = 127.0
+margin_right = 175.0
+margin_bottom = 16.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "£58.95"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pNo" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_top = 36.0
+margin_right = 208.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Pass'grs Number"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pNo2" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 208.0
+margin_bottom = 72.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "ONE    55533    4731760022"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="valid" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_top = 72.0
+margin_right = 208.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Valid at"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cambridge" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
+margin_top = 92.0
+margin_right = 208.0
+margin_bottom = 108.0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "09:19 HOURS ON  09-JNR-XX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seatR" type="Label" parent="railCard/front"]
+margin_left = 216.0
+margin_top = 182.5
+margin_right = 344.0
+margin_bottom = 198.5
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "SEAT RESERVATION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="railCard/front"]
+margin_left = 66.0
+margin_top = 196.5
+margin_right = 298.0
+margin_bottom = 212.5
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "JN848401        WELLS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label2" type="Label" parent="railCard/front"]
+margin_left = 60.0
+margin_top = 206.5
+margin_right = 341.0
+margin_bottom = 222.5
+custom_fonts/font = ExtResource( 31 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "ToD CTR G9HHT27J/6077     Printed 13:34 on 11-DMR-XX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="TextureRect" parent="railCard"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -113.5
+margin_right = 182.0
+margin_bottom = 113.5
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="endorse" type="Label" parent="railCard/back"]
+margin_left = 15.0
+margin_top = 150.5
+margin_right = 67.0
+margin_bottom = 156.5
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "Endorsements:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="site" type="Label" parent="railCard/back"]
+margin_left = 239.0
+margin_top = 65.5
+margin_right = 313.0
+margin_bottom = 71.5
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "weareheretohelp.org"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="call" type="Label" parent="railCard/back"]
+margin_left = 155.0
+margin_top = 27.5
+margin_right = 235.0
+margin_bottom = 33.5
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "Call us free 24/7 on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="call2" type="Label" parent="railCard/back"]
+margin_left = 153.0
+margin_top = 33.5
+margin_right = 235.0
+margin_bottom = 65.5
+custom_fonts/font = ExtResource( 39 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "180-TALK"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="regCharity" type="Label" parent="railCard/back"]
+margin_left = 271.0
+margin_top = 79.5
+margin_right = 349.0
+margin_bottom = 85.5
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "A registered charity"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fineprint" type="Label" parent="railCard/back"]
+margin_left = 12.0
+margin_top = 186.0
+margin_right = 351.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "Issued subject to the Rail Conditions of Travel. Unless otherwise indicated, this ticket is valid via any permitted route. For more information about this ticket, ask staff or call us at 345-2156. "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="railCard/back"]
+margin_left = 12.0
+margin_top = 213.5
+margin_right = 64.0
+margin_bottom = 219.5
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "RSP No. 9309"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="railCard/back"]
+margin_left = 263.0
+margin_top = 214.0
+margin_right = 355.0
+margin_bottom = 220.0
+custom_fonts/font = ExtResource( 38 )
+custom_colors/font_color = Color( 0.0235294, 0.0313726, 0.0352941, 1 )
+text = "5 BBP 4612 9 8 2 3 5"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="banknote" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="note" type="TextureRect" parent="banknote"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.5
+margin_top = -144.5
+margin_right = 220.5
+margin_bottom = 144.5
+texture = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coin" type="TextureButton" parent="banknote"]
+margin_left = 64.0
+margin_top = 399.0
+margin_right = 128.0
+margin_bottom = 463.0
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="banknote/coin"]
+texture = ExtResource( 5 )
+centered = false
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin"]
+anims/shine = SubResource( 1 )
+
+[node name="coin2" type="TextureButton" parent="banknote"]
+margin_left = 338.0
+margin_top = 344.0
+margin_right = 402.0
+margin_bottom = 408.0
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="banknote/coin2"]
+texture = ExtResource( 5 )
+centered = false
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin2"]
+anims/shine = SubResource( 2 )
+
+[node name="coin3" type="TextureButton" parent="banknote"]
+margin_left = 245.0
+margin_top = 428.0
+margin_right = 309.0
+margin_bottom = 492.0
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="banknote/coin3"]
+texture = ExtResource( 5 )
+centered = false
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin3"]
+anims/shine = SubResource( 3 )
+
+[node name="coin4" type="TextureButton" parent="banknote"]
+margin_left = 91.0
+margin_top = 371.0
+margin_right = 155.0
+margin_bottom = 435.0
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="banknote/coin4"]
+texture = ExtResource( 5 )
+centered = false
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin4"]
+anims/shine = SubResource( 4 )
+
+[node name="ui" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -118.0
+margin_bottom = -89.0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flip" type="TextureButton" parent="ui"]
+visible = false
+margin_left = 122.0
+margin_right = 200.0
+margin_bottom = 29.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui/flip"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -13.5
+margin_right = 12.0
+margin_bottom = 6.5
+custom_fonts/font = ExtResource( 1 )
+text = "FLIP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="ui" instance=ExtResource( 3 )]
+[connection signal="mouse_entered" from="wallet/idCard" to="wallet/idCard" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/idCard" to="." method="item_pressed" binds= [ "idCard" ]]
+[connection signal="mouse_entered" from="wallet/receipt" to="wallet/receipt" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
+[connection signal="pressed" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
+[connection signal="pressed" from="wallet/receipt" to="." method="item_pressed" binds= [ "receipt" ]]
+[connection signal="mouse_entered" from="wallet/organCard" to="wallet/organCard" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/organCard" to="wallet/organCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/organCard" to="wallet/organCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/organCard" to="." method="item_pressed" binds= [ "organCard" ]]
+[connection signal="mouse_entered" from="wallet/railCard" to="wallet/railCard" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/railCard" to="." method="item_pressed" binds= [ "railCard" ]]
+[connection signal="mouse_entered" from="wallet/polaroid" to="wallet/polaroid" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
+[connection signal="pressed" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
+[connection signal="pressed" from="wallet/polaroid" to="." method="item_pressed" binds= [ "polaroid" ]]
+[connection signal="mouse_entered" from="wallet/banknote" to="wallet/banknote" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
+[connection signal="pressed" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
+[connection signal="pressed" from="wallet/banknote" to="." method="item_pressed" binds= [ "banknote" ]]
+[connection signal="timeout" from="polaroid/polaroidScary/Timer" to="polaroid/polaroidScary" method="_on_Timer_timeout"]
+[connection signal="mouse_entered" from="banknote/coin" to="banknote/coin" method="_on_coin_mouse_entered"]
+[connection signal="pressed" from="banknote/coin" to="banknote/coin" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin" to="." method="collect_coin"]
+[connection signal="mouse_entered" from="banknote/coin2" to="banknote/coin2" method="_on_coin_mouse_entered"]
+[connection signal="pressed" from="banknote/coin2" to="banknote/coin2" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin2" to="." method="collect_coin"]
+[connection signal="mouse_entered" from="banknote/coin3" to="banknote/coin3" method="_on_coin_mouse_entered"]
+[connection signal="pressed" from="banknote/coin3" to="banknote/coin3" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin3" to="." method="collect_coin"]
+[connection signal="mouse_entered" from="banknote/coin4" to="banknote/coin4" method="_on_coin_mouse_entered"]
+[connection signal="pressed" from="banknote/coin4" to="banknote/coin4" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin4" to="." method="collect_coin"]
+[connection signal="pressed" from="ui/flip" to="." method="_on_flip_pressed"]
+[connection signal="pressed" from="ui/back" to="." method="_on_back_pressed"]

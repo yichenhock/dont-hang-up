@@ -1,0 +1,436 @@
+{
+  "graphml": {
+    "graph": {
+      "@id": "G",
+      "data": {},
+      "node": [
+        {
+          "@id": "n0",
+          "data": {
+            "@color": "#FFFFFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "START"
+          }
+        },
+        {
+          "@id": "n1",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hello? Who's this? "
+          }
+        },
+        {
+          "@id": "n2",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Mum?"
+          }
+        },
+        {
+          "@id": "n3",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "It's Dominic"
+          }
+        },
+        {
+          "@id": "n4",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Dom? I told you not to call me that. You walk out on your own and still expect your family to be there for you whenever you need us? Cut the crap."
+          }
+        },
+        {
+          "@id": "n5",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "What do you need from me. I'm really busy you know? "
+          }
+        },
+        {
+          "@id": "n6",
+          "data": {
+            "@color": "#FF99CC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Time wasting idiot. "
+          }
+        },
+        {
+          "@id": "n7",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "What did I do? "
+          }
+        },
+        {
+          "@id": "n8",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "I'm in danger"
+          }
+        },
+        {
+          "@id": "n9",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "2291284"
+          }
+        },
+        {
+          "@id": "n10",
+          "data": {
+            "@color": "#FF99CC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Err..."
+          }
+        },
+        {
+          "@id": "n11",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hello? "
+          }
+        },
+        {
+          "@id": "n12",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hello, saw your card in the phone booth, how much do you charge? "
+          }
+        },
+        {
+          "@id": "n13",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "1438246"
+          }
+        },
+        {
+          "@id": "n14",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "*chain call??**"
+          }
+        },
+        {
+          "@id": "n15",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "What card? "
+          }
+        },
+        {
+          "@id": "n16",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "The prostitute one"
+          }
+        },
+        {
+          "@id": "n17",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "The pink one"
+          }
+        },
+        {
+          "@id": "n18",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Oh, so you're just going to pretend you forgot huh? "
+          }
+        },
+        {
+          "@id": "n19",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "6243301"
+          }
+        },
+        {
+          "@id": "n20",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hello?"
+          }
+        },
+        {
+          "@id": "n21",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hey it's Dominic"
+          }
+        },
+        {
+          "@id": "n22",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Is this Summer?"
+          }
+        },
+        {
+          "@id": "n23",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "What's my brother's number? "
+          }
+        },
+        {
+          "@id": "n24",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Sounds about right. What did you get yourself into this time? "
+          }
+        },
+        {
+          "@id": "n25",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "I am suffering from temporary amnesia, I think I got hit on the head. "
+          }
+        },
+        {
+          "@id": "n26",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "6243301"
+          }
+        }
+      ],
+      "edge": [
+        {
+          "@id": "e0",
+          "@source": "n1",
+          "@target": "n2",
+          "data": {}
+        },
+        {
+          "@id": "e1",
+          "@source": "n1",
+          "@target": "n3",
+          "data": {}
+        },
+        {
+          "@id": "e2",
+          "@source": "n2",
+          "@target": "n4",
+          "data": {}
+        },
+        {
+          "@id": "e3",
+          "@source": "n3",
+          "@target": "n5",
+          "data": {}
+        },
+        {
+          "@id": "e4",
+          "@source": "n4",
+          "@target": "n7",
+          "data": {}
+        },
+        {
+          "@id": "e5",
+          "@source": "n4",
+          "@target": "n8",
+          "data": {}
+        },
+        {
+          "@id": "e6",
+          "@source": "n9",
+          "@target": "n10",
+          "data": {}
+        },
+        {
+          "@id": "e7",
+          "@source": "n9",
+          "@target": "n11",
+          "data": {}
+        },
+        {
+          "@id": "e8",
+          "@source": "n13",
+          "@target": "n14",
+          "data": {}
+        },
+        {
+          "@id": "e9",
+          "@source": "n11",
+          "@target": "n12",
+          "data": {}
+        },
+        {
+          "@id": "e10",
+          "@source": "n12",
+          "@target": "n15",
+          "data": {}
+        },
+        {
+          "@id": "e11",
+          "@source": "n15",
+          "@target": "n16",
+          "data": {}
+        },
+        {
+          "@id": "e12",
+          "@source": "n15",
+          "@target": "n17",
+          "data": {}
+        },
+        {
+          "@id": "e13",
+          "@source": "n19",
+          "@target": "n20",
+          "data": {}
+        },
+        {
+          "@id": "e14",
+          "@source": "n20",
+          "@target": "n21",
+          "data": {}
+        },
+        {
+          "@id": "e15",
+          "@source": "n20",
+          "@target": "n22",
+          "data": {}
+        },
+        {
+          "@id": "e16",
+          "@source": "n5",
+          "@target": "n23",
+          "data": {}
+        },
+        {
+          "@id": "e17",
+          "@source": "n7",
+          "@target": "n18",
+          "data": {}
+        },
+        {
+          "@id": "e18",
+          "@source": "n8",
+          "@target": "n24",
+          "data": {}
+        },
+        {
+          "@id": "e19",
+          "@source": "n18",
+          "@target": "n25",
+          "data": {}
+        },
+        {
+          "@id": "e20",
+          "@source": "n5",
+          "@target": "n8",
+          "data": {}
+        },
+        {
+          "@id": "e21",
+          "@source": "n26",
+          "@target": "n1",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e22",
+          "@source": "n26",
+          "@target": "n6",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e23",
+          "@source": "n0",
+          "@target": "n13",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e24",
+          "@source": "n0",
+          "@target": "n26",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e25",
+          "@source": "n0",
+          "@target": "n9",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e26",
+          "@source": "n0",
+          "@target": "n19",
+          "data": [
+            {},
+            {}
+          ]
+        }
+      ]
+    },
+    "data": {}
+  }
+}

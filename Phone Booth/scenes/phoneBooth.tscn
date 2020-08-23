@@ -415,6 +415,7 @@ anims/show = SubResource( 4 )
 one_shot = true
 
 [node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
+visible = false
 
 [node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false

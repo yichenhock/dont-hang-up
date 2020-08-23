@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/speechSelf.gd" type="Script" id=1]
 [ext_resource path="res://scenes/customLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/ui/bubble-self.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/tres/LunchMenu.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/graphics/ui/indicator.png" type="Texture" id=5]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 6 )
+shader_param/outline = true
+shader_param/width = 1.0
+shader_param/outline_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 
 [node name="speechSelf" type="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -30,6 +37,21 @@ patch_margin_left = 22
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="speechBubble"]
+material = SubResource( 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -27.0
+margin_top = -17.0
+margin_right = -12.0
+margin_bottom = -9.0
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

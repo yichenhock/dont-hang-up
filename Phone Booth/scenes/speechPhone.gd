@@ -68,7 +68,7 @@ func _process(delta):
 	if rect_scale == Vector2(0,0): 
 		visible = false
 	
-	$dialogue.rect_size.y = lerp($dialogue.rect_size.y,$dialogue.get_content_height(),10*delta) 
+	$dialogue.rect_size.y = lerp($dialogue.rect_size.y,min(110,$dialogue.get_content_height()),10*delta) 
 	$dialogue.rect_position = speech_pos + Vector2(-$dialogue/speechBubble.margin_left,-$dialogue.rect_size.y-$dialogue/speechBubble.margin_bottom)
 	
 		

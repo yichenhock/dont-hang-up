@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phone-receiverpickup.wav-041b5ccba3724db473453f96f7905ce2.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-receiverpickup.wav"
+dest_files=[ "res://.import/phone-receiverpickup.wav-041b5ccba3724db473453f96f7905ce2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

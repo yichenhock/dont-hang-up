@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phone-static2.wav-321fb13203669efff4b3d16361d7b2d2.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-static2.wav"
+dest_files=[ "res://.import/phone-static2.wav-321fb13203669efff4b3d16361d7b2d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

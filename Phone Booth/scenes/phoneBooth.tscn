@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/graphics/bg.png" type="Texture" id=1]
 [ext_resource path="res://scenes/menu.tscn" type="PackedScene" id=2]
@@ -186,6 +186,33 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("time:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0.0784314, 0, 1 ), Color( 0.937255, 1, 0.913725, 1 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "time"
 loop = true
@@ -324,8 +351,6 @@ margin_bottom = 387.0
 texture_normal = ExtResource( 27 )
 
 [node name="doorOpened" type="TextureRect" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 __meta__ = {
@@ -333,7 +358,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="doorOpenedHandle" type="TextureButton" parent="doorOpened"]
+margin_left = 342.0
+margin_top = 342.0
+margin_right = 357.0
+margin_bottom = 406.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="doorClosed" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 mouse_filter = 0
 texture = ExtResource( 9 )
 __meta__ = {
@@ -341,11 +376,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="doorHandle" type="TextureButton" parent="doorClosed"]
+[node name="doorClosedHandle" type="TextureButton" parent="doorClosed"]
 margin_left = 84.0
 margin_top = 342.0
 margin_right = 99.0
 margin_bottom = 406.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="doorAnim" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 1 )
@@ -415,10 +453,8 @@ anims/show = SubResource( 4 )
 one_shot = true
 
 [node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
-visible = false
 
 [node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 14 )]
-visible = false
 margin_left = 101.0
 margin_top = 252.0
 margin_right = 101.0
@@ -435,6 +471,7 @@ __meta__ = {
 }
 
 [node name="time" type="Label" parent="CanvasLayer/remainingTime"]
+modulate = Color( 0.937255, 1, 0.913725, 1 )
 margin_left = 5.0
 margin_top = 28.0
 margin_right = 56.0
@@ -447,14 +484,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="timeAnim" type="AnimationPlayer" parent="CanvasLayer/remainingTime"]
+anims/flash = SubResource( 7 )
+
 [node name="hourglass" type="Sprite" parent="CanvasLayer/remainingTime"]
 position = Vector2( 22, 0 )
 texture = ExtResource( 17 )
 centered = false
 hframes = 3
 
-[node name="timeAnim" type="AnimationPlayer" parent="CanvasLayer/remainingTime"]
+[node name="hourglassAnim" type="AnimationPlayer" parent="CanvasLayer/remainingTime"]
 anims/time = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer/remainingTime"]
 
 [node name="coins" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = false
@@ -633,14 +675,17 @@ anims/open = SubResource( 6 )
 wait_time = 60.0
 one_shot = true
 [connection signal="coin_inserted" from="phone" to="." method="_on_phone_coin_inserted"]
+[connection signal="hang_up" from="phone" to="." method="_on_phone_hang_up"]
 [connection signal="picked_up" from="phone" to="." method="_on_phone_picked_up"]
 [connection signal="pressed" from="wallet" to="." method="_on_wallet_pressed"]
 [connection signal="pressed" from="tartCard" to="." method="_on_tartCard_pressed"]
 [connection signal="pressed" from="crumpledPaper" to="." method="_on_crumpledPaper_pressed"]
-[connection signal="pressed" from="doorClosed/doorHandle" to="." method="_on_doorHandle_pressed"]
+[connection signal="pressed" from="doorOpened/doorOpenedHandle" to="." method="_on_doorOpenedHandle_pressed"]
+[connection signal="pressed" from="doorClosed/doorClosedHandle" to="." method="_on_doorClosedHandle_pressed"]
 [connection signal="timeout" from="CanvasLayer/uiInstructions/Timer" to="CanvasLayer/uiInstructions" method="_on_Timer_timeout"]
 [connection signal="self_dialogue_finished" from="CanvasLayer/speechSelf" to="." method="_on_speechSelf_self_dialogue_finished"]
 [connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]
+[connection signal="timeout" from="CanvasLayer/remainingTime/Timer" to="CanvasLayer/remainingTime" method="_on_Timer_timeout"]
 [connection signal="coin_collected" from="CanvasLayer/wallet" to="." method="add_coin"]
 [connection signal="window_closed" from="CanvasLayer/wallet" to="." method="enable_zoom"]
 [connection signal="window_closed" from="CanvasLayer/tartCard" to="." method="enable_zoom"]

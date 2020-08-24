@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/topBtn.tscn" type="PackedScene" id=2]
@@ -43,8 +43,22 @@
 [ext_resource path="res://assets/graphics/ui/right-click.png" type="Texture" id=41]
 [ext_resource path="res://assets/graphics/phone/coin-before-insert.png" type="Texture" id=42]
 
-[sub_resource type="Animation" id=4]
-resource_name = "hide"
+[sub_resource type="Animation" id=1]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -109,7 +123,6 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "show"
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -173,8 +186,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "floating"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -201,8 +213,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "shake"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -260,6 +271,9 @@ clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="displayAnim" type="AnimationPlayer" parent="display"]
+anims/flash = SubResource( 1 )
 
 [node name="btns" type="GridContainer" parent="."]
 margin_left = 47.5
@@ -468,7 +482,7 @@ percent_visible = 0.0
 
 [node name="popUpAnim" type="AnimationPlayer" parent="insertCoin/popUp"]
 playback_speed = 1.7
-anims/hide = SubResource( 4 )
+anims/hide = SubResource( 2 )
 anims/show = SubResource( 3 )
 
 [node name="coin" type="TextureRect" parent="insertCoin"]
@@ -568,8 +582,8 @@ __meta__ = {
 
 [node name="handsetAnim" type="AnimationPlayer" parent="handsetPicked"]
 autoplay = "floating"
-anims/floating = SubResource( 1 )
-anims/shake = SubResource( 2 )
+anims/floating = SubResource( 4 )
+anims/shake = SubResource( 5 )
 
 [node name="handsetDropped" type="TextureRect" parent="."]
 visible = false
@@ -588,6 +602,24 @@ wait_time = 2.0
 autostart = true
 
 [node name="callTimer" type="Timer" parent="."]
+
+[node name="incomingCallTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="outgoingCallTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+[connection signal="pressed" from="btns/keyBtn1" to="." method="numpad_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="btns/keyBtn2" to="." method="numpad_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="btns/keyBtn3" to="." method="numpad_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="btns/keyBtn4" to="." method="numpad_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="btns/keyBtn5" to="." method="numpad_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="btns/keyBtn6" to="." method="numpad_pressed" binds= [ 6 ]]
+[connection signal="pressed" from="btns/keyBtn7" to="." method="numpad_pressed" binds= [ 7 ]]
+[connection signal="pressed" from="btns/keyBtn8" to="." method="numpad_pressed" binds= [ 8 ]]
+[connection signal="pressed" from="btns/keyBtn9" to="." method="numpad_pressed" binds= [ 9 ]]
+[connection signal="pressed" from="btns/keyBtn0" to="." method="numpad_pressed" binds= [ 0 ]]
 [connection signal="gui_input" from="insertCoin" to="." method="_on_insertCoin_gui_input"]
 [connection signal="mouse_entered" from="insertCoin" to="." method="_on_insertCoin_mouse_entered"]
 [connection signal="mouse_exited" from="insertCoin" to="." method="_on_insertCoin_mouse_exited"]
@@ -596,3 +628,4 @@ autostart = true
 [connection signal="pressed" from="handset" to="." method="_on_handset_pressed"]
 [connection signal="timeout" from="displayTimer" to="." method="_on_displayTimer_timeout"]
 [connection signal="timeout" from="callTimer" to="." method="_on_callTimer_timeout"]
+[connection signal="timeout" from="outgoingCallTimer" to="." method="_on_outgoingCallTimer_timeout"]

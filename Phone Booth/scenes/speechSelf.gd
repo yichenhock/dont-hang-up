@@ -11,6 +11,7 @@ var typing_text = false
 export(String) var blip_sfx = "" setget set_blip_sfx
 
 func _ready():
+	$speechBubble/indicator.visible = false
 	hide()
 
 func hide(): 
@@ -25,6 +26,9 @@ func type_texts(texts: PoolStringArray):
 	type_text(dialogue[n])
 
 func _process(delta): 
+	
+	$speechBubble/indicator.rect_position.x = $speechBubble.rect_position.x + $speechBubble.rect_size.x - 50
+	
 	if Input.is_action_pressed("click"): 
 		if dialogue.size() != 0 and not typing_text: 
 			n+=1
@@ -38,6 +42,7 @@ func _process(delta):
 
 func type_text(new_text): 
 	if new_text != "": 
+		$speechBubble/indicator.visible = false
 		visible = true
 		$dialogue.type_text(new_text)
 		typing_text = true
@@ -64,4 +69,5 @@ func _on_dialogue_character_displayed():
 
 func _on_dialogue_fully_displayed():
 	typing_text = false
+	$speechBubble/indicator.visible = true
 	emit_signal("line_finished")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/booth-door.wav-1ef2f68d3f61896c1fe30ffe5f6f9f3f.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/booth-door.wav"
+dest_files=[ "res://.import/booth-door.wav-1ef2f68d3f61896c1fe30ffe5f6f9f3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

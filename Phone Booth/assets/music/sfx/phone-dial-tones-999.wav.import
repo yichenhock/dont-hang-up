@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phone-dial-tones-999.wav-664f9c656339e48f6f678c3ae5091733.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-dial-tones-999.wav"
+dest_files=[ "res://.import/phone-dial-tones-999.wav-664f9c656339e48f6f678c3ae5091733.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

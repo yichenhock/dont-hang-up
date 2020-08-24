@@ -6,6 +6,7 @@ var interacted_with_something = false
 var coins_collected = 0
 
 func _ready():
+	Audio.play("rainOutside")
 	$doorClosed.visible = true
 	$doorClosed.modulate = Color(1.0,1.0,1.0,1.0)
 	$doorOpened.visible = false
@@ -25,10 +26,15 @@ func _on_speechSelf_self_dialogue_finished():
 	$CanvasLayer/remainingTime.visible = true
 	$CanvasLayer/coins.visible = true
 	zoom_enabled = true
+	$Timer.start() # killer timer?
 
-func _on_doorHandle_pressed():
+func _on_doorOpenedHandle_pressed():
+	$doorAnim.play("close")
+	Audio.play("doorSFX")
+	
+func _on_doorClosedHandle_pressed():
 	$doorAnim.play("open")
-	$Timer.start()
+	Audio.play("doorSFX")
 	
 func _input(event):
 	if zoom_enabled: 
@@ -74,7 +80,7 @@ func add_coin():
 
 func _on_phone_coin_inserted():
 	use_coin()
-	#potentially have phone reject the coin?
+	$CanvasLayer/remainingTime.add_time()
 
 func use_coin(): 
 	coins_collected -= 1
@@ -83,9 +89,27 @@ func use_coin():
 
 func _on_phone_picked_up(number):
 	zoom_enabled = false
-	if number == "0": 
+	#read from "phone-dialogues here!"
+	
+	if number == "0": #recieving
 		$CanvasLayer/speechPhone.show()
 		$CanvasLayer/speechPhone.type_texts(["Oh my, you're still there? i'm very glad you are", "I'm coming to get youuuu! im like right behind u uwu (this is the psychopathic killer or whatever who will be lurking about in the gaem)", "don't you think the dev's speech bubble is so cool?? :D :D :D"])
+		
+	elif number == "999": 
+		Audio.play_phone("recieverPickupSFX")
+		$CanvasLayer/speechPhone.show()
+		$CanvasLayer/speechPhone.type_texts(["Dis is polis. I will kil u."])
+	elif number=="1111111":
+		Audio.play_phone("recieverPickupSFX")
+		$CanvasLayer/remainingTime.start()
+	else: 
+		$CanvasLayer/speechPhone.show()
+		$CanvasLayer/speechPhone.type_texts(["The number you have called is not recognised. Please check the number and dial again."])
 
 func _on_speechPhone_line_started():
 	$phone.shake_handset()
+
+func _on_phone_hang_up():
+	#if any speech is going on, terminate it 
+	$CanvasLayer/remainingTime.stop()
+

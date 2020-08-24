@@ -1,10 +1,99 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/music/sfx/phone-ring.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=2]
+[ext_resource path="res://assets/music/sfx/phone-keypad.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/sfx/phone-unhooked.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/sfx/phone-dial.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/sfx/phone-hangup.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/music/sfx/phone-dead.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/music/sfx/phone-pickup.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/music/sfx/phone-putdown.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/sfx/phone-receiverpickup.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/music/sfx/coin-pickup.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/music/sfx/booth-door.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/music/sfx/phone-coin-insert.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/music/sfx/phone-coin-drop.wav" type="AudioStream" id=14]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 2 )
 
-[node name="ringSFX" type="AudioStreamPlayer" parent="."]
+[node name="Tween" type="Tween" parent="."]
+
+[node name="rain" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rainOutside" type="AudioStreamPlayer" parent="rain"]
+
+[node name="rainInside" type="AudioStreamPlayer" parent="rain"]
+
+[node name="BGM" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phone" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 1 )
+bus = "Phone"
+
+[node name="phoneUnhookedSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+bus = "Phone"
+
+[node name="diallingSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 5 )
+volume_db = -10.0
+bus = "Phone"
+
+[node name="hangUpSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 6 )
+volume_db = 10.0
+bus = "Phone"
+
+[node name="deadlineSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 7 )
+volume_db = 10.0
+bus = "Phone"
+
+[node name="pickupSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 8 )
+bus = "Phone"
+
+[node name="putdownSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 9 )
+bus = "Phone"
+
+[node name="recieverPickupSFX" type="AudioStreamPlayer" parent="phone"]
+stream = ExtResource( 10 )
+bus = "Phone"
+
+[node name="coinInsertSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Phone"
+
+[node name="coinDropSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "Phone"
+
+[node name="keypadSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="coinPickupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="doorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )

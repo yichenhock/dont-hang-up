@@ -11,4 +11,4 @@ func _on_coin_mouse_entered():
 
 func _on_coin_pressed():
 	visible = false
-	# play some coin sound?
+	Audio.play("coinPickupSFX")

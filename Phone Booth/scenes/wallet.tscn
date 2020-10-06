@@ -47,6 +47,8 @@
 [ext_resource path="res://assets/graphics/wallet/banknote-front.png" type="Texture" id=45]
 [ext_resource path="res://scenes/coinShine.gd" type="Script" id=46]
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "shine"
 length = 0.35

@@ -15,5 +15,5 @@ func button_down():
 	$symbol.rect_position.x += 1
 
 func button_up():
-	$symbol.rect_position.x -= 1
 	Audio.play("keypadSFX")
+	$symbol.rect_position.x -= 1

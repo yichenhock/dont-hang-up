@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/telephone_sha.wav-10b98da3f5a758495a90ee6a18f67a52.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone/telephone_sha.wav"
+dest_files=[ "res://.import/telephone_sha.wav-10b98da3f5a758495a90ee6a18f67a52.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

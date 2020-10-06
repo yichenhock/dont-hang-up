@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/phonebook-sheet.png-166c36c33ce73f676b86f5b041976b9f.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/graphics/ui/phonebook-sheet.png"
+dest_files=[ "res://.import/phonebook-sheet.png-166c36c33ce73f676b86f5b041976b9f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

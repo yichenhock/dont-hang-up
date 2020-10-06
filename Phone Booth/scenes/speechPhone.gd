@@ -30,7 +30,9 @@ func _ready():
 func hide(): 
 	$Tween.interpolate_property(self, "rect_scale", Vector2(1,1), Vector2(0,0),0.2, Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 	$Tween.start()
-
+	yield($Tween,"tween_completed")
+	visible = false
+	
 func show(): 
 	visible = true
 	rect_scale.x = 0

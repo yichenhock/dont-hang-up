@@ -5,13 +5,18 @@ func _ready():
 	pass
 
 func play(sound):
+	if sound == "phoneDialSFX": 
+		$phoneDialSFX.pitch_scale = rand_range(0.9,1.1)
 	get_node(sound).play()
 
 func stop(sound): 
 	get_node(sound).stop()
 	
 func play_phone(sound): #only one plays at a time
-	stop_phone()
+	if sound == "phoneDialSFX": 
+		$phone/phoneDialSFX.pitch_scale = rand_range(0.8,1.2)
+	else: 
+		stop_phone()
 	$phone.get_node(sound).play()
 
 func stop_phone(): 
@@ -34,5 +39,12 @@ func stop_all():
 		if node.get_class() == "AudioStreamPlayer":
 			node.stop()
 
-func rain(): 
-	pass
+func stepInside():
+	$Tween.interpolate_property($rainOutside, "volume_db",0,-50,1,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($rainInside, "volume_db",-50,0,0.6,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	$Tween.start()
+	
+func stepOutside(): 
+	$Tween.interpolate_property($rainInside, "volume_db",0,-50,1,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($rainOutside, "volume_db",-50,0,0.6,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	$Tween.start()

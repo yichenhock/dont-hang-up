@@ -32,7 +32,7 @@ func ring_phone(): #someone ringing the phone
 		Audio.play_phone("ringSFX")
 
 func _on_handset_pressed():
-	Audio.play_phone("pickupSFX")
+	Audio.play("pickupSFX")
 	$handsetPicked.visible = true
 	$handset.visible = false
 	$handset.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -45,7 +45,7 @@ func _on_handset_pressed():
 		time_elapsed = 0
 		$callTimer.start()
 		$display.text = "00:00"
-		Audio.stop("ringSFX")
+		Audio.stop_phone()
 		emit_signal("picked_up","0")
 	else: 
 		$display.text = ""
@@ -57,7 +57,7 @@ func _on_callTimer_timeout():
 	$display.text =  str(floor(time_elapsed/60)).pad_zeros(2)+":" + str(fmod(time_elapsed,60)).pad_zeros(2)
 
 func _on_hook_pressed():
-	Audio.play_phone("putdownSFX")
+	Audio.play("putdownSFX")
 	# if handset is not dropped... 
 	$handsetPicked.visible = false
 	$handset.visible = true
@@ -87,6 +87,7 @@ func _on_insertCoin_mouse_entered():
 func _on_insertCoin_mouse_exited():
 	if $insertCoin/popUp.visible: 
 		$insertCoin/popUp/popUpAnim.play("hide")
+	$insertCoin.pressed = false
 
 func _on_insertCoin_gui_input(event):
 	if Input.is_action_pressed("right_click"): 
@@ -126,6 +127,8 @@ func _on_outgoingCallTimer_timeout():
 		
 func numpad_pressed(number):
 	if waiting_for_input: 
+		Audio.play_phone("btn"+str(number))
+		
 		$display.text = $display.text + str(number)
 		if $display.text == "999": 
 			waiting_for_input = false

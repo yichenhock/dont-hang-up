@@ -5,8 +5,14 @@ var interacted_with_something = false
 
 var coins_collected = 0
 
+var taking_call = false
+var reply_on_timeout = "Hello...?"
+
 func _ready():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(Data.get_data("volume",0.8)))
 	Audio.play("rainOutside")
+	Audio.play("rainInside")
+	
 	$doorClosed.visible = true
 	$doorClosed.modulate = Color(1.0,1.0,1.0,1.0)
 	$doorOpened.visible = false
@@ -18,7 +24,7 @@ func _on_menu_enter_pressed():
 	first_speech()
 
 func first_speech(): # the "talking to self" speech the player does upon starting the game
-	var dialogue = Data.dialogues["self_dialogues"]["001"]
+	var dialogue = Data.files["self_dialogues"]["001"]
 	$CanvasLayer/speechSelf.type_texts(dialogue)
 
 func _on_speechSelf_self_dialogue_finished():
@@ -31,10 +37,12 @@ func _on_speechSelf_self_dialogue_finished():
 func _on_doorOpenedHandle_pressed():
 	$doorAnim.play("close")
 	Audio.play("doorSFX")
+	Audio.stepOutside()
 	
 func _on_doorClosedHandle_pressed():
 	$doorAnim.play("open")
 	Audio.play("doorSFX")
+	Audio.stepInside()
 	
 func _input(event):
 	if zoom_enabled: 
@@ -49,10 +57,14 @@ func _input(event):
 		camera_following_cursor = false
 			
 func _process(delta):
+	# Camera stuff
 	if camera_following_cursor: 
 		$Camera2D.offset = get_viewport().get_mouse_position()*0.5 + get_viewport().size*0.25
 	else: 
 		$Camera2D.offset = get_viewport().size*0.5
+	
+	# Speech stuff?
+	
 	
 func enable_zoom(): 
 	zoom_enabled = true
@@ -70,6 +82,7 @@ func _on_tartCard_pressed():
 	zoom_enabled = false
 
 func _on_crumpledPaper_pressed():
+	Audio.play("uncrumpleSFX")
 	$CanvasLayer/crumpledPaper.visible = true
 	zoom_enabled = false
 
@@ -90,26 +103,52 @@ func use_coin():
 func _on_phone_picked_up(number):
 	zoom_enabled = false
 	#read from "phone-dialogues here!"
+	var free_calls = ["0","999","1808255"]
 	
-	if number == "0": #recieving
+	if Data.number_nodes.has(number): 
+		Audio.play_phone("recieverPickupSFX")
 		$CanvasLayer/speechPhone.show()
-		$CanvasLayer/speechPhone.type_texts(["Oh my, you're still there? i'm very glad you are", "I'm coming to get youuuu! im like right behind u uwu (this is the psychopathic killer or whatever who will be lurking about in the gaem)", "don't you think the dev's speech bubble is so cool?? :D :D :D"])
 		
-	elif number == "999": 
-		Audio.play_phone("recieverPickupSFX")
-		$CanvasLayer/speechPhone.show()
-		$CanvasLayer/speechPhone.type_texts(["Dis is polis. I will kil u."])
-	elif number=="1111111":
-		Audio.play_phone("recieverPickupSFX")
-		$CanvasLayer/remainingTime.start()
+		reply_on_timeout = "Hello...?" #by default, could change during the conversation
+		
+		if not number in free_calls: 
+			$CanvasLayer/remainingTime.start()
+			
+		$CanvasLayer/speechPhone.type_text(Data.phone_dialogues[Data.number_nodes[number]]["#text"]) #this is wrong... this gets the number thats in the starting number node!!!
+		identify_next_node(Data.number_nodes[number])
+		
 	else: 
+		Audio.play_phone("phoneDisconnected")
 		$CanvasLayer/speechPhone.show()
-		$CanvasLayer/speechPhone.type_texts(["The number you have called is not recognised. Please check the number and dial again."])
+		$CanvasLayer/speechPhone.type_texts(["We're sorry. You have reached a number that has been disconnected or is no longer in service. If you feel that you have reached this recording in error, please check the number and try your call again. "])
+
+func identify_next_node(nodeID): 
+	if Data.phone_dialogues[nodeID].has("children") == false: 
+		return false
+	else: 
+		for node in Data.phone_dialogues[nodeID]["children"]: 
+			if Data.phone_dialogues[node]["@color"] == "#CCFFCC": #phonespeech
+				print("this is a speech")
+				print(Data.phone_dialogues[node]["#text"])
+			elif Data.phone_dialogues[node]["@color"] =="#99CCFF": #choice
+				print("this is a choice")
+				print(Data.phone_dialogues[node]["#text"])
+			elif Data.phone_dialogues[node]["@color"] =="#FF99CC": # reply after timeout
+				print("this is the reply on timeout")
+				reply_on_timeout = Data.phone_dialogues[node]["#text"]
+				print(reply_on_timeout)
+		return Data.phone_dialogues[nodeID]["children"]
 
 func _on_speechPhone_line_started():
 	$phone.shake_handset()
 
 func _on_phone_hang_up():
 	#if any speech is going on, terminate it 
+	if $CanvasLayer/speechPhone.visible: 
+		$CanvasLayer/speechPhone.hide()
 	$CanvasLayer/remainingTime.stop()
+	zoom_enabled = true
 
+func _on_remainingTime_timeout():
+	# phone call abruptly ends bcos no money bcos poor
+	pass # Replace with function body.

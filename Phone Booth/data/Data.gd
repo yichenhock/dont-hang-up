@@ -6,9 +6,23 @@ const SAVE_PATH = "user://main.save"
 var data = {}
 
 # things to be loaded
-var dialogues = {}
-const DIALOGUE_PATH = "res://data/dialogues/"
+var files = {}
+var phone_dialogues = {}
+var number_nodes = {}
 
+const DIALOGUE_PATH = "res://data/files/"
+
+func _ready(): 
+	load_files()
+	phone_dialogues = format_dialogues()
+	
+	var num_nodes = phone_dialogues["n0"]["children"] #start node, children contains nodeID for nodes with numbers
+	for id in num_nodes: 
+		number_nodes [phone_dialogues[id]["#text"]] = id
+		
+#	print(number_nodes)
+#	print(phone_dialogues)
+	
 func get_data(key,default = null):
 	if data.has(key): 
 		return data[key]
@@ -62,7 +76,7 @@ func dir_contents(path):
 		print("An error occurred when trying to access the path.")
 	return files
 	
-func load_dialogues():  
+func load_files():  
 	var file = File.new()
 	var dialogue_paths = dir_contents(DIALOGUE_PATH)
 	
@@ -71,9 +85,22 @@ func load_dialogues():
 		var text = file.get_as_text()
 		data = parse_json(text)
 		path = path.trim_suffix(".json")
-		dialogues[path] = data
+		files[path] = data
 		file.close()
 	
-func _ready(): 
-	load_dialogues()
+func format_dialogues(): 
+	var dialogue_data = files["phone_dialogues"]["graphml"]["graph"]
+	var edges = dialogue_data["edge"]
+	var nodes = dialogue_data["node"]
+	var node_dict = {}
+	
+	for node in nodes: 
+		node_dict[node["@id"]] = node["data"]
+	
+	for edge in edges: 
+		if node_dict[edge["@source"]].has("children"):
+			node_dict[edge["@source"]]["children"].append(edge["@target"])
+		else: 
+			node_dict[edge["@source"]]["children"] = [edge["@target"]]
+	return node_dict
 

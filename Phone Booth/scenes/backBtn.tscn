@@ -5,8 +5,7 @@
 [ext_resource path="res://assets/graphics/ui/btn1-hover.png" type="Texture" id=3]
 
 [node name="back" type="TextureButton"]
-margin_left = 186.0
-margin_right = 264.0
+margin_right = 78.0
 margin_bottom = 29.0
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 3 )

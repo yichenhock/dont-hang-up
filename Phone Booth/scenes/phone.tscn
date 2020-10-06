@@ -1,6 +1,6 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
-[ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/tres/pixelplay-small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/topBtn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/sideBtn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/keyBtn.tscn" type="PackedScene" id=4]
@@ -42,6 +42,7 @@
 [ext_resource path="res://assets/graphics/ui/bubble-popup.png" type="Texture" id=40]
 [ext_resource path="res://assets/graphics/ui/right-click.png" type="Texture" id=41]
 [ext_resource path="res://assets/graphics/phone/coin-before-insert.png" type="Texture" id=42]
+[ext_resource path="res://assets/graphics/phone/key.png" type="Texture" id=43]
 
 [sub_resource type="Animation" id=1]
 resource_name = "flash"
@@ -520,11 +521,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="key" type="TextureButton" parent="."]
+margin_left = 33.0
+margin_top = 206.0
+margin_right = 48.0
+margin_bottom = 214.0
+texture_normal = ExtResource( 43 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="changeLid" type="TextureButton" parent="."]
 margin_left = 16.0
 margin_top = 190.0
 margin_right = 54.0
 margin_bottom = 215.0
+mouse_filter = 1
 script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false

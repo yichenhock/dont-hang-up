@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/telephone_5.wav-2039bde4a3b1f7bea2e9e695c1e4a28f.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone/telephone_5.wav"
+dest_files=[ "res://.import/telephone_5.wav-2039bde4a3b1f7bea2e9e695c1e4a28f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

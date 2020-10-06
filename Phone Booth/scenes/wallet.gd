@@ -8,6 +8,7 @@ func _ready():
 	pass
 
 func _on_back_pressed():
+	Audio.play("menuClickSFX")
 	if current_screen == "wallet": 
 		visible = false
 		emit_signal("window_closed")
@@ -18,6 +19,7 @@ func _on_back_pressed():
 		current_screen = "wallet"
 
 func _on_flip_pressed():
+	Audio.play("menuClickSFX")
 	get_node(current_screen).get_node("front").visible = !get_node(current_screen).get_node("front").visible
 	get_node(current_screen).get_node("back").visible = !get_node(current_screen).get_node("front").visible
 		

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phone-disconnected.wav-492215b3ecadd503a4893e6ad56686d4.sample"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-disconnected.wav"
+dest_files=[ "res://.import/phone-disconnected.wav-492215b3ecadd503a4893e6ad56686d4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

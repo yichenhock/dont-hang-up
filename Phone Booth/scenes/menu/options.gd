@@ -11,9 +11,12 @@ func show():
 func hide(): 
 	$bookAnim.play("hide")
 
+func _input(event): 
+	if event.is_action_pressed("toggle_fullscreen"):
+		$book/table/fullscreenCheck.pressed = !OS.window_fullscreen
+
 func _on_fullscreenCheck_pressed():
 	OS.window_fullscreen = $book/table/fullscreenCheck.is_pressed()
-
 
 func _on_clearData_pressed():
 	pass # Replace with function body.

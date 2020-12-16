@@ -2,49 +2,41 @@ extends Node2D
 var zoom_enabled = false
 var camera_following_cursor = false
 var interacted_with_something = false
-
 var coins_collected = 0
-
 var taking_call = false
 var reply_on_timeout = "Hello...?"
 
 func _ready():
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(Data.get_data("volume",0.8)))
-	Audio.play("rainOutside")
-	Audio.play("rainInside")
-	
 	$doorClosed.visible = true
 	$doorClosed.modulate = Color(1.0,1.0,1.0,1.0)
 	$doorOpened.visible = false
-	$CanvasLayer/menu.visible = true
-	$CanvasLayer/menu.modulate = Color(1.0,1.0,1.0,1.0)
 	Data.set_data("coins", coins_collected)
 
-func _on_menu_enter_pressed():
-	first_speech()
+func set_interaction(can_interact): 
+	$CanvasLayer/blocker.visible = !can_interact
 
-func first_speech(): # the "talking to self" speech the player does upon starting the game
-	var dialogue = Data.files["self_dialogues"]["001"]
-	$CanvasLayer/speechSelf.type_texts(dialogue)
-
-func _on_speechSelf_self_dialogue_finished():
+func initialise(): 
 	$CanvasLayer/uiInstructions.show()
 	$CanvasLayer/remainingTime.visible = true
 	$CanvasLayer/coins.visible = true
-	zoom_enabled = true
-	$Timer.start() # killer timer?
 
 func _on_doorOpenedHandle_pressed():
 	$doorAnim.play("close")
+	$doorOpened/doorOpenedHandle.visible = false
+	$doorClosed/doorClosedHandle.visible = true
 	Audio.play("doorSFX")
 	Audio.stepOutside()
+	set_process_input(false)
 	
 func _on_doorClosedHandle_pressed():
 	$doorAnim.play("open")
+	$doorOpened/doorOpenedHandle.visible = true
+	$doorClosed/doorClosedHandle.visible = false
 	Audio.play("doorSFX")
 	Audio.stepInside()
+	set_process_input(true)
 	
-func _input(event):
+func _unhandled_input(event):
 	if zoom_enabled: 
 		if event.is_action_pressed("z"): 
 			$Camera2D.zoom = Vector2(0.5,0.5)
@@ -55,21 +47,23 @@ func _input(event):
 	else: 
 		$Camera2D.zoom = Vector2(1,1)
 		camera_following_cursor = false
+
+func _input(event):
+	if event.is_action_pressed("x"): # Pick up the phone
+		$phone.pick_up()
+	if event.is_action_released("x"): # Hang up
+		$phone.hang_up()
 			
 func _process(delta):
-	# Camera stuff
-	if camera_following_cursor: 
+	if camera_following_cursor: # Camera stuff
 		$Camera2D.offset = get_viewport().get_mouse_position()*0.5 + get_viewport().size*0.25
 	else: 
 		$Camera2D.offset = get_viewport().size*0.5
 	
-	# Speech stuff?
-	
-	
 func enable_zoom(): 
 	zoom_enabled = true
 	
-func _on_Timer_timeout():
+func _on_Timer_timeout(): # change to time since last interaction/last click
 	if not interacted_with_something: 
 		$phone.ring_phone() # dis is phone call from da killer uwu
 
@@ -108,9 +102,6 @@ func _on_phone_picked_up(number):
 	if Data.number_nodes.has(number): 
 		Audio.play_phone("recieverPickupSFX")
 		$CanvasLayer/speechPhone.show()
-		
-		reply_on_timeout = "Hello...?" #by default, could change during the conversation
-		
 		if not number in free_calls: 
 			$CanvasLayer/remainingTime.start()
 			
@@ -149,6 +140,6 @@ func _on_phone_hang_up():
 	$CanvasLayer/remainingTime.stop()
 	zoom_enabled = true
 
-func _on_remainingTime_timeout():
-	# phone call abruptly ends bcos no money bcos poor
-	pass # Replace with function body.
+func _on_remainingTime_timeout(): # phone call abruptly ends bcos no money bcos poor
+	pass # Print something like no more coins
+	# then killer kills you? 

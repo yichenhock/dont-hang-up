@@ -28,6 +28,7 @@ func _ready():
 #	type_text("Oh, I didn't know you would be so kind as to do that for me, thank you! I'm forever grateful for it. ")
 
 func hide(): 
+	visible = false
 	$Tween.interpolate_property(self, "rect_scale", Vector2(1,1), Vector2(0,0),0.2, Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 	$Tween.start()
 	yield($Tween,"tween_completed")

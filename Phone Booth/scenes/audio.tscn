@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/music/sfx/phone-ring.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=2]
@@ -30,11 +30,14 @@
 [ext_resource path="res://assets/music/sfx/phone/telephone_7.wav" type="AudioStream" id=28]
 [ext_resource path="res://assets/music/sfx/phone/telephone_8.wav" type="AudioStream" id=29]
 [ext_resource path="res://assets/music/sfx/phone-disconnected.wav" type="AudioStream" id=30]
+[ext_resource path="res://assets/music/sfx/metal_thud.wav" type="AudioStream" id=31]
 
 [node name="Audio" type="Node"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+pause_mode = 2
 
 [node name="rainOutside" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
@@ -63,87 +66,107 @@ __meta__ = {
 
 [node name="ringSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 1 )
+bus = "PhoneSFX"
 
 [node name="phoneUnhookedSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 4 )
 volume_db = -20.0
+bus = "PhoneSFX"
 
 [node name="diallingSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 5 )
 volume_db = -10.0
+bus = "PhoneSFX"
 
 [node name="hangUpSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 6 )
 volume_db = 10.0
+bus = "PhoneSFX"
 
 [node name="deadlineSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 7 )
 volume_db = 10.0
+bus = "PhoneSFX"
 
 [node name="recieverPickupSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 10 )
+bus = "PhoneSFX"
 
 [node name="phoneDialSFX" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 17 )
+bus = "PhoneSFX"
 
 [node name="phoneDisconnected" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 30 )
+bus = "PhoneSFX"
 
 [node name="btn0" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 21 )
+bus = "PhoneSFX"
 
 [node name="btn1" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 20 )
+bus = "PhoneSFX"
 
 [node name="btn2" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 26 )
+bus = "PhoneSFX"
 
 [node name="btn3" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 22 )
+bus = "PhoneSFX"
 
 [node name="btn4" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 25 )
+bus = "PhoneSFX"
 
 [node name="btn5" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 27 )
+bus = "PhoneSFX"
 
 [node name="btn6" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 24 )
+bus = "PhoneSFX"
 
 [node name="btn7" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 28 )
+bus = "PhoneSFX"
 
 [node name="btn8" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 29 )
+bus = "PhoneSFX"
 
 [node name="btn9" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 23 )
+bus = "PhoneSFX"
 
 [node name="pickupSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+bus = "SFX"
 
 [node name="putdownSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+bus = "SFX"
 
 [node name="coinInsertSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-bus = "PhoneSFX"
+bus = "SFX"
 
 [node name="coinDropSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-bus = "PhoneSFX"
+bus = "SFX"
 
 [node name="keypadSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-bus = "PhoneSFX"
+bus = "SFX"
 
 [node name="coinPickupSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-bus = "PhoneSFX"
+bus = "SFX"
 
 [node name="doorSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-bus = "PhoneSFX"
+bus = "SFX"
 
 [node name="menuClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
@@ -152,3 +175,8 @@ bus = "SFX"
 
 [node name="uncrumpleSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
+bus = "SFX"
+
+[node name="metalThudSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+bus = "SFX"

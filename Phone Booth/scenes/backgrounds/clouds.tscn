@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/videos/trees_bg.ogv" type="VideoStream" id=1]
+[ext_resource path="res://assets/palettes/trees_only.png" type="Texture" id=2]
+[ext_resource path="res://assets/palettes/clouds.png" type="Texture" id=3]
+[ext_resource path="res://assets/videos/clouds_reverse.ogv" type="VideoStream" id=4]
+[ext_resource path="res://shaders/godotboy.shader" type="Shader" id=5]
+[ext_resource path="res://scenes/backgrounds/clouds.gd" type="Script" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/palette = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 5 )
+shader_param/palette = ExtResource( 2 )
+
+[node name="clouds" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clouds" type="VideoPlayer" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.49829
+margin_top = -22.0
+margin_right = -0.498291
+margin_bottom = -22.0
+rect_scale = Vector2( 1.03, 1.03 )
+stream = ExtResource( 4 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.356863, 0.482353, 0.619608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/fadeIn = SubResource( 2 )
+
+[node name="trees" type="VideoPlayer" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.49829
+margin_top = -22.0
+margin_right = -0.498291
+margin_bottom = -22.0
+rect_scale = Vector2( 1.03, 1.03 )
+stream = ExtResource( 1 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="finished" from="clouds" to="." method="_on_clouds_finished"]
+[connection signal="finished" from="trees" to="." method="_on_trees_finished"]

@@ -1,0 +1,5 @@
+poster: £1 for 1 minute
+UI instructions: Press and hold p to hold the phone
+Hide key (to implement later)
+Sound for the coin change compartment
+Dialogue

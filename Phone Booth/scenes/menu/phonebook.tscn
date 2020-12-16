@@ -1,0 +1,373 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/graphics/ui/arrow-left-disabled.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/ui/arrow-left-hover.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/ui/phonebook-sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/white-px.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/ui/arrow-left.png" type="Texture" id=7]
+[ext_resource path="res://scenes/phonebook.gd" type="Script" id=10]
+[ext_resource path="res://scenes/menu/entry.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadeInText"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("book/table:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fadeOutText"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("book/table:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 245, 354 ), Vector2( 656, 354 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 354 ), Vector2( 245, 354 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="phonebook" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="previous" type="TextureButton" parent="."]
+margin_left = 196.0
+margin_top = 33.0
+margin_right = 213.0
+margin_bottom = 57.0
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="TextureButton" parent="."]
+margin_left = 226.0
+margin_top = 33.0
+margin_right = 243.0
+margin_bottom = 57.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 17, 0 )
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="book" type="Sprite" parent="."]
+position = Vector2( 245, 354 )
+texture = ExtResource( 4 )
+hframes = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="table" type="VBoxContainer" parent="book"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -157.0
+margin_top = -246.0
+margin_right = -271.0
+margin_bottom = -374.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phonebook" type="Label" parent="book/table"]
+margin_right = 296.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "PHONE BOOK"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dividerTop" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 20.0
+margin_right = 296.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 2 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="fields" type="HBoxContainer" parent="book/table"]
+margin_top = 26.0
+margin_right = 296.0
+margin_bottom = 42.0
+
+[node name="number" type="Label" parent="book/table/fields"]
+margin_right = 90.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Number"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="book/table/fields"]
+margin_left = 94.0
+margin_right = 284.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 190, 0 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="divider" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 46.0
+margin_right = 296.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry1" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 51.0
+margin_bottom = 111.0
+
+[node name="divider2" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 115.0
+margin_right = 296.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry2" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 120.0
+margin_bottom = 180.0
+
+[node name="divider3" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 184.0
+margin_right = 296.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry3" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 189.0
+margin_bottom = 249.0
+
+[node name="divider4" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 253.0
+margin_right = 296.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry4" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 258.0
+margin_bottom = 318.0
+
+[node name="divider5" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 322.0
+margin_right = 296.0
+margin_bottom = 323.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry5" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 327.0
+margin_bottom = 387.0
+
+[node name="divider6" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 391.0
+margin_right = 296.0
+margin_bottom = 392.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry6" parent="book/table" instance=ExtResource( 11 )]
+margin_top = 396.0
+margin_bottom = 456.0
+
+[node name="dividerBottom" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 460.0
+margin_right = 296.0
+margin_bottom = 462.0
+rect_min_size = Vector2( 0, 2 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="page" type="Label" parent="book/table"]
+margin_top = 466.0
+margin_right = 296.0
+margin_bottom = 482.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Page 1-4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bookAnim" type="AnimationPlayer" parent="."]
+anims/fadeInText = SubResource( 1 )
+anims/fadeOutText = SubResource( 2 )
+anims/hide = SubResource( 3 )
+anims/pageTurnNext = SubResource( 4 )
+anims/pageTurnPrev = SubResource( 5 )
+anims/show = SubResource( 6 )
+
+[node name="back" parent="." instance=ExtResource( 12 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -75.0
+margin_right = 39.0
+margin_bottom = -46.0
+[connection signal="pressed" from="previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

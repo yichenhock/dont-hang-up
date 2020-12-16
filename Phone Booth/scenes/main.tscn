@@ -1,0 +1,185 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ending.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/palettes/night.png" type="Texture" id=12]
+[ext_resource path="res://shaders/blur.shader" type="Shader" id=13]
+
+[sub_resource type="Animation" id=2]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("rectTop:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 2, 4 ),
+"transitions": PoolRealArray( 2, -2, 1, 5, 1 ),
+"update": 0,
+"values": [ Vector2( 450, 375 ), Vector2( 450, 286.011 ), Vector2( 450, 324.646 ), Vector2( 450, 304.327 ), Vector2( 450, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("rectTop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("rectBot:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 2, 4 ),
+"transitions": PoolRealArray( 2, -2, 1, 5, 1 ),
+"update": 0,
+"values": [ Vector2( 450, 375 ), Vector2( 450, 286.011 ), Vector2( 450, 324.646 ), Vector2( 450, 304.327 ), Vector2( 450, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("rectBot:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 2, 4 ),
+"transitions": PoolRealArray( 2, -2, 1, 5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 375 ), Vector2( 0, 463.989 ), Vector2( 0, 425.354 ), Vector2( 0, 445.674 ), Vector2( 0, 750 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("rectBot:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../BackBufferCopy/blur:material:shader_param/blur_amount")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../BackBufferCopy/blur:mouse_filter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 13 )
+shader_param/blur_amount = 5.0
+
+[node name="main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Scenes" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "ending", "phoneBooth" ), [ ExtResource( 3 ), ExtResource( 2 ) ] ]
+
+[node name="background" parent="." instance=ExtResource( 5 )]
+palette = ExtResource( 12 )
+
+[node name="phoneBooth" parent="." instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+margin_left = 100.053
+margin_top = 250.888
+margin_right = 100.053
+margin_bottom = 250.888
+
+[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
+
+[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+
+[node name="firstTransit" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="rectTop" type="ColorRect" parent="CanvasLayer/firstTransit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.05176e-05
+margin_bottom = -375.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rectBot" type="ColorRect" parent="CanvasLayer/firstTransit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 375.0
+margin_right = 3.05176e-05
+margin_bottom = 6.10352e-05
+color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transitAnim" type="AnimationPlayer" parent="CanvasLayer/firstTransit"]
+autoplay = "open"
+anims/open = SubResource( 2 )
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer"]
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+
+[node name="blur" type="ColorRect" parent="CanvasLayer/BackBufferCopy"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer"]
+[connection signal="self_dialogue_finished" from="CanvasLayer/speechSelf" to="." method="_on_speechSelf_self_dialogue_finished"]
+[connection signal="enter_pressed" from="CanvasLayer/menu" to="." method="_on_menu_enter_pressed"]

@@ -7,6 +7,8 @@ func _ready():
 func play(sound):
 	if sound == "phoneDialSFX": 
 		$phoneDialSFX.pitch_scale = rand_range(0.9,1.1)
+	elif sound == "metalThudSFX": 
+		$metalThudSFX.pitch_scale = rand_range(0.94,1.06)
 	get_node(sound).play()
 
 func stop(sound): 

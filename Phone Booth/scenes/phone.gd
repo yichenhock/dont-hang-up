@@ -32,6 +32,10 @@ func ring_phone(): #someone ringing the phone
 		Audio.play_phone("ringSFX")
 
 func _on_handset_pressed():
+	pass
+	# pick_up()
+	
+func pick_up(): 
 	Audio.play("pickupSFX")
 	$handsetPicked.visible = true
 	$handset.visible = false
@@ -57,6 +61,10 @@ func _on_callTimer_timeout():
 	$display.text =  str(floor(time_elapsed/60)).pad_zeros(2)+":" + str(fmod(time_elapsed,60)).pad_zeros(2)
 
 func _on_hook_pressed():
+	pass
+	# hang_up()
+	
+func hang_up():
 	Audio.play("putdownSFX")
 	# if handset is not dropped... 
 	$handsetPicked.visible = false
@@ -74,7 +82,6 @@ func _on_hook_pressed():
 	taking_call = false 
 	Audio.stop_phone()
 	
-	
 func shake_handset(): 
 	$handsetPicked/handsetAnim.play("shake")
 	$handsetPicked/handsetAnim.queue("floating")
@@ -85,8 +92,7 @@ func _on_insertCoin_mouse_entered():
 			$insertCoin/popUp/popUpAnim.play("show")
 	
 func _on_insertCoin_mouse_exited():
-	if $insertCoin/popUp.visible: 
-		$insertCoin/popUp/popUpAnim.play("hide")
+	$insertCoin/popUp/popUpAnim.play("hide")
 	$insertCoin.pressed = false
 
 func _on_insertCoin_gui_input(event):
@@ -138,6 +144,7 @@ func numpad_pressed(number):
 			$display.text = "DIALLING\n(FREE CALL)"
 			$outgoingCallTimer.start()
 			Audio.play_phone("diallingSFX")
+			
 		elif $display.text.length() == 7: 
 			waiting_for_input = false
 			number_dialled = $display.text
@@ -150,3 +157,5 @@ func numpad_pressed(number):
 			Audio.play_phone("diallingSFX")
 			
 
+func _on_key_pressed(): # key collected
+	pass # Replace with function body.

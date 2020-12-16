@@ -4,6 +4,7 @@ var entries_per_page = 6
 var total_pages
 var total_entries
 var all_numbers = []
+signal back_pressed() 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +44,7 @@ func hide():
 	$bookAnim.play("hide")
 
 func _on_back_pressed():
+	emit_signal("back_pressed")
 	$back.visible = false
 	$previous.visible = false
 	$next.visible = false

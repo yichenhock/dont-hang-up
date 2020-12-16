@@ -25,20 +25,28 @@ func type_texts(texts: PoolStringArray):
 	n = 0
 	type_text(dialogue[n])
 
+var clicked = false
+
 func _process(delta): 
-	
 	$speechBubble/indicator.rect_position.x = $speechBubble.rect_position.x + $speechBubble.rect_size.x - 50
 	
 	if Input.is_action_pressed("click"): 
-		if dialogue.size() != 0 and not typing_text: 
-			n+=1
-			if n == dialogue.size(): 
-				dialogue = []
-				n = 0
-				emit_signal("self_dialogue_finished")
-				hide()
-			else: 
-				type_text(dialogue[n])
+		if not clicked: 
+			clicked = true
+			if dialogue.size() != 0 and not typing_text: 
+				n+=1
+				if n == dialogue.size(): 
+					dialogue = []
+					n = 0
+					emit_signal("self_dialogue_finished")
+					hide()
+				else: 
+					type_text(dialogue[n])
+			elif typing_text: 
+				$dialogue.display_all()
+				
+	if Input.is_action_just_released("click"): 
+		clicked = false
 
 func type_text(new_text): 
 	if new_text != "": 

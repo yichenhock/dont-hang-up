@@ -34,8 +34,9 @@ texture = ExtResource( 3 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="handset"]
 polygon = PoolVector2Array( 1, -18, -3, -14, -3, -9, -1, -7, 3, -6, 2, -2, -1, 7, -7, 7, -10, 10, -10, 14, -7, 17, -1, 17, 3, 12, 9, -2, 9, -12, 6, -18 )
 
-[node name="cursorCollider" type="RigidBody2D" parent="."]
+[node name="cursorCollider" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cursorCollider"]
 shape = SubResource( 1 )
+disabled = true

@@ -1,13 +1,13 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://assets/graphics/bg.png" type="Texture" id=1]
-[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/graphics/items/paperclip_inv.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/items/key_inv.png" type="Texture" id=2]
 [ext_resource path="res://assets/graphics/booth-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://scenes/phone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/graphics/dooropened.png" type="Texture" id=5]
 [ext_resource path="res://scenes/coins.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/phoneBooth.gd" type="Script" id=7]
-[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/graphics/ui/x-btn.png" type="Texture" id=8]
 [ext_resource path="res://assets/graphics/door.png" type="Texture" id=9]
 [ext_resource path="res://scenes/uiInstructions.gd" type="Script" id=10]
 [ext_resource path="res://assets/graphics/ui/left-click.png" type="Texture" id=11]
@@ -15,21 +15,20 @@
 [ext_resource path="res://assets/graphics/ui/z-btn.png" type="Texture" id=13]
 [ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/fonts/tres/EnterCommand.tres" type="DynamicFont" id=15]
-[ext_resource path="res://assets/graphics/wallet.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/wallet/wallet.png" type="Texture" id=16]
 [ext_resource path="res://assets/graphics/ui/hourglass-sheet.png" type="Texture" id=17]
 [ext_resource path="res://scenes/remainingTime.gd" type="Script" id=18]
 [ext_resource path="res://scenes/wallet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/fonts/tres/RootBeer.tres" type="DynamicFont" id=20]
 [ext_resource path="res://assets/fonts/tres/EnterCommand.-Italic.tres" type="DynamicFont" id=21]
 [ext_resource path="res://assets/fonts/tres/Microserif.tres" type="DynamicFont" id=22]
-[ext_resource path="res://assets/graphics/tart-card.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/staticBoothDecor/tart-card.png" type="Texture" id=23]
 [ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/windowOverlay.gd" type="Script" id=25]
-[ext_resource path="res://assets/graphics/tart-card-small.png" type="Texture" id=26]
-[ext_resource path="res://assets/graphics/crumpled-paper.png" type="Texture" id=27]
-[ext_resource path="res://assets/graphics/paper-uncrumpled.png" type="Texture" id=28]
+[ext_resource path="res://assets/graphics/staticBoothDecor/tart-card-small.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/staticBoothDecor/crumpled-paper.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/staticBoothDecor/paper-uncrumpled.png" type="Texture" id=28]
 [ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=29]
-[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/graphics/metaldoor-open.png" type="Texture" id=31]
 [ext_resource path="res://assets/graphics/metaldoor.png" type="Texture" id=32]
 [ext_resource path="res://assets/graphics/skeleton-Sheet.png" type="Texture" id=33]
@@ -376,69 +375,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=12]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("rectL:rect_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 5, 1 ),
-"update": 0,
-"values": [ Vector2( 225, 750 ), Vector2( 0, 750 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("rectL:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("rectR:rect_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 5, 1 ),
-"update": 0,
-"values": [ Vector2( 225, 750 ), Vector2( 0, 750 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("rectR:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 5, 1 ),
-"update": 0,
-"values": [ Vector2( 225, 0 ), Vector2( 450, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("rectR:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
 [node name="phoneBooth" type="Node2D"]
 script = ExtResource( 7 )
 __meta__ = {
@@ -449,13 +385,6 @@ __meta__ = {
 offset = Vector2( 225, 375 )
 current = true
 smoothing_enabled = true
-
-[node name="bg" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="corpse" type="Sprite" parent="."]
 position = Vector2( 222, 583 )
@@ -549,15 +478,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="metaldoorClosed" type="TextureRect" parent="metalDoor"]
+[node name="metaldoorClosed" type="TextureButton" parent="metalDoor"]
 margin_left = 163.0
 margin_top = 494.0
 margin_right = 281.0
 margin_bottom = 673.0
-texture = ExtResource( 32 )
+texture_normal = ExtResource( 32 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="noSmoke" type="TextureRect" parent="metalDoor/metaldoorClosed"]
@@ -584,9 +512,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="metalDoor/metaldoorClosed"]
+[node name="keyHole" type="Area2D" parent="metalDoor/metaldoorClosed"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="metalDoor/metaldoorClosed/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="metalDoor/metaldoorClosed/keyHole"]
 position = Vector2( 110, 98 )
 shape = SubResource( 3 )
 
@@ -683,21 +611,29 @@ anims/open = SubResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="uiInstructions" type="HBoxContainer" parent="CanvasLayer"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_top = 1.0
+[node name="uiInstructions" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 24.0001
-rect_min_size = Vector2( 0, 24 )
-custom_constants/separation = 8
-alignment = 1
+mouse_filter = 2
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="leftClick" type="TextureRect" parent="CanvasLayer/uiInstructions"]
+[node name="VBox" type="HBoxContainer" parent="CanvasLayer/uiInstructions"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftClick" type="TextureRect" parent="CanvasLayer/uiInstructions/VBox"]
 margin_left = 135.0
 margin_top = 4.0
 margin_right = 148.0
@@ -705,7 +641,7 @@ margin_bottom = 24.0
 size_flags_vertical = 8
 texture = ExtResource( 11 )
 
-[node name="interact" type="Label" parent="CanvasLayer/uiInstructions"]
+[node name="interact" type="Label" parent="CanvasLayer/uiInstructions/VBox"]
 margin_left = 156.0
 margin_top = 2.0
 margin_right = 236.0
@@ -716,7 +652,7 @@ custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 text = "INTERACT"
 valign = 1
 
-[node name="zBtn" type="TextureRect" parent="CanvasLayer/uiInstructions"]
+[node name="zBtn" type="TextureRect" parent="CanvasLayer/uiInstructions/VBox"]
 margin_left = 244.0
 margin_top = 7.0
 margin_right = 261.0
@@ -724,7 +660,7 @@ margin_bottom = 24.0
 size_flags_vertical = 8
 texture = ExtResource( 13 )
 
-[node name="zoomIn" type="Label" parent="CanvasLayer/uiInstructions"]
+[node name="zoomIn" type="Label" parent="CanvasLayer/uiInstructions/VBox"]
 margin_left = 269.0
 margin_top = 2.0
 margin_right = 314.0
@@ -737,14 +673,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="uiAnim" type="AnimationPlayer" parent="CanvasLayer/uiInstructions"]
+[node name="xBtn" type="TextureRect" parent="CanvasLayer/uiInstructions/VBox"]
+visible = false
+margin_left = 310.0
+margin_top = 7.0
+margin_right = 327.0
+margin_bottom = 24.0
+size_flags_vertical = 8
+texture = ExtResource( 8 )
+
+[node name="pressHold" type="Label" parent="CanvasLayer/uiInstructions/VBox"]
+visible = false
+margin_left = 225.0
+margin_top = 2.0
+margin_right = 436.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
+text = "PRESS & HOLD TO PICK UP THE PHONE"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="uiAnim" type="AnimationPlayer" parent="CanvasLayer/uiInstructions/VBox"]
 anims/hide = SubResource( 8 )
 anims/show = SubResource( 9 )
 
-[node name="Timer" type="Timer" parent="CanvasLayer/uiInstructions"]
+[node name="Timer" type="Timer" parent="CanvasLayer/uiInstructions/VBox"]
 one_shot = true
-
-[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 14 )]
 visible = false
@@ -795,8 +752,36 @@ anims/time = SubResource( 11 )
 [node name="coins" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = false
 
-[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 30 )]
+[node name="items" type="Control" parent="CanvasLayer"]
 visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -41.0
+margin_top = 87.0
+margin_right = -21.0
+margin_bottom = 173.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="CanvasLayer/items"]
+margin_right = 15.0
+margin_bottom = 83.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paperclip" type="TextureButton" parent="CanvasLayer/items/vbox"]
+margin_right = 15.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 1 )
+
+[node name="key" type="TextureButton" parent="CanvasLayer/items/vbox"]
+margin_top = 46.0
+margin_right = 15.0
+margin_bottom = 83.0
+texture_normal = ExtResource( 2 )
 
 [node name="wallet" parent="CanvasLayer" instance=ExtResource( 19 )]
 visible = false
@@ -943,47 +928,19 @@ margin_top = -118.0
 margin_right = 39.0
 margin_bottom = -89.0
 
-[node name="menu" parent="CanvasLayer" instance=ExtResource( 2 )]
-visible = false
-mouse_filter = 1
-
-[node name="firstTransit" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="rectL" type="ColorRect" parent="CanvasLayer/firstTransit"]
+[node name="blocker" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -225.0
-margin_bottom = 6.10352e-05
-color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
-
-[node name="rectR" type="ColorRect" parent="CanvasLayer/firstTransit"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 225.0
-margin_right = 3.05176e-05
-margin_bottom = 6.10352e-05
-color = Color( 0.0196078, 0.027451, 0.0313726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="transitAnim" type="AnimationPlayer" parent="CanvasLayer/firstTransit"]
-autoplay = "open"
-anims/open = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-[connection signal="input_event" from="metalDoor/metaldoorClosed/Area2D" to="metalDoor" method="_on_Area2D_input_event"]
+[connection signal="pressed" from="metalDoor/metaldoorClosed" to="metalDoor" method="_on_metaldoorClosed_pressed"]
+[connection signal="input_event" from="metalDoor/metaldoorClosed/keyHole" to="metalDoor" method="_on_Area2D_input_event"]
 [connection signal="coin_inserted" from="phone" to="." method="_on_phone_coin_inserted"]
 [connection signal="hang_up" from="phone" to="." method="_on_phone_hang_up"]
 [connection signal="picked_up" from="phone" to="." method="_on_phone_picked_up"]
@@ -992,8 +949,7 @@ one_shot = true
 [connection signal="pressed" from="crumpledPaper" to="." method="_on_crumpledPaper_pressed"]
 [connection signal="pressed" from="doorOpened/doorOpenedHandle" to="." method="_on_doorOpenedHandle_pressed"]
 [connection signal="pressed" from="doorClosed/doorClosedHandle" to="." method="_on_doorClosedHandle_pressed"]
-[connection signal="timeout" from="CanvasLayer/uiInstructions/Timer" to="CanvasLayer/uiInstructions" method="_on_Timer_timeout"]
-[connection signal="self_dialogue_finished" from="CanvasLayer/speechSelf" to="." method="_on_speechSelf_self_dialogue_finished"]
+[connection signal="timeout" from="CanvasLayer/uiInstructions/VBox/Timer" to="CanvasLayer/uiInstructions" method="_on_Timer_timeout"]
 [connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]
 [connection signal="timeout" from="CanvasLayer/remainingTime" to="." method="_on_remainingTime_timeout"]
 [connection signal="timeout" from="CanvasLayer/remainingTime/Timer" to="CanvasLayer/remainingTime" method="_on_Timer_timeout"]
@@ -1003,5 +959,4 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/tartCard/back" to="CanvasLayer/tartCard" method="_on_back_pressed"]
 [connection signal="window_closed" from="CanvasLayer/crumpledPaper" to="." method="enable_zoom"]
 [connection signal="pressed" from="CanvasLayer/crumpledPaper/back" to="CanvasLayer/crumpledPaper" method="_on_back_pressed"]
-[connection signal="enter_pressed" from="CanvasLayer/menu" to="." method="_on_menu_enter_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

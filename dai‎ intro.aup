@@ -1,0 +1,100 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="dai&#x200e; intro_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.0000000000" vpos="448" h="0.0000000000" zoom="95.1097095141" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="TITLE" value="Cellular phone interference noise. -Sound effect"/>
+		<tag name="Software" value="Lavf58.20.100"/>
+	</tags>
+	<wavetrack name="Pls wait (online-audio-converter.com)" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="6.37256236" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="124222">
+				<waveblock start="0">
+					<simpleblockfile filename="e08081c3.au" len="124222" min="-0.404845" max="0.374855" rms="0.048902"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Pls wait (online-audio-converter.com)" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="6.37256236" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="124222">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808287.au" len="124222" min="-0.404845" max="0.374855" rms="0.048902"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="phone-dial" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="0.398107" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="281030">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808728.au" len="258049" min="-0.921966" max="0.930021" rms="0.170846"/>
+				</waveblock>
+				<waveblock start="258049">
+					<simpleblockfile filename="e0808810.au" len="22981" min="-0.885033" max="0.891527" rms="0.292109"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="phone-dial" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="0.398107" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="281030">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808442.au" len="258049" min="-0.921874" max="0.93018" rms="0.170842"/>
+				</waveblock>
+				<waveblock start="258049">
+					<simpleblockfile filename="e0808ba1.au" len="22981" min="-0.885197" max="0.891856" rms="0.292102"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Cellular phone interference noise. -Sound effect" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="0.316228" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="405252">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d41.au" len="258049" min="-0.467429" max="0.5944" rms="0.067305"/>
+				</waveblock>
+				<waveblock start="258049">
+					<simpleblockfile filename="e080803f.au" len="147203" min="-0.468739" max="0.580125" rms="0.097048"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Cellular phone interference noise. -Sound effect" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="0.316228" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="405252">
+				<waveblock start="0">
+					<simpleblockfile filename="e08085c2.au" len="258049" min="-0.470205" max="0.598532" rms="0.067492"/>
+				</waveblock>
+				<waveblock start="258049">
+					<simpleblockfile filename="e0808900.au" len="147203" min="-0.46874" max="0.583624" rms="0.097193"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="phone-pickup" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8208">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b8a.au" len="8208" min="-0.175079" max="0.162689" rms="0.01891"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="phone-pickup" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8208">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808497.au" len="8208" min="-0.174896" max="0.134857" rms="0.020449"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

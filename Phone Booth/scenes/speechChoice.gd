@@ -2,6 +2,7 @@ extends TextureButton
 var nodeID = "" 
 var choice_text = "" setget set_text
 signal option_chosen(nodeID)
+signal animation_finished()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +28,6 @@ func show():
 
 func hide(): 
 	$choiceAnim.play("hide")
+
+func _on_choiceAnim_animation_finished(anim_name):
+	emit_signal("animation_finished")

@@ -42,7 +42,7 @@
 [ext_resource path="res://assets/graphics/ui/bubble-popup.png" type="Texture" id=40]
 [ext_resource path="res://assets/graphics/ui/right-click.png" type="Texture" id=41]
 [ext_resource path="res://assets/graphics/phone/coin-before-insert.png" type="Texture" id=42]
-[ext_resource path="res://assets/graphics/phone/key.png" type="Texture" id=43]
+[ext_resource path="res://assets/graphics/items/key.png" type="Texture" id=43]
 
 [sub_resource type="Animation" id=1]
 resource_name = "flash"
@@ -69,10 +69,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.55 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.55 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
@@ -133,10 +133,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
@@ -522,6 +522,7 @@ __meta__ = {
 }
 
 [node name="key" type="TextureButton" parent="."]
+visible = false
 margin_left = 33.0
 margin_top = 206.0
 margin_right = 48.0
@@ -636,6 +637,7 @@ one_shot = true
 [connection signal="mouse_entered" from="insertCoin" to="." method="_on_insertCoin_mouse_entered"]
 [connection signal="mouse_exited" from="insertCoin" to="." method="_on_insertCoin_mouse_exited"]
 [connection signal="pressed" from="hook" to="." method="_on_hook_pressed"]
+[connection signal="pressed" from="key" to="." method="_on_key_pressed"]
 [connection signal="pressed" from="changeLid" to="changeLid" method="_on_changeLid_pressed"]
 [connection signal="pressed" from="handset" to="." method="_on_handset_pressed"]
 [connection signal="timeout" from="displayTimer" to="." method="_on_displayTimer_timeout"]

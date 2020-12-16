@@ -67,6 +67,13 @@ func type_text(new_text):
 func set_text(new_text): 
 	text = new_text
 	
+func display_all(): 
+	if not $typeTimer.is_stopped(): 
+		$typeTimer.stop()
+		percent_visible = 1
+		emit_signal("fully_displayed")
+		emit_signal("character_displayed")
+
 #func _unhandled_input(event):
 #	if event.is_action_pressed("ui_accept"): 
 #		if not $typeTimer.is_stopped(): 

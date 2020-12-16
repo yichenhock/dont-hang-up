@@ -1,0 +1,431 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/tres/Microserif.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/graphics/ui/phonebook-sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/white-px.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/btn1.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/ui/btn1-hover.png" type="Texture" id=6]
+[ext_resource path="res://scenes/menu/options.gd" type="Script" id=7]
+[ext_resource path="res://assets/graphics/ui/btn3.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/ui/vol-grabber.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/ui/checkbox.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/ui/vol-slider.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/ui/checkbox-ticked.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/ui/btn3-hover.png" type="Texture" id=13]
+[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=14]
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 202, 10 )
+margin_left = 0.921517
+margin_right = 1.04895
+margin_top = 1.14439
+margin_bottom = 1.0876
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.439216, 0.34902, 0.317647, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+
+[sub_resource type="Animation" id=11]
+resource_name = "fadeInText"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("book/table/table:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fadeOutText"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("book/table/table:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 245, 354 ), Vector2( 656, 354 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "pageTurnNext"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "pageTurnPrev"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("book:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 354 ), Vector2( 245, 354 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="options" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="book" type="Sprite" parent="."]
+position = Vector2( 245, 354 )
+texture = ExtResource( 3 )
+hframes = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="table" type="Control" parent="book"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -205.0
+margin_top = -311.0
+margin_right = -205.0
+margin_bottom = -311.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="table" type="VBoxContainer" parent="book/table"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 48.0
+margin_top = 65.0
+margin_right = -66.0
+margin_bottom = -401.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Label" parent="book/table/table"]
+margin_right = 296.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "OPTIONS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dividerTop" type="TextureRect" parent="book/table/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 20.0
+margin_right = 296.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 2 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="vol" type="Label" parent="book/table/table"]
+margin_top = 26.0
+margin_right = 296.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 90, 50 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="divider" type="TextureRect" parent="book/table/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 80.0
+margin_right = 296.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen" type="Label" parent="book/table/table"]
+margin_top = 85.0
+margin_right = 296.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 90, 50 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="note" type="Label" parent="book/table/table"]
+margin_top = 139.0
+margin_right = 296.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Note: This game is designed to be played in windowed mode.
+Press F4 to toggle fullscreen"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="divider2" type="TextureRect" parent="book/table/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 170.0
+margin_right = 296.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen2" type="Label" parent="book/table/table"]
+margin_top = 175.0
+margin_right = 296.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 90, 50 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Clear saved data"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="note2" type="Label" parent="book/table/table"]
+margin_top = 229.0
+margin_right = 296.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Note: This action cannot be reversed. This takes you back
+to the unplayed state of the game. "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="divider3" type="TextureRect" parent="book/table/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_top = 260.0
+margin_right = 296.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 0, 1 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volSlider" type="HSlider" parent="book/table"]
+margin_left = 142.0
+margin_top = 97.0
+margin_right = 344.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+max_value = 1.0
+step = 0.01
+value = 0.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreenCheck" type="CheckBox" parent="book/table"]
+margin_left = 322.0
+margin_top = 152.0
+margin_right = 346.0
+margin_bottom = 176.0
+custom_icons/checked = ExtResource( 12 )
+custom_icons/unchecked = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dividerBottom" type="TextureRect" parent="book/table"]
+modulate = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+margin_left = 48.0
+margin_top = 525.0
+margin_right = 344.0
+margin_bottom = 527.0
+rect_min_size = Vector2( 0, 2 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page" type="Label" parent="book/table"]
+margin_left = 48.0
+margin_top = 531.0
+margin_right = 344.0
+margin_bottom = 547.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Page IIX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clearData" type="TextureButton" parent="book/table"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 61.0
+margin_top = -379.3
+margin_right = 135.0
+margin_bottom = -358.3
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clear" type="Label" parent="book/table/clearData"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.445435
+margin_bottom = -0.445435
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
+text = "Delete"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bookAnim" type="AnimationPlayer" parent="."]
+anims/fadeInText = SubResource( 11 )
+anims/fadeOutText = SubResource( 12 )
+anims/hide = SubResource( 13 )
+anims/pageTurnNext = SubResource( 14 )
+anims/pageTurnPrev = SubResource( 15 )
+anims/show = SubResource( 16 )
+
+[node name="back" type="TextureButton" parent="." instance=ExtResource( 14 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -75.0
+margin_right = 39.0
+margin_bottom = -46.0
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="book/table/volSlider" to="." method="_on_volSlider_value_changed"]
+[connection signal="pressed" from="book/table/fullscreenCheck" to="." method="_on_fullscreenCheck_pressed"]
+[connection signal="pressed" from="book/table/clearData" to="." method="_on_clearData_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

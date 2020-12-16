@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/menu/menuOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/tres/EnterCommand-Bold-Large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://shaders/chromaticAbberation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu/pauseMenu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/menu/phonebook.tscn" type="PackedScene" id=5]
+
+[node name="pauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -111.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paused" type="Label" parent="main/VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.0784314, 0, 1 )
+text = "PAUSED"
+align = 1
+
+[node name="resume" parent="main/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 74.0
+margin_right = 450.0
+margin_bottom = 102.0
+option_text = "RESUME"
+
+[node name="phonebook" parent="main/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 106.0
+margin_right = 450.0
+margin_bottom = 134.0
+option_text = "PHONE BOOK"
+
+[node name="quit" parent="main/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 138.0
+margin_right = 450.0
+margin_bottom = 166.0
+option_text = "QUIT"
+
+[node name="chromaticAbberation" parent="." instance=ExtResource( 3 )]
+
+[node name="phonebook" parent="." instance=ExtResource( 5 )]
+[connection signal="pressed" from="main/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/phonebook" to="." method="_on_phonebook_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="back_pressed" from="phonebook" to="." method="_on_back_pressed"]

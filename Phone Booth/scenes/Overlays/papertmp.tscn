@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/graphics/staticBoothDecor/paper-uncrumpled.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=2]
+
+[node name="paper" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -113.5
+margin_right = 167.0
+margin_bottom = 113.5
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -101.0
+margin_right = 148.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.392157, 0.278431, 0.278431, 1 )
+text = "Whenever you want
+me back, call me at 1023903 xxx"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

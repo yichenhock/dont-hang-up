@@ -4,7 +4,6 @@ var choice_text = "" setget set_text
 signal option_chosen(nodeID)
 signal animation_finished()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 

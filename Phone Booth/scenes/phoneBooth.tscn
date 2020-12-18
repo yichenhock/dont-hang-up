@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/graphics/items/paperclip_inv.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/items/key_inv.png" type="Texture" id=2]
@@ -13,22 +13,16 @@
 [ext_resource path="res://assets/graphics/ui/left-click.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=12]
 [ext_resource path="res://assets/graphics/ui/z-btn.png" type="Texture" id=13]
-[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/fonts/tres/EnterCommand.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/fonts/tres/FreePixel.tres" type="DynamicFont" id=14]
+[ext_resource path="res://assets/graphics/items/paperclip.png" type="Texture" id=15]
 [ext_resource path="res://assets/graphics/wallet/wallet.png" type="Texture" id=16]
 [ext_resource path="res://assets/graphics/ui/hourglass-sheet.png" type="Texture" id=17]
 [ext_resource path="res://scenes/remainingTime.gd" type="Script" id=18]
 [ext_resource path="res://scenes/wallet.tscn" type="PackedScene" id=19]
-[ext_resource path="res://assets/fonts/tres/RootBeer.tres" type="DynamicFont" id=20]
-[ext_resource path="res://assets/fonts/tres/EnterCommand.-Italic.tres" type="DynamicFont" id=21]
-[ext_resource path="res://assets/fonts/tres/Microserif.tres" type="DynamicFont" id=22]
-[ext_resource path="res://assets/graphics/staticBoothDecor/tart-card.png" type="Texture" id=23]
-[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=24]
-[ext_resource path="res://scenes/windowOverlay.gd" type="Script" id=25]
+[ext_resource path="res://scenes/Overlays/tartCard.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Overlays/crumpledPaper.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/graphics/staticBoothDecor/tart-card-small.png" type="Texture" id=26]
 [ext_resource path="res://assets/graphics/staticBoothDecor/crumpled-paper.png" type="Texture" id=27]
-[ext_resource path="res://assets/graphics/staticBoothDecor/paper-uncrumpled.png" type="Texture" id=28]
-[ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=29]
 [ext_resource path="res://assets/graphics/metaldoor-open.png" type="Texture" id=31]
 [ext_resource path="res://assets/graphics/metaldoor.png" type="Texture" id=32]
 [ext_resource path="res://assets/graphics/skeleton-Sheet.png" type="Texture" id=33]
@@ -570,6 +564,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="paperclip" type="TextureButton" parent="."]
+margin_left = 313.703
+margin_top = 667.149
+margin_right = 325.703
+margin_bottom = 677.149
+texture_normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="doorOpened" type="TextureRect" parent="."]
 mouse_filter = 2
 texture = ExtResource( 5 )
@@ -614,9 +618,14 @@ anims/open = SubResource( 7 )
 [node name="uiInstructions" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 0.749207
+margin_top = 0.749146
+margin_right = 0.749207
+margin_bottom = 0.749146
 mouse_filter = 2
 script = ExtResource( 10 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -634,18 +643,17 @@ __meta__ = {
 }
 
 [node name="leftClick" type="TextureRect" parent="CanvasLayer/uiInstructions/VBox"]
-margin_left = 135.0
+margin_left = 129.0
 margin_top = 4.0
-margin_right = 148.0
+margin_right = 142.0
 margin_bottom = 24.0
 size_flags_vertical = 8
 texture = ExtResource( 11 )
 
 [node name="interact" type="Label" parent="CanvasLayer/uiInstructions/VBox"]
-margin_left = 156.0
-margin_top = 2.0
-margin_right = 236.0
-margin_bottom = 22.0
+margin_left = 150.0
+margin_right = 230.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 80, 0 )
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
@@ -653,18 +661,17 @@ text = "INTERACT"
 valign = 1
 
 [node name="zBtn" type="TextureRect" parent="CanvasLayer/uiInstructions/VBox"]
-margin_left = 244.0
+margin_left = 238.0
 margin_top = 7.0
-margin_right = 261.0
+margin_right = 255.0
 margin_bottom = 24.0
 size_flags_vertical = 8
 texture = ExtResource( 13 )
 
 [node name="zoomIn" type="Label" parent="CanvasLayer/uiInstructions/VBox"]
-margin_left = 269.0
-margin_top = 2.0
-margin_right = 314.0
-margin_bottom = 22.0
+margin_left = 263.0
+margin_right = 321.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 text = "ZOOM IN"
@@ -703,17 +710,11 @@ anims/show = SubResource( 9 )
 [node name="Timer" type="Timer" parent="CanvasLayer/uiInstructions/VBox"]
 one_shot = true
 
-[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 14 )]
-visible = false
-margin_left = 101.0
-margin_top = 252.0
-margin_right = 101.0
-margin_bottom = 252.0
-
 [node name="remainingTime" type="Control" parent="CanvasLayer"]
 visible = false
+margin_left = 4.0
 margin_top = 32.0
-margin_right = 40.0
+margin_right = 44.0
 margin_bottom = 72.0
 script = ExtResource( 18 )
 __meta__ = {
@@ -723,10 +724,10 @@ __meta__ = {
 [node name="time" type="Label" parent="CanvasLayer/remainingTime"]
 modulate = Color( 0.937255, 1, 0.913725, 1 )
 margin_left = 5.0
-margin_top = 28.0
+margin_top = 32.0
 margin_right = 56.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 15 )
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 text = "00:00"
 align = 1
@@ -786,147 +787,13 @@ texture_normal = ExtResource( 2 )
 [node name="wallet" parent="CanvasLayer" instance=ExtResource( 19 )]
 visible = false
 
-[node name="tartCard" type="Control" parent="CanvasLayer"]
+[node name="tartCard" parent="CanvasLayer" instance=ExtResource( 20 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 25 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+rect_scale = Vector2( 1, 1 )
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/tartCard"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="card" type="TextureRect" parent="CanvasLayer/tartCard"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -167.0
-margin_top = -113.5
-margin_right = 167.0
-margin_bottom = 113.5
-texture = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="satisfaction" type="Label" parent="CanvasLayer/tartCard/card"]
-margin_left = 159.0
-margin_top = 33.5
-margin_right = 315.0
-margin_bottom = 65.5
-custom_fonts/font = ExtResource( 20 )
-custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
-text = "SATISFACTION"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="for men" type="Label" parent="CanvasLayer/tartCard/card"]
-margin_left = 158.0
-margin_top = 68.0
-margin_right = 220.0
-margin_bottom = 110.0
-rect_scale = Vector2( 2, 2 )
-custom_fonts/font = ExtResource( 22 )
-custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
-text = "For Men
-With Special
-Needs"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="number" type="Label" parent="CanvasLayer/tartCard/card"]
-margin_left = 157.0
-margin_top = 157.5
-margin_right = 210.0
-margin_bottom = 171.5
-rect_scale = Vector2( 3, 3 )
-custom_fonts/font = ExtResource( 21 )
-custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
-text = "229 1284"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back" parent="CanvasLayer/tartCard" instance=ExtResource( 24 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -39.0
-margin_top = -118.0
-margin_right = 39.0
-margin_bottom = -89.0
-
-[node name="crumpledPaper" type="Control" parent="CanvasLayer"]
+[node name="crumpledPaper" parent="CanvasLayer" instance=ExtResource( 21 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 25 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/crumpledPaper"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="paper" type="TextureRect" parent="CanvasLayer/crumpledPaper"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -167.0
-margin_top = -113.5
-margin_right = 167.0
-margin_bottom = 113.5
-texture = ExtResource( 28 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/crumpledPaper/paper"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -148.0
-margin_top = -101.0
-margin_right = 148.0
-margin_bottom = 101.0
-custom_fonts/font = ExtResource( 29 )
-custom_colors/font_color = Color( 0.392157, 0.278431, 0.278431, 1 )
-text = "Whenever you want
-me back, call me at 1023903 xxx"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back" parent="CanvasLayer/crumpledPaper" instance=ExtResource( 24 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -39.0
-margin_top = -118.0
-margin_right = 39.0
-margin_bottom = -89.0
+rect_scale = Vector2( 1, 1 )
 
 [node name="blocker" type="Control" parent="CanvasLayer"]
 visible = false
@@ -947,16 +814,14 @@ one_shot = true
 [connection signal="pressed" from="wallet" to="." method="_on_wallet_pressed"]
 [connection signal="pressed" from="tartCard" to="." method="_on_tartCard_pressed"]
 [connection signal="pressed" from="crumpledPaper" to="." method="_on_crumpledPaper_pressed"]
+[connection signal="pressed" from="paperclip" to="." method="_on_paperclip_pressed"]
 [connection signal="pressed" from="doorOpened/doorOpenedHandle" to="." method="_on_doorOpenedHandle_pressed"]
 [connection signal="pressed" from="doorClosed/doorClosedHandle" to="." method="_on_doorClosedHandle_pressed"]
 [connection signal="timeout" from="CanvasLayer/uiInstructions/VBox/Timer" to="CanvasLayer/uiInstructions" method="_on_Timer_timeout"]
-[connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]
 [connection signal="timeout" from="CanvasLayer/remainingTime" to="." method="_on_remainingTime_timeout"]
 [connection signal="timeout" from="CanvasLayer/remainingTime/Timer" to="CanvasLayer/remainingTime" method="_on_Timer_timeout"]
 [connection signal="coin_collected" from="CanvasLayer/wallet" to="." method="add_coin"]
-[connection signal="window_closed" from="CanvasLayer/wallet" to="." method="enable_zoom"]
-[connection signal="window_closed" from="CanvasLayer/tartCard" to="." method="enable_zoom"]
-[connection signal="pressed" from="CanvasLayer/tartCard/back" to="CanvasLayer/tartCard" method="_on_back_pressed"]
-[connection signal="window_closed" from="CanvasLayer/crumpledPaper" to="." method="enable_zoom"]
-[connection signal="pressed" from="CanvasLayer/crumpledPaper/back" to="CanvasLayer/crumpledPaper" method="_on_back_pressed"]
+[connection signal="window_closed" from="CanvasLayer/wallet" to="." method="on_window_closed"]
+[connection signal="window_closed" from="CanvasLayer/tartCard" to="." method="on_window_closed"]
+[connection signal="window_closed" from="CanvasLayer/crumpledPaper" to="." method="on_window_closed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

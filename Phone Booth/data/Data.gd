@@ -19,9 +19,6 @@ func _ready():
 	var num_nodes = phone_dialogues["n0"]["children"] #start node, children contains nodeID for nodes with numbers
 	for id in num_nodes: 
 		number_nodes [phone_dialogues[id]["#text"]] = id
-		
-#	print(number_nodes)
-#	print(phone_dialogues)
 	
 func get_data(key,default = null):
 	if data.has(key): 

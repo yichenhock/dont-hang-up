@@ -4,7 +4,16 @@ var camera_following_cursor = false
 var interacted_with_something = false
 var coins_collected = 0
 var taking_call = false
-var reply_on_timeout = "Hello...?"
+var phone_picked_up = false
+
+signal phone_picked_up()
+signal phone_hung_up()
+signal phone_call_begun(nodeID)
+signal phone_dialed_unknown_number()
+signal out_of_time()
+
+signal window_overlay_opened()
+signal window_overlay_closed()
 
 func _ready():
 	$doorClosed.visible = true
@@ -50,9 +59,14 @@ func _unhandled_input(event):
 
 func _input(event):
 	if event.is_action_pressed("x"): # Pick up the phone
+		phone_picked_up = true
 		$phone.pick_up()
+		emit_signal("phone_picked_up")
 	if event.is_action_released("x"): # Hang up
-		$phone.hang_up()
+		if phone_picked_up: 
+			$phone.hang_up()
+			phone_picked_up = false
+			emit_signal("phone_hung_up")
 			
 func _process(delta):
 	if camera_following_cursor: # Camera stuff
@@ -63,6 +77,10 @@ func _process(delta):
 func enable_zoom(): 
 	zoom_enabled = true
 	
+func on_window_closed(): 
+	emit_signal("window_overlay_closed")
+	zoom_enabled = true
+	
 func _on_Timer_timeout(): # change to time since last interaction/last click
 	if not interacted_with_something: 
 		$phone.ring_phone() # dis is phone call from da killer uwu
@@ -70,15 +88,18 @@ func _on_Timer_timeout(): # change to time since last interaction/last click
 func _on_wallet_pressed():
 	$CanvasLayer/wallet.visible = true
 	zoom_enabled = false
+	emit_signal("window_overlay_opened")
 
 func _on_tartCard_pressed():
 	$CanvasLayer/tartCard.visible = true
 	zoom_enabled = false
+	emit_signal("window_overlay_opened")
 
 func _on_crumpledPaper_pressed():
 	Audio.play("uncrumpleSFX")
 	$CanvasLayer/crumpledPaper.visible = true
 	zoom_enabled = false
+	emit_signal("window_overlay_opened")
 
 func add_coin(): 
 	coins_collected += 1
@@ -96,50 +117,28 @@ func use_coin():
 
 func _on_phone_picked_up(number):
 	zoom_enabled = false
-	#read from "phone-dialogues here!"
 	var free_calls = ["0","999","1808255"]
 	
 	if Data.number_nodes.has(number): 
 		Audio.play_phone("recieverPickupSFX")
-		$CanvasLayer/speechPhone.show()
 		if not number in free_calls: 
 			$CanvasLayer/remainingTime.start()
-			
-		$CanvasLayer/speechPhone.type_text(Data.phone_dialogues[Data.number_nodes[number]]["#text"]) #this is wrong... this gets the number thats in the starting number node!!!
-		identify_next_node(Data.number_nodes[number])
+		emit_signal("phone_call_begun", Data.number_nodes[number])
+	else: 
+		$CanvasLayer/remainingTime.start()
+		emit_signal("phone_dialed_unknown_number")
 		
-	else: 
-		Audio.play_phone("phoneDisconnected")
-		$CanvasLayer/speechPhone.show()
-		$CanvasLayer/speechPhone.type_texts(["We're sorry. You have reached a number that has been disconnected or is no longer in service. If you feel that you have reached this recording in error, please check the number and try your call again. "])
-
-func identify_next_node(nodeID): 
-	if Data.phone_dialogues[nodeID].has("children") == false: 
-		return false
-	else: 
-		for node in Data.phone_dialogues[nodeID]["children"]: 
-			if Data.phone_dialogues[node]["@color"] == "#CCFFCC": #phonespeech
-				print("this is a speech")
-				print(Data.phone_dialogues[node]["#text"])
-			elif Data.phone_dialogues[node]["@color"] =="#99CCFF": #choice
-				print("this is a choice")
-				print(Data.phone_dialogues[node]["#text"])
-			elif Data.phone_dialogues[node]["@color"] =="#FF99CC": # reply after timeout
-				print("this is the reply on timeout")
-				reply_on_timeout = Data.phone_dialogues[node]["#text"]
-				print(reply_on_timeout)
-		return Data.phone_dialogues[nodeID]["children"]
-
-func _on_speechPhone_line_started():
+func shake_handset(): 
 	$phone.shake_handset()
 
 func _on_phone_hang_up():
-	#if any speech is going on, terminate it 
-	if $CanvasLayer/speechPhone.visible: 
-		$CanvasLayer/speechPhone.hide()
+	emit_signal("phone_hung_up")
 	$CanvasLayer/remainingTime.stop()
 	zoom_enabled = true
 
 func _on_remainingTime_timeout(): # phone call abruptly ends bcos no money bcos poor
-	pass # Print something like no more coins
-	# then killer kills you? 
+	Audio.play_phone("deadlineSFX")
+	$phone.display_no_coins(true)
+	emit_signal("out_of_time")
+func _on_paperclip_pressed():
+	pass # Replace with function body.

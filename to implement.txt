@@ -1,5 +1,82 @@
 poster: £1 for 1 minute
-UI instructions: Press and hold p to hold the phone
-Hide key (to implement later)
+coin drops in compartment when a number is called
+tech support guy
 Sound for the coin change compartment
 Dialogue
+CRT shader for blinking + drunk effect on opening of the game
+flash back scene maybe (triggered by meta) 
+door cannot be closed while phone is picked up
+change phone speech font
+draw character silohuettes
+gargled speech blip sfx
+change menu click sound? 
+add sfx for picking up various objects in the booth
+add paper clip - paperclip used to pick coin compartment lock? 
+coin compartment has extra coins and a mystery sweet - drugs
+inventory (drag and drop to use) system
+tear off poster slip
+save system
+phonebook obscured letters
+mobile phone that dies after limited use
+
+out of genre dating sim
+
+implement hang up counter!
+
+harry potter phone number 
+bad recorder
+
+draw phonebooth in different lighting: 
+- cyberpunk
+- red lighting
+- UV lighting
+- no light
+
+add spooks: 
+- ghost behind booth
+- hanging person
+- various knocking noises
+
+add deaths: 
+- blood dripping from booth walls
+- flooded
+- get hit by train
+
+ending scene: 
+- stone crack animation
+- hydrangea plant growing animation
+
+bgm: 
+- title screen
+
+if no interaction, death occurs
+
+replay screen
+how could things have been different? 
+
+pick up phone > call number > get dialogue data > show phone speech > display options > show next speech > continue based on what nodes are connected
+
+meta flags??? 
+
+Translation puzzle
+two lines in different languages
+guess what they are saying
+based on example translation
+
+
+
+bugs: 
+- camera zoom still active when clicked on wallet and should not be
+- insert coin buggy
+
+use number to key in phone
+blip sound effects
+Huel conversation
+
+add coin change handle code
+
+
+
+
+
+

@@ -8,20 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Control",
-"class": "DialogueAction",
-"language": "GDScript",
-"path": "res://data/DialogueAction.gd"
-}, {
-"base": "Control",
-"class": "DialogueBox",
-"language": "GDScript",
-"path": "res://data/DialogueBox.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"DialogueAction": "",
-"DialogueBox": ""
+
 }
 
 [application]

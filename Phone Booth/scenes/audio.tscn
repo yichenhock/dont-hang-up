@@ -96,7 +96,7 @@ bus = "PhoneSFX"
 stream = ExtResource( 17 )
 bus = "PhoneSFX"
 
-[node name="phoneDisconnected" type="AudioStreamPlayer" parent="phone"]
+[node name="phoneDisconnectedVoice" type="AudioStreamPlayer" parent="phone"]
 stream = ExtResource( 30 )
 bus = "PhoneSFX"
 

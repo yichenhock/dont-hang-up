@@ -5,7 +5,12 @@ signal window_closed()
 func _ready():
 	pass # Replace with function body.
 
+#func _process(delta):
+#	if visible: 
+#		get_tree().paused = true
+
 func _on_back_pressed():
 	Audio.play("menuClickSFX")
 	visible = false
-	emit_signal("exit_window")
+	emit_signal("window_closed")
+#	get_tree().paused = false

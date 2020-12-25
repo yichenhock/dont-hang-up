@@ -11,6 +11,13 @@ func add_time():
 	remaining_time +=60
 	$time.text =  str(floor(remaining_time/60)).pad_zeros(2)+":" + str(fmod(remaining_time,60)).pad_zeros(2)
 	Data.set_data("remaining_time", remaining_time)
+	$timeAnim.play("increment")
+	
+func decrement_time(): 
+	remaining_time -=60
+	$time.text =  str(floor(remaining_time/60)).pad_zeros(2)+":" + str(fmod(remaining_time,60)).pad_zeros(2)
+	Data.set_data("remaining_time", remaining_time)
+	$timeAnim.play("red")
 	
 func start(): 
 	$time.add_color_override("font_color",Color("d0cc89"))
@@ -31,3 +38,4 @@ func _on_Timer_timeout():
 		$Timer.stop()
 		$timeAnim.play("flash")
 		emit_signal("timeout")
+	

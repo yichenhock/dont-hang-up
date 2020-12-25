@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spirit_Freed_Opening.wav-c2b83ef59b6bfd684ee8d2939f48b053.sample"
+
+[deps]
+
+source_file="res://assets/music/bgm/Spirit_Freed_Opening.wav"
+dest_files=[ "res://.import/Spirit_Freed_Opening.wav-c2b83ef59b6bfd684ee8d2939f48b053.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

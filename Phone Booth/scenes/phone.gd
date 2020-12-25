@@ -13,6 +13,8 @@ var free_calls = ["999","1808255"]
 signal picked_up(number) # if number is "0", that means a call is being recieved from the killer
 signal hang_up()
 signal coin_inserted()
+signal coin_collected()
+signal return_handle_pressed()
 
 func _ready():
 	$display.text = default_display[n]
@@ -175,15 +177,24 @@ func _on_key_pressed(): # key collected
 var coins_in_change_compartment = 0
 
 func _on_returnHandle_pressed():
-	print(floor(Data.get_data("remaining_time")/60))
-	if floor(Data.get_data("remaining_time")/60) > 1: 
-		# return_a_coin()
-		Data.set_data("remaining_time", Data.get_data("remaining_time") - 60)
+	if floor(Data.get_data("remaining_time",0)/60) > 0: 
+		emit_signal("return_handle_pressed")
+		coins_in_change_compartment += 1
+		for coin in $coinChange.get_children(): 
+			coin.visible = false
+		$coinChange.get_node("coin"+str(coins_in_change_compartment)).visible = true
+
+func _on_coinChange_pressed():
+	if coins_in_change_compartment > 0: 
+		coins_in_change_compartment -= 1
+		Audio.play("coinPickupSFX")
+		for coin in $coinChange.get_children(): 
+			coin.visible = false
+		if coins_in_change_compartment != 0:
+			$coinChange.get_node("coin"+str(coins_in_change_compartment)).visible = true
+		# Data.set_data("coins", Data.get_data("coins",0)+1)
+		emit_signal("coin_collected")
 		
-		print(Data.get_data("remaining_time"))
-	print(floor(Data.get_data("remaining_time")/60)) # Number of coins which can be returned
-	pass 
-
-
-
-
+func _process(delta): 
+	$coinChange.visible = !$changeLid/lidClose.visible
+	# do similar with key only if its been dropped

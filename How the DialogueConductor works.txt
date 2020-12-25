@@ -1,0 +1,11 @@
+NB: node in yED represents a block in the flowchart - different from NODE in Godot. To prevent confusion I will refer to the latter in uppercase. 
+
+Firstly I used yED to map out the conversations. I have certain colours that represent different types of nodes (e.g. speech, choice, reply_on_timeout, etc.). This is saved as a .graphml file which is very similar to an .xml. The .xml file contains all the node edge information but also a lot of other information which I won't need, including the shape of the node and other attributes. I stripped this down to just what I needed (the node/edge data, text and colour) and converted it to a .json file, which I opened in Godot and imported the json file as a dictionary within Data.gd, a script file on autoload. 
+
+Each node and edge has a unique ID. The .json file arranges the data such that there are two separate dicts, one being the nodes and their attributes and a second one for each edge and their connected source and target nodes. 
+
+I then reformatted dictionary to give me a dictionary of nodes and an array for each containing the nodeID(s) connected to each node. I know the ID of my starting node and that is connected to the phone numbers which, when dialled from the phonebooth, trigger a conversation respectively (goes down a specific route in the flowchart). 
+
+I created a 'DialogueNode' NODE (type: white circle) in Godot which acts like a class containing data about the current node the conversation is at. To initiate the dialogue sequence, a signal is outputted from the phone node when a number is dialled. If this number exists, it will pass this as a parameter to the DialogueNode and identify (using 
+
+

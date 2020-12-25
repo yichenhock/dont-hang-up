@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/music/sfx/phone-ring.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/music/sfx/phone/telephone_8.wav" type="AudioStream" id=29]
 [ext_resource path="res://assets/music/sfx/phone-disconnected.wav" type="AudioStream" id=30]
 [ext_resource path="res://assets/music/sfx/metal_thud.wav" type="AudioStream" id=31]
+[ext_resource path="res://assets/music/bgm/Spirit_Freed.wav" type="AudioStream" id=32]
 
 [node name="Audio" type="Node"]
 pause_mode = 2
@@ -56,6 +57,11 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="endingBGM" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource( 32 )
+mix_target = 1
+bus = "BGM"
 
 [node name="phone" type="Control" parent="."]
 margin_right = 40.0

@@ -5,7 +5,8 @@ var reply_on_timeout = "Hello...?"
 var type = null # speech, choice, flag, reply on timeout, number
 var types = {	"#CCFFCC":"speech", 
 				"#99CCFF":"choice",
-				"#FF99CC":"reply_on_timeout"}
+				"#FF99CC":"reply_on_timeout",
+				"#CC99FF":"flag"}
 var choices = {}
 var speech_text = null
 var nodeID_speech = null

@@ -325,6 +325,7 @@ tracks/1/keys = {
 }
 
 [node name="menu" type="Control"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -433,8 +434,8 @@ option_text = "LEAVE"
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -73.0
-margin_bottom = -33.0
+margin_top = -83.0
+margin_bottom = -35.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -442,7 +443,7 @@ __meta__ = {
 
 [node name="gameby" type="Label" parent="main/footer"]
 margin_right = 450.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 text = "A GAME BY"
@@ -452,9 +453,9 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="main/footer"]
-margin_top = 20.0
+margin_top = 24.0
 margin_right = 450.0
-margin_bottom = 40.0
+margin_bottom = 48.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 1, 0.0784314, 0, 1 )
 text = "YI CHEN HOCK"

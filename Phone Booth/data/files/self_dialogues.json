@@ -1,4 +1,6 @@
 {
-	"001": ["My mind feels strangely blank...","I'm not sure how I ended up here.","...", "... is that my wallet in there?!", "Maybe I can find some clues here..."], 
-	"002": ["I feel like someone's watching me...", "How did I end up here again?", "...", "... is that my wallet in there?!", "Maybe I can find some clues here..."]
+	"001": ["My mind feels strangely blank...","I'm not sure how I ended up here.","I think that's my wallet in there!", "Maybe I can find some clues here..."], 
+	"002": ["Somehow I don't feel so good...", "How did I end up here again?"], 
+	"003": ["This place is cursed, I'm sure of it.", "Should I just run away?"], 
+	"004": ["There's gotta be another way out of this damn place."]
 }

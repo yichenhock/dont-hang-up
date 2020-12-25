@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/menu/menuOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/tres/EnterCommand-Bold-Large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://shaders/chromaticAbberation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu/gameOver.gd" type="Script" id=4]
+[ext_resource path="res://shaders/chromaticShift.shader" type="Shader" id=5]
+[ext_resource path="res://assets/fonts/tres/FreePixel.tres" type="DynamicFont" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/AMPLITUDE = 0.01
+shader_param/SPEED = 5.0
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float screen_width = 1024;
+uniform float screen_height = 600;
+
+// Curvature
+uniform float BarrelPower =1.1;
+// Color bleeding
+uniform float color_bleeding = 1.2;
+uniform float bleeding_range_x = 3;
+uniform float bleeding_range_y = 3;
+// Scanline
+uniform float lines_distance = 4.0;
+uniform float scan_size = 2.0;
+uniform float scanline_alpha = 0.9;
+uniform float lines_velocity = 30.0;
+
+vec2 distort(vec2 p) 
+{
+	float angle = p.y / p.x;
+	float theta = atan(p.y,p.x);
+	float radius = pow(length(p), BarrelPower);
+	
+	p.x = radius * cos(theta);
+	p.y = radius * sin(theta);
+	
+	return 0.5 * (p + vec2(1.0,1.0));
+}
+
+void get_color_bleeding(inout vec4 current_color,inout vec4 color_left){
+	current_color = current_color*vec4(color_bleeding,0.5,1.0-color_bleeding,1);
+	color_left = color_left*vec4(1.0-color_bleeding,0.5,color_bleeding,1);
+}
+
+void get_color_scanline(vec2 uv,inout vec4 c,float time){
+	float line_row = floor((uv.y * screen_height/scan_size) + mod(time*lines_velocity, lines_distance));
+	float n = 1.0 - ceil((mod(line_row,lines_distance)/lines_distance));
+	c = c - n*c*(1.0 - scanline_alpha);
+	c.a = 1.0;
+}
+
+void fragment()
+{
+	vec2 xy = SCREEN_UV * 2.0;
+	xy.x -= 1.0;
+	xy.y -= 1.0;
+	
+	float d = length(xy);
+	if(d < 1.5){
+		xy = distort(xy);
+	}
+	else{
+		xy = SCREEN_UV;
+	}
+	
+	float pixel_size_x = 1.0/screen_width*bleeding_range_x;
+	float pixel_size_y = 1.0/screen_height*bleeding_range_y;
+	vec4 color_left = texture(SCREEN_TEXTURE,xy - vec2(pixel_size_x, pixel_size_y));
+	vec4 current_color = texture(SCREEN_TEXTURE,xy);
+	get_color_bleeding(current_color,color_left);
+	vec4 c = current_color+color_left;
+	get_color_scanline(xy,c,TIME);
+	COLOR = c;
+
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/screen_width = 450.0
+shader_param/screen_height = 750.0
+shader_param/BarrelPower = 1.05
+shader_param/color_bleeding = 1.2
+shader_param/bleeding_range_x = 1.0
+shader_param/bleeding_range_y = 1.0
+shader_param/lines_distance = 4.0
+shader_param/scan_size = 2.0
+shader_param/scanline_alpha = 0.9
+shader_param/lines_velocity = 30.0
+
+[node name="gameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.89093
+margin_top = 0.8909
+margin_right = 0.89093
+margin_bottom = 0.890869
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="consoleText" type="Label" parent="main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -208.0
+margin_top = 20.0
+margin_right = 211.0
+margin_bottom = 207.0
+custom_fonts/font = ExtResource( 7 )
+text = "A problem has been detected and your wellbeing has been shut down to prevent damage to the social domain. 
+
+IRQL_NOT_OR_LESS_EQUAL
+
+If this is the first time you've seen this error message, try restarting. If this screen appears again, follow these steps: 
+
+Check to makes sure you are not"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paused" type="Label" parent="main"]
+margin_top = 302.0
+margin_right = 450.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 0, 70 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.0784314, 0, 1 )
+text = "YOU ARE DEAD"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tryAgain" parent="main" instance=ExtResource( 1 )]
+margin_top = 403.792
+margin_right = 450.0
+margin_bottom = 431.792
+option_text = "TRY AGAIN"
+
+[node name="chromaticAbberation" parent="." instance=ExtResource( 3 )]
+
+[node name="chromaticShift" type="BackBufferCopy" parent="."]
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shiftShader" type="ColorRect" parent="chromaticShift"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CRT" type="BackBufferCopy" parent="."]
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CRTShader" type="ColorRect" parent="CRT"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

@@ -525,17 +525,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="coinChange" type="TextureButton" parent="."]
+[node name="changeLid" type="TextureButton" parent="."]
+margin_left = 16.0
+margin_top = 190.0
+margin_right = 54.0
+margin_bottom = 215.0
+mouse_filter = 1
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lidClose" type="TextureRect" parent="changeLid"]
+margin_right = 38.0
+margin_bottom = 25.0
+mouse_filter = 2
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lidOpen" type="TextureRect" parent="changeLid"]
 visible = false
+margin_left = 1.0
+margin_right = 37.0
+margin_bottom = 7.0
+mouse_filter = 2
+texture = ExtResource( 37 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinChange" type="TextureButton" parent="."]
 margin_left = 23.4888
 margin_top = 201.102
 margin_right = 41.4888
 margin_bottom = 213.102
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="coin4" type="TextureRect" parent="coinChange"]
+visible = false
 margin_right = 18.0
 margin_bottom = 12.0
 mouse_filter = 2
@@ -585,37 +617,6 @@ margin_top = 206.0
 margin_right = 51.9943
 margin_bottom = 214.0
 texture_normal = ExtResource( 43 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="changeLid" type="TextureButton" parent="."]
-margin_left = 16.0
-margin_top = 190.0
-margin_right = 54.0
-margin_bottom = 215.0
-mouse_filter = 1
-script = ExtResource( 38 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lidClose" type="TextureRect" parent="changeLid"]
-margin_right = 38.0
-margin_bottom = 25.0
-mouse_filter = 2
-texture = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lidOpen" type="TextureRect" parent="changeLid"]
-visible = false
-margin_left = 1.0
-margin_right = 37.0
-margin_bottom = 7.0
-mouse_filter = 2
-texture = ExtResource( 37 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -699,9 +700,9 @@ one_shot = true
 [connection signal="pressed" from="returnHandle" to="." method="_on_returnHandle_pressed"]
 [connection signal="button_down" from="hook" to="." method="_on_hook_button_down"]
 [connection signal="button_up" from="hook" to="." method="_on_hook_button_up"]
-[connection signal="pressed" from="coinChange" to="." method="_on_key_pressed"]
-[connection signal="pressed" from="key" to="." method="_on_key_pressed"]
 [connection signal="pressed" from="changeLid" to="changeLid" method="_on_changeLid_pressed"]
+[connection signal="pressed" from="coinChange" to="." method="_on_coinChange_pressed"]
+[connection signal="pressed" from="key" to="." method="_on_key_pressed"]
 [connection signal="timeout" from="displayTimer" to="." method="_on_displayTimer_timeout"]
 [connection signal="timeout" from="callTimer" to="." method="_on_callTimer_timeout"]
 [connection signal="timeout" from="outgoingCallTimer" to="." method="_on_outgoingCallTimer_timeout"]

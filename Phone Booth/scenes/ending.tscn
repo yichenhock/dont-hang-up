@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/backgrounds/clouds.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/graphics/boothruinsbase.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/palettes/cast_shadow.png" type="Texture" id=4]
 [ext_resource path="res://shaders/godotboy.shader" type="Shader" id=5]
 [ext_resource path="res://scenes/ending.gd" type="Script" id=6]
+[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=7]
+[ext_resource path="res://shaders/rain.shader" type="Shader" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -40,6 +42,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 8 )
+shader_param/intensity = 0.015
+shader_param/noise = ExtResource( 7 )
 
 [node name="ending" type="Control"]
 script = ExtResource( 6 )
@@ -103,4 +110,17 @@ anims/fadeIn = SubResource( 3 )
 [node name="ruins" type="Sprite" parent="booth"]
 texture = ExtResource( 2 )
 centered = false
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+visible = false
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+
+[node name="ColorRect" type="ColorRect" parent="BackBufferCopy"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="clouds_finished" from="clouds" to="." method="_on_clouds_clouds_finished"]

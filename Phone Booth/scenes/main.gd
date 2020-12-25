@@ -6,6 +6,8 @@ var current_state = "menu"
 # var left_people_hanging = 0 # the amount of times player spent too long choosing an option
 # var hung_up_on_someone = 0 # the amount of times the player hangs up on somebody
 
+var phone_picked_up = false
+
 func _ready():
 #	change_state("phoneBooth")
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(Data.get_data("volume",0.8)))
@@ -28,20 +30,23 @@ func _unhandled_input(event):
 		
 	if event.is_action_pressed("ui_cancel"): 
 		if $CanvasLayer/menu.visible == false: 
-			get_tree().paused = true
 			$CanvasLayer/pauseMenu.visible = true
 
 func _on_menu_enter_pressed():
 	first_speech()
 	$phoneBooth.set_interaction(true)
 
+var first_part_done = false
+
 func first_speech(): # the "talking to self" speech the player does upon starting the game
 	var dialogue = Data.files["self_dialogues"]["001"]
 	$CanvasLayer/speechSelf.type_texts(dialogue)
 	
 func _on_speechSelf_self_dialogue_finished():
-	$phoneBooth.zoom_enabled = true
-	$phoneBooth.initialise()
+	if not first_part_done: 
+		first_part_done = true
+		$phoneBooth.zoom_enabled = true
+		$phoneBooth.initialise()
 
 #func change_state(new_scene_name):
 #	remove_child(current_scene)
@@ -69,7 +74,8 @@ func do_the_dialogue_thing(nodeID):
 		do_the_dialogue_thing($DialogueNode.nodeID_speech)
 		
 	elif $DialogueNode.type == "choice": 
-		$CanvasLayer/speechOptions.show_options($DialogueNode.choices)
+		if phone_picked_up: 
+			$CanvasLayer/speechOptions.show_options($DialogueNode.choices)
 
 func _on_speechPhone_line_started():
 	$phoneBooth.shake_handset()
@@ -92,7 +98,11 @@ func end_phone_call():
 	$phoneBooth/CanvasLayer/remainingTime.stop()
 	Audio.stop_phone()
 
+func _on_phoneBooth_phone_picked_up():
+	phone_picked_up = true
+	
 func _on_phoneBooth_phone_hung_up():
+	phone_picked_up = false
 	$CanvasLayer/speechOptions.terminate_choices()
 	$CanvasLayer/speechPhone.hide()
 	$phoneBooth/CanvasLayer/remainingTime.stop()
@@ -124,3 +134,6 @@ func _on_phoneBooth_phone_dialed_unknown_number():
 func _on_phoneBooth_out_of_time(): # if no more possibility for more coins to be inserted, something special happens
 	$CanvasLayer/speechPhone.hide()
 	Audio.stop_phone()
+
+func _on_phoneBooth_mobile_clicked_first_time():
+	$CanvasLayer/speechSelf.type_texts(["Oh! That's my phone..."])

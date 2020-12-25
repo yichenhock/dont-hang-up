@@ -1,23 +1,53 @@
-poster: £1 for 1 minute
-coin drops in compartment when a number is called
-tech support guy
+key drops in compartment when a number is called
 Sound for the coin change compartment
-Dialogue
-CRT shader for blinking + drunk effect on opening of the game
+
 flash back scene maybe (triggered by meta) 
 door cannot be closed while phone is picked up
-change phone speech font
 draw character silohuettes
 gargled speech blip sfx
 change menu click sound? 
+
 add sfx for picking up various objects in the booth
-add paper clip - paperclip used to pick coin compartment lock? 
+paperclip used to pick coin compartment lock? 
+- maybe paperclip after used on metal several times, it deforms into a wire that can be used to pick the lock
+
 coin compartment has extra coins and a mystery sweet - drugs
-inventory (drag and drop to use) system
+
 tear off poster slip
 save system
-phonebook obscured letters
-mobile phone that dies after limited use
+
+metal door SFX a bit too loud
+tear poster SFX
+
+text services and the other buttons in the phone booth?
+
+phonebook obscured letters, only revealed after phone has been discovered/called
+
+add a mobile phone that dies after limited use (sumsang brick phone?)
+
+stop flash animation when phone is put down
+
+phone handle cable
+
+if seconds_since_last_interaction > 60*5: 
+	phone rings (from ghost) 
+	if ignore phonecall: 
+		gradually turn to red
+	if phone hang up before dialogue ends: 
+		immediate death
+	if finish entire conversation: 
+		blood drips from the walls
+	all ends in a game over. 
+
+THIS SHOULD ONLY TRIGGER ONCE!
+
+speech that bypasses waiting --> set a variable
+customising font/colour?
+
+fix toggle fullscreen
+
+rain/thunder shader
+rainstorm?
 
 out of genre dating sim
 
@@ -28,19 +58,31 @@ bad recorder
 
 draw phonebooth in different lighting: 
 - cyberpunk
+- disco flashing lights, hype discord music (compressed through the phone) (call PICKLES, he's actually a DJ)
 - red lighting
 - UV lighting
 - no light
+
+incentive for people to stay on the phonebooth
+
+glow shader
+hue shift shader
 
 add spooks: 
 - ghost behind booth
 - hanging person
 - various knocking noises
+- all posters replaced with creepy moving eye
+- drunk move with mouse
+- glitchy creepy stuff on phone
+- scary polaroid (random chance)
+- bird flies into side of the booth
 
 add deaths: 
 - blood dripping from booth walls
 - flooded
 - get hit by train
+- slashed with something
 
 ending scene: 
 - stone crack animation
@@ -48,35 +90,54 @@ ending scene:
 
 bgm: 
 - title screen
+- ending
+- sound effects
+- maybe some hype hype musik
 
 if no interaction, death occurs
 
-replay screen
-how could things have been different? 
-
-pick up phone > call number > get dialogue data > show phone speech > display options > show next speech > continue based on what nodes are connected
+GAME OVER replay screen: 
+"how could things have been different?"
 
 meta flags??? 
-
-Translation puzzle
-two lines in different languages
-guess what they are saying
-based on example translation
-
-
+add music directions
 
 bugs: 
-- camera zoom still active when clicked on wallet and should not be
 - insert coin buggy
 
 use number to key in phone
 blip sound effects
-Huel conversation
 
-add coin change handle code
+conversation ideas: 
+- Huel conversation
+- existential crisis "but do you ACTUALLY exist or are we just in a game?"
+- calming, "headspace" - imagine you are somewhere, now breathe --> onset of incoming train
+calm is actually part of a very top secret confidential brainwashing organisation which is part of the government
+- Translation puzzle:
+	two lines in different languages
+	guess what they are saying
+	based on example translation
 
+Using items: 
+left click to use
+right click to drop item
 
+phonebooth slowly turns to red lighting if idle for too long. 
+time since last click
 
+getting a phone call from an ad company
 
+phonebook icon for accessibility
+"number discovered achievement" - lil animation perhaps
 
+change colour of mobile to stand out a little more? or nah (probably nah actually hmm)
 
+Steam achievements: 
+- Died once
+- Died 50 times
+- Called 15 numbers
+- Called all numbers
+- True ending
+- Regretful ending
+
+zalgo glitch text effects. 

@@ -1,10 +1,12 @@
 extends Node2D
 var zoom_enabled = false
 var camera_following_cursor = false
-var interacted_with_something = false
+
 var coins_collected = 0
 var taking_call = false
 var phone_picked_up = false
+
+var seconds_since_last_interaction = 0
 
 signal phone_picked_up()
 signal phone_hung_up()
@@ -28,6 +30,7 @@ func initialise():
 	$CanvasLayer/uiInstructions.show()
 	$CanvasLayer/remainingTime.visible = true
 	$CanvasLayer/coins.visible = true
+	$secondsTimer.start()
 
 func _on_doorOpenedHandle_pressed():
 	$doorAnim.play("close")
@@ -66,13 +69,32 @@ func _input(event):
 		if phone_picked_up: 
 			$phone.hang_up()
 			phone_picked_up = false
-			emit_signal("phone_hung_up")
-			
+
 func _process(delta):
+	$doorOpened/doorOpenedHandle.visible = !phone_picked_up
+	
 	if camera_following_cursor: # Camera stuff
 		$Camera2D.offset = get_viewport().get_mouse_position()*0.5 + get_viewport().size*0.25
 	else: 
 		$Camera2D.offset = get_viewport().size*0.5
+		
+	if Input.is_action_pressed("click") or Input.is_action_pressed("right_click"): 
+		seconds_since_last_interaction = 0
+
+func _on_secondsTimer_timeout():
+	if seconds_since_last_interaction != null: 
+		seconds_since_last_interaction += 1
+		print("seconds since last click: ", seconds_since_last_interaction)
+		if seconds_since_last_interaction > 40:
+			seconds_since_last_interaction = null
+			$phone.ring_phone()  # a death??
+
+func _on_paperclip_pressed():
+	$paperclip.visible = false
+	$CanvasLayer/items/vbox/paperclipInv.visible = true
+	
+func _on_paperclipInv_pressed():
+	$CanvasLayer/cursors.item_equipped = "paperclip"
 	
 func enable_zoom(): 
 	zoom_enabled = true
@@ -80,10 +102,6 @@ func enable_zoom():
 func on_window_closed(): 
 	emit_signal("window_overlay_closed")
 	zoom_enabled = true
-	
-func _on_Timer_timeout(): # change to time since last interaction/last click
-	if not interacted_with_something: 
-		$phone.ring_phone() # dis is phone call from da killer uwu
 
 func _on_wallet_pressed():
 	$CanvasLayer/wallet.visible = true
@@ -110,10 +128,16 @@ func _on_phone_coin_inserted():
 	use_coin()
 	$CanvasLayer/remainingTime.add_time()
 
+func _on_phone_coin_collected():
+	add_coin()
+	
 func use_coin(): 
 	coins_collected -= 1
 	$CanvasLayer/coins.decrement()
 	Data.set_data("coins", coins_collected)
+
+func _on_phone_return_handle_pressed():
+	$CanvasLayer/remainingTime.decrement_time()
 
 func _on_phone_picked_up(number):
 	zoom_enabled = false
@@ -140,5 +164,17 @@ func _on_remainingTime_timeout(): # phone call abruptly ends bcos no money bcos 
 	Audio.play_phone("deadlineSFX")
 	$phone.display_no_coins(true)
 	emit_signal("out_of_time")
-func _on_paperclip_pressed():
-	pass # Replace with function body.
+
+var mobile_clicked = false
+signal mobile_clicked_first_time()
+
+func _on_mobile_pressed():
+	if not mobile_clicked: 
+		emit_signal("mobile_clicked_first_time")
+		mobile_clicked = true
+	else: 
+		$CanvasLayer/mobile.visible = true
+
+func _on_suicideRip_pressed():
+	$booth/suicideAd.visible = false
+	# Audio.play("tearSFX")

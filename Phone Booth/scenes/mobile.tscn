@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Overlays/windowOverlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/mobile/mobile.png" type="Texture" id=2]
+
+[node name="mobile" instance=ExtResource( 1 )]
+
+[node name="mobileBase" type="TextureRect" parent="." index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.0
+margin_top = -275.0
+margin_right = 116.0
+margin_bottom = 218.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="screen" type="Control" parent="." index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 141.0
+margin_top = 158.853
+margin_right = -149.0
+margin_bottom = -431.147
+rect_clip_content = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="screen" index="0"]
+margin_right = 160.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="screen" index="1"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="screen" index="2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -7.0
+margin_right = 62.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "How are you today?"
+__meta__ = {
+"_edit_use_anchors_": false
+}

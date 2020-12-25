@@ -14,13 +14,16 @@ func play(sound):
 func stop(sound): 
 	get_node(sound).stop()
 	
+func play_bgm(sound): 
+	$BGM.get_node(sound).play()
+	
 func play_phone(sound): #only one plays at a time
 	if sound == "phoneDialSFX": 
 		$phone/phoneDialSFX.pitch_scale = rand_range(0.8,1.2)
 	else: 
 		stop_phone()
 	$phone.get_node(sound).play()
-
+	
 func stop_phone(): 
 	for node in $phone.get_children():
 		if node.get_class() == "AudioStreamPlayer":
@@ -38,6 +41,10 @@ func stop_all():
 			node.stop()
 			
 	for node in $phone.get_children(): 
+		if node.get_class() == "AudioStreamPlayer":
+			node.stop()
+			
+	for node in $BGM.get_children(): 
 		if node.get_class() == "AudioStreamPlayer":
 			node.stop()
 

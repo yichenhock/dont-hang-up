@@ -5,10 +5,13 @@ var amount = 0
 func _ready():
 	$amount.text = str(amount)
 
+
+
 func increment(): 
 	amount += 1
 	$amount.text = str(amount)
 	$coinAnim.play("spin")
+	$textAnim.play("increment")
 		
 func decrement(): 
 	amount -= 1

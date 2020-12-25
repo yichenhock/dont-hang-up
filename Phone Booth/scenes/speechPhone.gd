@@ -25,7 +25,7 @@ func hide():
 	visible = false
 	$Tween.interpolate_property(self, "rect_scale", Vector2(1,1), Vector2(0,0),0.2, Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 	$Tween.start()
-	yield($Tween,"tween_completed")
+	# yield($Tween,"tween_completed")
 	
 func show(): 
 	if not visible: 
@@ -50,17 +50,22 @@ func _process(delta):
 	if Input.is_action_pressed("click"): 
 		if not clicked: 
 			clicked = true
-			if dialogue.size() != 0 and not typing_text: 
-				n+=1
-				if n == dialogue.size(): 
-					dialogue = []
-					n = 0
-					emit_signal("phone_dialogue_finished")
-				else: 
-					type_text(dialogue[n])
-			elif typing_text: 
-				$dialogue.display_all()
-				# emit_signal("phone_dialogue_finished")
+			
+			if visible: 
+				if dialogue.size() != 0 and not typing_text: 
+					n+=1
+					if n == dialogue.size(): 
+						dialogue = []
+						n = 0
+						emit_signal("phone_dialogue_finished")
+					else: 
+						type_text(dialogue[n])
+				elif typing_text: 
+					$dialogue.display_all()
+					# emit_signal("phone_dialogue_finished")
+			else: 
+				n = 0
+				dialogue = []
 				
 	if Input.is_action_just_released("click"): 
 		clicked = false

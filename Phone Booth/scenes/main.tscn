@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
@@ -10,10 +10,20 @@
 [ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=10]
+[ext_resource path="res://shaders/godotboy_screen.shader" type="Shader" id=11]
 [ext_resource path="res://assets/palettes/night.png" type="Texture" id=12]
 [ext_resource path="res://shaders/blur.shader" type="Shader" id=13]
+[ext_resource path="res://assets/palettes/red.png" type="Texture" id=14]
+[ext_resource path="res://scenes/menu/gameOver.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=16]
+[ext_resource path="res://shaders/rain.shader" type="Shader" id=17]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 17 )
+shader_param/intensity = 0.05
+shader_param/noise = ExtResource( 16 )
+
+[sub_resource type="Animation" id=2]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("rectTop:rect_size")
@@ -112,11 +122,42 @@ tracks/7/keys = {
 "values": [ 1.1, 1.0 ]
 }
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 11 )
+shader_param/palette = ExtResource( 14 )
+
+[sub_resource type="Animation" id=4]
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 13 )
 shader_param/blur_amount = 0.0
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 
 uniform float screen_width = 1024;
@@ -183,8 +224,8 @@ void fragment()
 
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 shader_param/screen_width = 450.0
 shader_param/screen_height = 750.0
 shader_param/BarrelPower = 1.0
@@ -212,6 +253,40 @@ palette = ExtResource( 12 )
 [node name="phoneBooth" parent="." instance=ExtResource( 2 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="rainShader" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
+rect = Rect2( 0, 0, 450, 750 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/rainShader"]
+material = SubResource( 1 )
+margin_right = 72.0
+margin_bottom = 751.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/rainShader"]
+material = SubResource( 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -72.0
+margin_bottom = 751.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/rainShader"]
+material = SubResource( 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -378.0
+margin_right = -72.0
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
@@ -227,8 +302,10 @@ margin_bottom = 250.888
 [node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
 
-[node name="menu" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="gameOver" parent="CanvasLayer" instance=ExtResource( 15 )]
 visible = false
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="firstTransit" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -261,40 +338,72 @@ __meta__ = {
 
 [node name="transitAnim" type="AnimationPlayer" parent="CanvasLayer/firstTransit"]
 autoplay = "open"
-anims/open = SubResource( 1 )
+anims/open = SubResource( 2 )
+
+[node name="PaletteShader" type="BackBufferCopy" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PaletteShader"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PaletteShader"]
+anims/fadeIn = SubResource( 4 )
 
 [node name="blur" type="BackBufferCopy" parent="CanvasLayer"]
 scale = Vector2( 1.00702, 1.00457 )
 copy_mode = 2
 rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="blur" type="ColorRect" parent="CanvasLayer/blur"]
-material = SubResource( 2 )
+material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="CRT" type="BackBufferCopy" parent="CanvasLayer"]
 copy_mode = 2
 rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CRTShader" type="ColorRect" parent="CanvasLayer/CRT"]
-material = SubResource( 4 )
+material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Tween" type="Tween" parent="CanvasLayer"]
+[connection signal="mobile_clicked_first_time" from="phoneBooth" to="." method="_on_phoneBooth_mobile_clicked_first_time"]
 [connection signal="out_of_time" from="phoneBooth" to="." method="_on_phoneBooth_out_of_time"]
 [connection signal="phone_call_begun" from="phoneBooth" to="." method="_on_phoneBooth_phone_call_begun"]
 [connection signal="phone_dialed_unknown_number" from="phoneBooth" to="." method="_on_phoneBooth_phone_dialed_unknown_number"]
 [connection signal="phone_hung_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_hung_up"]
+[connection signal="phone_picked_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_picked_up"]
 [connection signal="window_overlay_closed" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_closed"]
 [connection signal="window_overlay_opened" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_opened"]
 [connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]

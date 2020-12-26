@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://scenes/menu/gameOver.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=16]
 [ext_resource path="res://shaders/rain.shader" type="Shader" id=17]
+[ext_resource path="res://assets/palettes/nymph.png" type="Texture" id=18]
+[ext_resource path="res://shaders/godotboy3.shader" type="Shader" id=19]
+[ext_resource path="res://assets/palettes/ice_cream.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 17 )
@@ -237,6 +240,36 @@ shader_param/scan_size = 2.0
 shader_param/scanline_alpha = 1.0
 shader_param/lines_velocity = 10.0
 
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 19 )
+shader_param/weight1 = 1.0
+shader_param/weight2 = 0.0
+shader_param/weight3 = null
+shader_param/palette1 = ExtResource( 18 )
+shader_param/palette2 = ExtResource( 20 )
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+trail_divisor = 20
+trail_color_modifier = SubResource( 10 )
+emission_shape = 2
+emission_box_extents = Vector3( 0, 250, 1 )
+flag_disable_z = true
+spread = 5.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.1
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 0.5
+color = Color( 0.423529, 0.584314, 0.886275, 0.223529 )
+
 [node name="main" type="Node"]
 script = ExtResource( 1 )
 
@@ -294,10 +327,12 @@ margin_left = 100.053
 margin_top = 250.888
 margin_right = 100.053
 margin_bottom = 250.888
+blip_sfx = ""
 
 [node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
+blip_sfx = ""
 
 [node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
@@ -397,7 +432,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HueShift" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HueShift" type="ColorRect" parent="CanvasLayer/HueShift"]
+material = SubResource( 8 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GodotBoy3" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
+copy_mode = 2
+rect = Rect2( 0, 0, 450, 750 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GodotBoy3" type="ColorRect" parent="CanvasLayer/GodotBoy3"]
+material = SubResource( 8 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="Tween" type="Tween" parent="CanvasLayer"]
+
+[node name="RainNode" type="Node" parent="."]
+
+[node name="RainGenerator" type="Particles2D" parent="RainNode"]
+visible = false
+position = Vector2( 222.194, -51.7051 )
+rotation = 1.5708
+amount = 1000
+lifetime = 5.0
+speed_scale = 10.0
+process_material = SubResource( 11 )
 [connection signal="mobile_clicked_first_time" from="phoneBooth" to="." method="_on_phoneBooth_mobile_clicked_first_time"]
 [connection signal="out_of_time" from="phoneBooth" to="." method="_on_phoneBooth_out_of_time"]
 [connection signal="phone_call_begun" from="phoneBooth" to="." method="_on_phoneBooth_phone_call_begun"]

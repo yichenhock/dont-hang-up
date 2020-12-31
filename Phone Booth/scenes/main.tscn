@@ -1,28 +1,28 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/ending.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/DialogueNode.gd" type="Script" id=7]
-[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=10]
-[ext_resource path="res://shaders/godotboy_screen.shader" type="Shader" id=11]
-[ext_resource path="res://assets/palettes/night.png" type="Texture" id=12]
-[ext_resource path="res://shaders/blur.shader" type="Shader" id=13]
-[ext_resource path="res://assets/palettes/red.png" type="Texture" id=14]
+[ext_resource path="res://scripts/DialogueNode.gd" type="Script" id=2]
+[ext_resource path="res://assets/palettes/red.png" type="Texture" id=3]
+[ext_resource path="res://assets/palettes/night.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=5]
+[ext_resource path="res://scenes/Kalm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ending.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/menu/gameOver.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=16]
-[ext_resource path="res://shaders/rain.shader" type="Shader" id=17]
-[ext_resource path="res://scenes/Kalm.tscn" type="PackedScene" id=18]
+[ext_resource path="res://shaders/godotboy_screen.shader" type="Shader" id=16]
+[ext_resource path="res://shaders/blur.shader" type="Shader" id=17]
+[ext_resource path="res://shaders/rain.shader" type="Shader" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 17 )
+shader = ExtResource( 18 )
 shader_param/intensity = 0.05
-shader_param/noise = ExtResource( 16 )
+shader_param/noise = ExtResource( 5 )
 
 [sub_resource type="Animation" id=2]
 length = 3.5
@@ -124,8 +124,8 @@ tracks/7/keys = {
 }
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 11 )
-shader_param/palette = ExtResource( 14 )
+shader = ExtResource( 16 )
+shader_param/palette = ExtResource( 3 )
 
 [sub_resource type="Animation" id=4]
 length = 8.0
@@ -155,7 +155,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 13 )
+shader = ExtResource( 17 )
 shader_param/blur_amount = 0.0
 
 [sub_resource type="Shader" id=6]
@@ -242,16 +242,16 @@ shader_param/lines_velocity = 10.0
 script = ExtResource( 1 )
 
 [node name="DialogueNode" type="Node" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 
 [node name="Scenes" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "ending" ), [ ExtResource( 3 ) ] ]
+resources = [ PoolStringArray( "ending" ), [ ExtResource( 8 ) ] ]
 
-[node name="background" parent="." instance=ExtResource( 5 )]
+[node name="background" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
-palette = ExtResource( 12 )
+palette = ExtResource( 4 )
 
-[node name="phoneBooth" parent="." instance=ExtResource( 2 )]
+[node name="phoneBooth" parent="." instance=ExtResource( 9 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -289,24 +289,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 9 )]
+[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
 margin_left = 100.053
 margin_top = 250.888
 margin_right = 100.053
 margin_bottom = 250.888
 
-[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 14 )]
 
-[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 12 )]
 
-[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 13 )]
 visible = false
 
 [node name="gameOver" parent="CanvasLayer" instance=ExtResource( 15 )]
 visible = false
 
-[node name="menu" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="menu" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="firstTransit" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -403,7 +403,7 @@ __meta__ = {
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 450, 750 )
 
-[node name="Kalm" parent="Viewport" instance=ExtResource( 18 )]
+[node name="Kalm" parent="Viewport" instance=ExtResource( 6 )]
 visible = false
 [connection signal="mobile_clicked_first_time" from="phoneBooth" to="." method="_on_phoneBooth_mobile_clicked_first_time"]
 [connection signal="out_of_time" from="phoneBooth" to="." method="_on_phoneBooth_out_of_time"]

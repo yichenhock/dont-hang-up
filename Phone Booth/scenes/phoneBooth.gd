@@ -29,7 +29,6 @@ func set_interaction(can_interact):
 func initialise(): 
 	$CanvasLayer/uiInstructions.show()
 	$CanvasLayer/remainingTime.visible = true
-	$CanvasLayer/phonebookIcon.visible = true
 	$CanvasLayer/coins.visible = true
 	$secondsTimer.start()
 
@@ -179,6 +178,3 @@ func _on_mobile_pressed():
 func _on_suicideRip_pressed():
 	$booth/suicideAd.visible = false
 	# Audio.play("tearSFX")
-
-func _on_phonebookIcon_pressed():
-	$CanvasLayer/phonebook.show()

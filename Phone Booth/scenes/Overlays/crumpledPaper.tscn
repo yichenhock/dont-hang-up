@@ -31,9 +31,9 @@ margin_right = 148.0
 margin_bottom = 101.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.392157, 0.278431, 0.278431, 1 )
-text = "sorry think i left the
-key in here but i cant seem to find it"
-align = 1
+text = "i'm really sorry!! i lost the key in here and i can't find it again
+
+    A M"
 valign = 1
 autowrap = true
 __meta__ = {

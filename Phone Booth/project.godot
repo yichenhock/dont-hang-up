@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Don't Hang Up"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/MAIN.tscn"
 boot_splash/image="res://assets/graphics/dialling.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false

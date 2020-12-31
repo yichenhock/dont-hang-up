@@ -29,7 +29,7 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_bottom = -4
 font_data = ExtResource( 16 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "low_battery_indicator"
 length = 2.0
 loop = true
@@ -46,16 +46,16 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 extra_spacing_top = -7
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 18
 font_data = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 3 )
 shader_param/residual_image_rate = 0.2
 shader_param/dithering = 0.5
@@ -206,7 +206,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="screen/homeScreen" index="9"]
 autoplay = "low_battery_indicator"
-anims/low_battery_indicator = SubResource( 7 )
+anims/low_battery_indicator = SubResource( 4 )
 
 [node name="menu" type="Control" parent="screen" index="1"]
 anchor_right = 1.0
@@ -229,7 +229,7 @@ anchor_right = 1.0
 margin_top = -1.0
 margin_right = 1.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Radio"
 align = 1
 valign = 1
@@ -282,7 +282,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -21.5
 margin_bottom = 21.5
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "DOM's kool phone:p"
 align = 1
@@ -299,7 +299,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="screen/lcdShader" index="0"]
-material = SubResource( 6 )
+material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.0

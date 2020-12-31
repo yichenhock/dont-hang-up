@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/menu/gameOver.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=16]
 [ext_resource path="res://shaders/rain.shader" type="Shader" id=17]
+[ext_resource path="res://scenes/Kalm.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 17 )
@@ -398,6 +399,12 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="CanvasLayer"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 450, 750 )
+
+[node name="Kalm" parent="Viewport" instance=ExtResource( 18 )]
+visible = false
 [connection signal="mobile_clicked_first_time" from="phoneBooth" to="." method="_on_phoneBooth_mobile_clicked_first_time"]
 [connection signal="out_of_time" from="phoneBooth" to="." method="_on_phoneBooth_out_of_time"]
 [connection signal="phone_call_begun" from="phoneBooth" to="." method="_on_phoneBooth_phone_call_begun"]

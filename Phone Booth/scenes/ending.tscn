@@ -43,7 +43,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 8 )
 shader_param/intensity = 0.015
 shader_param/noise = ExtResource( 7 )
@@ -117,7 +117,7 @@ copy_mode = 2
 rect = Rect2( 0, 0, 450, 750 )
 
 [node name="ColorRect" type="ColorRect" parent="BackBufferCopy"]
-material = SubResource( 5 )
+material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

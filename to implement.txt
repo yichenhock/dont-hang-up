@@ -2,7 +2,6 @@ key drops in compartment when a number is called
 Sound for the coin change compartment
 
 flash back scene maybe (triggered by meta) 
-door cannot be closed while phone is picked up
 draw character silohuettes
 gargled speech blip sfx
 change menu click sound? 

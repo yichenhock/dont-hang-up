@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/coinUi.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/tres/FreePixel.tres" type="DynamicFont" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "increment"
 length = 0.5
 tracks/0/type = "value"
@@ -32,8 +32,7 @@ tracks/1/keys = {
 "values": [ Color( 0.705882, 1, 0.592157, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "spin"
+[sub_resource type="Animation" id=2]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -92,7 +91,7 @@ __meta__ = {
 }
 
 [node name="textAnim" type="AnimationPlayer" parent="."]
-anims/increment = SubResource( 2 )
+anims/increment = SubResource( 1 )
 
 [node name="coinAnim" type="AnimationPlayer" parent="."]
-anims/spin = SubResource( 1 )
+anims/spin = SubResource( 2 )

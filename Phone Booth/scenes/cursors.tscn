@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/cursors.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/items/key-cursor.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/items/paperclip-cursor.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/items/coin_cursor.png" type="Texture" id=4]
+
+[node name="cursors" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.210228
+margin_top = -0.210228
+margin_right = 0.210236
+margin_bottom = -0.210205
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="paperclipCursor" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="keyCursor" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="coinCursor" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )

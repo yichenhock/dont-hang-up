@@ -100,10 +100,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 6.0
-margin_top = -3.0
-margin_right = -6.0
-margin_bottom = -7.0
+margin_left = 6.59331
+margin_top = -0.93327
+margin_right = -5.40668
+margin_bottom = -4.93327
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
 align = 1

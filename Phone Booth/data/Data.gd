@@ -27,6 +27,7 @@ func get_data(key,default = null):
 	
 func set_data(key,val): 
 	data[key] = val
+	print(str(key) + ": " + str(val))
 	
 func save_data(): 
 	var save_file = File.new()

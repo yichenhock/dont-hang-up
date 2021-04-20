@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Decision.ogg-4e0e32a87ef3d0abe57f87331d8310db.oggstr"
+
+[deps]
+
+source_file="res://assets/music/bgm/Decision.ogg"
+dest_files=[ "res://.import/Decision.ogg-4e0e32a87ef3d0abe57f87331d8310db.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

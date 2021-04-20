@@ -6,7 +6,7 @@ signal self_dialogue_finished()
 var dialogue = []
 var n = 0
 var typing_text = false
-#export var delay = 0.05 setget set_delay
+export var delay = 0.05 setget set_delay
 
 export(String) var blip_sfx = "" setget set_blip_sfx
 
@@ -59,18 +59,34 @@ func set_blip_sfx(new_sfx):
 	blip_sfx = new_sfx
 	$dialogue.blip_sfx = blip_sfx
 	
-#func set_delay(new_delay): 
-#	delay = new_delay
-#	$dialogue.delay = delay
+func set_delay(new_delay): 
+	delay = new_delay
+	$dialogue.delay = delay
 
 func resize_speech(): 
 	var font = $dialogue.get_font("normal_font")
 	var font_height = font.get_height() + font.get_spacing(0)
 	
 	if $dialogue.visible_characters== -1: 
-		$speechBubble.rect_size.x = $dialogue.text.length() * 10.5 + 22.0
+		set_speech_size($dialogue.text.length(),font_height)
+#		$speechBubble.rect_size.y = 45 + fmod($dialogue.text.length(),32)*font_height
+#		if $dialogue.text.length() < 33: 
+#			$speechBubble.rect_size.x = $dialogue.text.length() * 10.5 + 22.0
+#		else: 
+#			$speechBubble.rect_size.x = 33 * 10.5 + 22.0
 	else: 
-		$speechBubble.rect_size.x = $dialogue.visible_characters * 10.5 + 22.0
+		set_speech_size($dialogue.visible_characters,font_height)
+#		$speechBubble.rect_size.x = $dialogue.visible_characters * 10.5 + 22.0
+
+func set_speech_size(char_displayed, font_height): 
+	$speechBubble.rect_size.y = 45 + floor(char_displayed/36)*font_height
+	if char_displayed < 36: 
+		$speechBubble.rect_size.x = char_displayed * 11 + 22.0
+	else: 
+		$speechBubble.rect_size.x = 36 * 10.5 + 22.0
+		
+	$speechBubble.rect_global_position.y = 700 - $speechBubble.rect_size.y
+	$dialogue.rect_global_position = $speechBubble.rect_global_position + Vector2(6,1)
 
 func _on_dialogue_character_displayed():
 	resize_speech()

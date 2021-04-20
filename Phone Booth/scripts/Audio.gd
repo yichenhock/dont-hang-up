@@ -16,6 +16,9 @@ func stop(sound):
 	
 func play_bgm(sound): 
 	$BGM.get_node(sound).play()
+
+func stop_bgm(sound): 
+	$BGM.get_node(sound).stop()
 	
 func play_phone(sound): #only one plays at a time
 	if sound == "phoneDialSFX": 

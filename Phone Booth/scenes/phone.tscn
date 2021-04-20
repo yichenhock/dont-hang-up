@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/fonts/tres/pixelplay-small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/topBtn.tscn" type="PackedScene" id=2]
@@ -38,15 +38,13 @@
 [ext_resource path="res://scenes/phone.gd" type="Script" id=36]
 [ext_resource path="res://assets/graphics/phone/change-lid-open.png" type="Texture" id=37]
 [ext_resource path="res://scenes/changeLid.gd" type="Script" id=38]
-[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=39]
-[ext_resource path="res://assets/graphics/ui/bubble-popup.png" type="Texture" id=40]
-[ext_resource path="res://assets/graphics/ui/right-click.png" type="Texture" id=41]
 [ext_resource path="res://assets/graphics/phone/coin-before-insert.png" type="Texture" id=42]
 [ext_resource path="res://assets/graphics/items/key.png" type="Texture" id=43]
 [ext_resource path="res://assets/graphics/items/coin_change_4.png" type="Texture" id=44]
 [ext_resource path="res://assets/graphics/items/coin_change_2.png" type="Texture" id=45]
 [ext_resource path="res://assets/graphics/items/coin_change_1.png" type="Texture" id=46]
 [ext_resource path="res://assets/graphics/items/coin_change_3.png" type="Texture" id=47]
+[ext_resource path="res://scripts/interactableAreas/coinUse.gd" type="Script" id=48]
 
 [sub_resource type="Animation" id=1]
 resource_name = "flash"
@@ -63,135 +61,10 @@ tracks/0/keys = {
 "values": [ true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=2]
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("HBoxContainer/rClick:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("NinePatchRect:rect_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 112, 33 ), Vector2( 48, 33 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.508, 9 )
 
-[sub_resource type="Animation" id=3]
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("HBoxContainer/rClick:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.05 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("HBoxContainer/Label:visible_characters")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("NinePatchRect:rect_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 48, 33 ), Vector2( 80, 33 ), Vector2( 112, 33 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -218,7 +91,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -432,63 +305,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popUp" type="Control" parent="insertCoin"]
-visible = false
-margin_left = 15.0
-margin_top = -1.0
-margin_right = 15.0
-margin_bottom = -1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="coinUse" type="Area2D" parent="insertCoin"]
+script = ExtResource( 48 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="insertCoin/popUp"]
-self_modulate = Color( 0.0196078, 0.027451, 0.0313726, 1 )
-margin_left = -9.0
-margin_top = -33.4454
-margin_right = 55.0
-margin_bottom = -0.44545
-texture = ExtResource( 40 )
-patch_margin_left = 15
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="insertCoin/popUp"]
-margin_left = -4.0
-margin_top = -36.0
-margin_right = 98.0
-margin_bottom = -12.0
-custom_constants/separation = 7
-alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="rClick" type="TextureRect" parent="insertCoin/popUp/HBoxContainer"]
-visible = false
-margin_top = 4.0
-margin_right = 13.0
-margin_bottom = 24.0
-size_flags_vertical = 8
-texture = ExtResource( 41 )
-
-[node name="Label" type="Label" parent="insertCoin/popUp/HBoxContainer"]
-margin_left = 20.0
-margin_right = 102.0
-margin_bottom = 24.0
-custom_fonts/font = ExtResource( 39 )
-custom_colors/font_color = Color( 0.937255, 1, 0.913725, 1 )
-text = "INSERT COIN"
-percent_visible = 0.4
-
-[node name="popUpAnim" type="AnimationPlayer" parent="insertCoin/popUp"]
-playback_speed = 1.7
-anims/hide = SubResource( 2 )
-anims/show = SubResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="insertCoin/coinUse"]
+position = Vector2( 15, 9 )
+shape = SubResource( 2 )
 
 [node name="coin" type="TextureRect" parent="insertCoin"]
 visible = false
@@ -656,8 +478,8 @@ __meta__ = {
 
 [node name="handsetAnim" type="AnimationPlayer" parent="handsetPicked"]
 autoplay = "floating"
-anims/floating = SubResource( 4 )
-anims/shake = SubResource( 5 )
+anims/floating = SubResource( 5 )
+anims/shake = SubResource( 6 )
 
 [node name="handsetDropped" type="TextureRect" parent="."]
 visible = false
@@ -695,8 +517,6 @@ one_shot = true
 [connection signal="pressed" from="btns/keyBtn9" to="." method="numpad_pressed" binds= [ 9 ]]
 [connection signal="pressed" from="btns/keyBtn0" to="." method="numpad_pressed" binds= [ 0 ]]
 [connection signal="gui_input" from="insertCoin" to="." method="_on_insertCoin_gui_input"]
-[connection signal="mouse_entered" from="insertCoin" to="." method="_on_insertCoin_mouse_entered"]
-[connection signal="mouse_exited" from="insertCoin" to="." method="_on_insertCoin_mouse_exited"]
 [connection signal="pressed" from="returnHandle" to="." method="_on_returnHandle_pressed"]
 [connection signal="button_down" from="hook" to="." method="_on_hook_button_down"]
 [connection signal="button_up" from="hook" to="." method="_on_hook_button_up"]

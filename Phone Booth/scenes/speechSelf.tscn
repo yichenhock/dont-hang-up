@@ -88,6 +88,7 @@ rect_clip_content = false
 custom_fonts/normal_font = ExtResource( 4 )
 custom_colors/default_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 bbcode_enabled = true
-text = "I think that's my wallet in there!"
+text = "Maybe I can call for help in this phonebooth, although I don't have any coins..."
+delay = 0.05
 [connection signal="character_displayed" from="dialogue" to="." method="_on_dialogue_character_displayed"]
 [connection signal="fully_displayed" from="dialogue" to="." method="_on_dialogue_fully_displayed"]

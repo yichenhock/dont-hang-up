@@ -4,6 +4,9 @@ var offset_amount = Vector2()
 var current_screen = "main"
 
 func _ready():
+	visible = true
+	modulate = Color(1.0,1.0,1.0,1.0)
+	Audio.play_bgm("menuBGM")
 	$main/danglingPhone.position = $main/Title/cableStart.global_position
 	$main.visible = true
 	$phonebook.visible = false
@@ -13,7 +16,9 @@ func _ready():
 func _on_enter_pressed():
 	$AnimationPlayer.play("fadeOut")
 	yield($AnimationPlayer, "animation_finished")
+	Audio.stop_bgm("menuBGM")
 	emit_signal("enter_pressed")
+	queue_free()
 
 func _on_phonebook_pressed():
 	$main.visible = false

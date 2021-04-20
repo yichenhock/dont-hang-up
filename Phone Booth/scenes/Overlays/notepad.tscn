@@ -1,0 +1,191 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/notepad.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/notepad/notepad-sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/notepad/corner-turn-sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=5]
+[ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/graphics/notepad/quest-bookmark-sheet.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/notepad/quest-selected.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/notepad/phone-selected.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/notepad/phone-bookmark-sheet.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "firstPage"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "nextPage"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[node name="notepad" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 1, 1.00722 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.027451, 0.0313726, 0.352941 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="quest" type="Sprite" parent="."]
+position = Vector2( 294, 599 )
+texture = ExtResource( 8 )
+hframes = 2
+
+[node name="qBookmark" type="TextureButton" parent="quest"]
+margin_left = -15.0
+margin_top = 1.0
+margin_right = 15.0
+margin_bottom = 42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phone" type="Sprite" parent="."]
+position = Vector2( 342, 605.993 )
+texture = ExtResource( 11 )
+hframes = 2
+
+[node name="pBookmark" type="TextureButton" parent="phone"]
+margin_left = -15.0
+margin_top = -6.0
+margin_right = 15.0
+margin_bottom = 43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="notepad" type="Sprite" parent="."]
+position = Vector2( 224.241, 330.223 )
+texture = ExtResource( 3 )
+hframes = 7
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="notepad"]
+anims/firstPage = SubResource( 1 )
+anims/nextPage = SubResource( 2 )
+
+[node name="prevPage" type="TextureButton" parent="notepad"]
+margin_left = -182.0
+margin_top = -228.0
+margin_right = 198.0
+margin_bottom = -184.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="corner" type="Sprite" parent="."]
+position = Vector2( 332.58, 550.738 )
+texture = ExtResource( 4 )
+hframes = 2
+frame = 1
+
+[node name="nextPage" type="TextureButton" parent="corner"]
+margin_left = 31.6465
+margin_top = -36.0
+margin_right = 86.6465
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="questSelect" type="TextureRect" parent="."]
+visible = false
+margin_left = 279.0
+margin_top = 547.0
+margin_right = 309.0
+margin_bottom = 641.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phoneSelect" type="TextureRect" parent="."]
+visible = false
+margin_left = 327.0
+margin_top = 554.0
+margin_right = 357.0
+margin_bottom = 649.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pageNum" type="Label" parent="text"]
+margin_left = 71.6632
+margin_top = 570.603
+margin_right = 103.663
+margin_bottom = 594.603
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "1/10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="." instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -90.2009
+margin_right = 39.0
+margin_bottom = -61.2009
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 5 )
+[connection signal="mouse_entered" from="quest/qBookmark" to="." method="_on_qBookmark_mouse_entered"]
+[connection signal="mouse_exited" from="quest/qBookmark" to="." method="_on_qBookmark_mouse_exited"]
+[connection signal="pressed" from="quest/qBookmark" to="." method="_on_qBookmark_pressed"]
+[connection signal="mouse_entered" from="phone/pBookmark" to="." method="_on_pBookmark_mouse_entered"]
+[connection signal="mouse_exited" from="phone/pBookmark" to="." method="_on_pBookmark_mouse_exited"]
+[connection signal="pressed" from="phone/pBookmark" to="." method="_on_pBookmark_pressed"]
+[connection signal="mouse_entered" from="notepad/prevPage" to="." method="_on_prevPage_mouse_entered"]
+[connection signal="mouse_exited" from="notepad/prevPage" to="." method="_on_prevPage_mouse_exited"]
+[connection signal="pressed" from="notepad/prevPage" to="." method="_on_prevPage_pressed"]
+[connection signal="mouse_entered" from="corner/nextPage" to="." method="_on_nextPage_mouse_entered"]
+[connection signal="mouse_exited" from="corner/nextPage" to="." method="_on_nextPage_mouse_exited"]
+[connection signal="pressed" from="corner/nextPage" to="." method="_on_nextPage_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/graphics/phone/btns/key-btn.png" type="Texture" id=2]
 [ext_resource path="res://scenes/btn.gd" type="Script" id=3]
 
-
 [node name="keyBtn" type="TextureButton"]
 margin_right = 17.0
 margin_bottom = 18.0

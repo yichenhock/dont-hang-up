@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/graphics/ui/notepad.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/graphics/ui/x-btn.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/ui/left-click.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/z-btn.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/ui/black_rect_border.png" type="Texture" id=8]
+[ext_resource path="res://scenes/howToPlay.gd" type="Script" id=9]
+
+[node name="howToPlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -165.0
+margin_right = 140.0
+margin_bottom = 165.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page1" type="GridContainer" parent="ColorRect"]
+visible = false
+margin_left = 37.0
+margin_top = 36.0
+margin_right = 236.0
+margin_bottom = 195.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/page1"]
+margin_right = 17.0
+margin_bottom = 24.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="ColorRect/page1"]
+margin_left = 47.0
+margin_right = 193.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 2 )
+text = "CLICK TO INTERACT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/page1"]
+margin_top = 54.0
+margin_right = 17.0
+margin_bottom = 105.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="ColorRect/page1"]
+margin_left = 47.0
+margin_top = 54.0
+margin_right = 193.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 2 )
+text = "PRESS & HOLD Z TO
+ZOOM IN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/page1"]
+margin_top = 135.0
+margin_right = 17.0
+margin_bottom = 186.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="ColorRect/page1"]
+margin_left = 47.0
+margin_top = 135.0
+margin_right = 193.0
+margin_bottom = 186.0
+custom_fonts/font = ExtResource( 2 )
+text = "PRESS & HOLD X TO
+PICK UP THE PHONE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page2" type="VBoxContainer" parent="ColorRect"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -128.0
+margin_right = 121.0
+margin_bottom = 65.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer2" type="GridContainer" parent="ColorRect/page2"]
+margin_right = 241.0
+margin_bottom = 149.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 12
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/page2/GridContainer2"]
+margin_right = 53.0
+margin_bottom = 51.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect/page2/GridContainer2"]
+margin_left = 65.0
+margin_right = 241.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 2 )
+text = "CLICK ON CLUES TO
+JOT THEM DOWN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/page2/GridContainer2"]
+margin_top = 71.0
+margin_right = 53.0
+margin_bottom = 149.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="ColorRect/page2/GridContainer2"]
+margin_left = 65.0
+margin_top = 71.0
+margin_right = 241.0
+margin_bottom = 149.0
+custom_fonts/font = ExtResource( 2 )
+text = "EVERY TIME DOM HAS
+AN IDEA, HE WILL WRITE
+IT DOWN IN HIS NOTEPAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect/page2"]
+margin_top = 169.0
+margin_right = 241.0
+margin_bottom = 220.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.0784314, 0, 1 )
+text = "USE THESE CLUES TO
+MAKE PROGRESS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="TextureButton" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = 105.0
+margin_right = 39.5
+margin_bottom = 134.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/next"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 2 )
+text = "OK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ColorRect/next" to="." method="_on_next_pressed"]

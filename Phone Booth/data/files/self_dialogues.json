@@ -1,6 +1,5 @@
 {
-	"001": ["My mind feels strangely blank...","I'm not sure how I ended up here.","I think that's my wallet in there!", "Maybe I can find some clues here..."], 
-	"002": ["Somehow I don't feel so good...", "How did I end up here again?"], 
-	"003": ["This place is cursed, I'm sure of it.", "Should I just run away?"], 
-	"004": ["There's gotta be another way out of this damn place."]
+	"001": ["I don't recognise this place...","I only have my wallet, notebook and phone on me...", "What on earth happened to me? "], 
+	"002": ["Was that a bad dream?"], 
+	"003": ["There's something stopping me from leaving this place.","I need to find out what it is."]
 }

@@ -1,5 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Overlays/windowOverlay.gd" type="Script" id=5]
 [ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=6]
 
@@ -30,4 +32,6 @@ margin_left = -39.0
 margin_top = -118.0
 margin_right = 39.0
 margin_bottom = -89.0
+texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

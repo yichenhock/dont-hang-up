@@ -3,9 +3,9 @@
 [ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/graphics/wallet/wallet-inside.png" type="Texture" id=2]
 [ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/graphics/ui/btn2.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=4]
 [ext_resource path="res://assets/graphics/wallet/coin-big-Sheet.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/ui/btn2-hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=6]
 [ext_resource path="res://assets/graphics/wallet/id.png" type="Texture" id=7]
 [ext_resource path="res://assets/graphics/wallet/id-hover.png" type="Texture" id=8]
 [ext_resource path="res://scenes/walletItem.gd" type="Script" id=9]
@@ -222,7 +222,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="organCard" type="TextureButton" parent="wallet"]
+[node name="OLDorganCard" type="TextureButton" parent="wallet"]
+visible = false
 margin_left = 257.0
 margin_top = 323.0
 margin_right = 385.0
@@ -232,7 +233,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="item" type="TextureRect" parent="wallet/organCard"]
+[node name="item" type="TextureRect" parent="wallet/OLDorganCard"]
 margin_top = -6.0
 margin_right = 128.0
 margin_bottom = 20.0
@@ -242,7 +243,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="itemHover" type="TextureRect" parent="wallet/organCard"]
+[node name="itemHover" type="TextureRect" parent="wallet/OLDorganCard"]
 visible = false
 margin_top = -13.0
 margin_right = 128.0
@@ -640,7 +641,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="organCard" type="Control" parent="."]
+[node name="OLDorganCard" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -649,7 +650,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="front" type="TextureRect" parent="organCard"]
+[node name="front" type="TextureRect" parent="OLDorganCard"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -663,7 +664,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="organCard/front"]
+[node name="Label" type="Label" parent="OLDorganCard/front"]
 margin_left = 102.5
 margin_top = 196.5
 margin_right = 183.5
@@ -676,7 +677,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="organCard/front"]
+[node name="Label2" type="Label" parent="OLDorganCard/front"]
 margin_left = 15.0
 margin_top = 6.0
 margin_right = 74.0
@@ -689,7 +690,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back" type="TextureRect" parent="organCard"]
+[node name="back" type="TextureRect" parent="OLDorganCard"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -704,7 +705,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="organCard/back"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLDorganCard/back"]
 anchor_right = 1.0
 margin_left = 20.0
 margin_top = 37.0
@@ -715,7 +716,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="organCard/back/VBoxContainer"]
+[node name="Label3" type="Label" parent="OLDorganCard/back/VBoxContainer"]
 margin_right = 319.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 33 )
@@ -726,19 +727,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLDorganCard/back/VBoxContainer"]
 margin_top = 18.0
 margin_right = 319.0
 margin_bottom = 32.0
 custom_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLDorganCard/back/VBoxContainer/HBoxContainer"]
 margin_right = 7.0
 margin_bottom = 14.0
 size_flags_vertical = 4
 texture = ExtResource( 34 )
 
-[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer"]
+[node name="Label4" type="Label" parent="OLDorganCard/back/VBoxContainer/HBoxContainer"]
 margin_left = 17.0
 margin_right = 257.0
 margin_bottom = 14.0
@@ -749,19 +750,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="OLDorganCard/back/VBoxContainer"]
 margin_top = 36.0
 margin_right = 319.0
 margin_bottom = 50.0
 custom_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="OLDorganCard/back/VBoxContainer/HBoxContainer2"]
 margin_right = 7.0
 margin_bottom = 14.0
 size_flags_vertical = 4
 texture = ExtResource( 34 )
 
-[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer2"]
+[node name="Label4" type="Label" parent="OLDorganCard/back/VBoxContainer/HBoxContainer2"]
 margin_left = 17.0
 margin_right = 257.0
 margin_bottom = 14.0
@@ -772,19 +773,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="OLDorganCard/back/VBoxContainer"]
 margin_top = 54.0
 margin_right = 319.0
 margin_bottom = 68.0
 custom_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="OLDorganCard/back/VBoxContainer/HBoxContainer3"]
 margin_right = 7.0
 margin_bottom = 14.0
 size_flags_vertical = 4
 texture = ExtResource( 35 )
 
-[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer3"]
+[node name="Label4" type="Label" parent="OLDorganCard/back/VBoxContainer/HBoxContainer3"]
 margin_left = 17.0
 margin_right = 257.0
 margin_bottom = 14.0
@@ -795,19 +796,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="organCard/back/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="OLDorganCard/back/VBoxContainer"]
 margin_top = 72.0
 margin_right = 319.0
 margin_bottom = 86.0
 custom_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="organCard/back/VBoxContainer/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="OLDorganCard/back/VBoxContainer/HBoxContainer4"]
 margin_right = 7.0
 margin_bottom = 14.0
 size_flags_vertical = 4
 texture = ExtResource( 34 )
 
-[node name="Label4" type="Label" parent="organCard/back/VBoxContainer/HBoxContainer4"]
+[node name="Label4" type="Label" parent="OLDorganCard/back/VBoxContainer/HBoxContainer4"]
 margin_left = 17.0
 margin_right = 257.0
 margin_bottom = 14.0
@@ -818,7 +819,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="organCard/back"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="OLDorganCard/back"]
 margin_left = 20.0
 margin_top = 139.0
 margin_right = 353.0
@@ -828,7 +829,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="organCard/back/HBoxContainer5"]
+[node name="Label5" type="Label" parent="OLDorganCard/back/HBoxContainer5"]
 margin_right = 66.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 31 )
@@ -838,7 +839,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="organCard/back/HBoxContainer5"]
+[node name="Label4" type="Label" parent="OLDorganCard/back/HBoxContainer5"]
 margin_left = 156.0
 margin_right = 247.0
 margin_bottom = 14.0
@@ -849,7 +850,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="organCard/back"]
+[node name="Label4" type="Label" parent="OLDorganCard/back"]
 margin_left = 38.5
 margin_top = 158.5
 margin_right = 134.5
@@ -862,7 +863,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="line" type="TextureRect" parent="organCard/back"]
+[node name="line" type="TextureRect" parent="OLDorganCard/back"]
 modulate = Color( 0.701961, 0.733333, 0.643137, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -878,7 +879,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="organCard/back"]
+[node name="TextureRect" type="TextureRect" parent="OLDorganCard/back"]
 margin_left = 193.5
 margin_top = 141.5
 margin_right = 330.5
@@ -888,7 +889,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label9" type="Label" parent="organCard/back"]
+[node name="Label9" type="Label" parent="OLDorganCard/back"]
 margin_left = 20.5
 margin_top = 188.5
 margin_right = 339.5
@@ -1331,7 +1332,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="coin" type="TextureButton" parent="banknote"]
+[node name="coin1" type="TextureButton" parent="banknote"]
 margin_left = 64.0
 margin_top = 399.0
 margin_right = 128.0
@@ -1340,8 +1341,9 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+coin_id = 1
 
-[node name="Sprite" type="Sprite" parent="banknote/coin"]
+[node name="Sprite" type="Sprite" parent="banknote/coin1"]
 texture = ExtResource( 5 )
 centered = false
 hframes = 4
@@ -1349,7 +1351,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin"]
+[node name="coinAnim" type="AnimationPlayer" parent="banknote/coin1"]
 anims/shine = SubResource( 1 )
 
 [node name="coin2" type="TextureButton" parent="banknote"]
@@ -1361,6 +1363,7 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+coin_id = 2
 
 [node name="Sprite" type="Sprite" parent="banknote/coin2"]
 texture = ExtResource( 5 )
@@ -1382,6 +1385,7 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+coin_id = 3
 
 [node name="Sprite" type="Sprite" parent="banknote/coin3"]
 texture = ExtResource( 5 )
@@ -1403,6 +1407,7 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+coin_id = 4
 
 [node name="Sprite" type="Sprite" parent="banknote/coin4"]
 texture = ExtResource( 5 )
@@ -1458,6 +1463,8 @@ __meta__ = {
 [node name="back" parent="ui" instance=ExtResource( 3 )]
 margin_left = 186.0
 margin_right = 264.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
 [connection signal="mouse_entered" from="wallet/idCard" to="wallet/idCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
 [connection signal="pressed" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
@@ -1466,10 +1473,10 @@ margin_right = 264.0
 [connection signal="mouse_exited" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
 [connection signal="pressed" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
 [connection signal="pressed" from="wallet/receipt" to="." method="item_pressed" binds= [ "receipt" ]]
-[connection signal="mouse_entered" from="wallet/organCard" to="wallet/organCard" method="mouse_entered"]
-[connection signal="mouse_exited" from="wallet/organCard" to="wallet/organCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/organCard" to="wallet/organCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/organCard" to="." method="item_pressed" binds= [ "organCard" ]]
+[connection signal="mouse_entered" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_entered"]
+[connection signal="mouse_exited" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/OLDorganCard" to="." method="item_pressed" binds= [ "organCard" ]]
 [connection signal="mouse_entered" from="wallet/railCard" to="wallet/railCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
 [connection signal="pressed" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
@@ -1483,9 +1490,9 @@ margin_right = 264.0
 [connection signal="pressed" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
 [connection signal="pressed" from="wallet/banknote" to="." method="item_pressed" binds= [ "banknote" ]]
 [connection signal="timeout" from="polaroid/polaroidScary/Timer" to="polaroid/polaroidScary" method="_on_Timer_timeout"]
-[connection signal="mouse_entered" from="banknote/coin" to="banknote/coin" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin" to="banknote/coin" method="_on_coin_pressed"]
-[connection signal="pressed" from="banknote/coin" to="." method="collect_coin"]
+[connection signal="mouse_entered" from="banknote/coin1" to="banknote/coin1" method="_on_coin_mouse_entered"]
+[connection signal="pressed" from="banknote/coin1" to="banknote/coin1" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin1" to="." method="collect_coin"]
 [connection signal="mouse_entered" from="banknote/coin2" to="banknote/coin2" method="_on_coin_mouse_entered"]
 [connection signal="pressed" from="banknote/coin2" to="banknote/coin2" method="_on_coin_pressed"]
 [connection signal="pressed" from="banknote/coin2" to="." method="collect_coin"]

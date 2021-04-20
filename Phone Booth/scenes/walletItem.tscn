@@ -4,8 +4,6 @@
 [ext_resource path="res://assets/graphics/wallet/id.png" type="Texture" id=2]
 [ext_resource path="res://assets/graphics/wallet/id-hover.png" type="Texture" id=3]
 
-
-
 [node name="walletItem" type="TextureButton"]
 margin_left = 80.0
 margin_top = 366.0

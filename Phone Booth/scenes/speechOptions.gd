@@ -17,7 +17,7 @@ func show_options(choices):
 	reply_options = choices
 	visible = true
 	show_time_limit()
-	time_limit = 5 + 4*choices.size()
+	time_limit = 6 + 4*choices.size()
 	start_time_limit(time_limit)
 	
 	options = []

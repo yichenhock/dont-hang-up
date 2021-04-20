@@ -1,6 +1,5 @@
 extends TextureButton
 
-
 func _ready():
 	$item.visible = true
 	$itemHover.visible = false

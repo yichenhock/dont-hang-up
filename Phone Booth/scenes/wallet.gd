@@ -2,24 +2,18 @@ extends Control
 var current_screen = "wallet"
 signal window_closed()
 signal coin_collected()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 	
-#func _process(delta): 
-#	if visible: 
-#		get_tree().paused = true
-		
 func _on_back_pressed():
 	Audio.play("menuClickSFX")
 	if current_screen == "wallet": 
 		visible = false
 		emit_signal("window_closed")
 		get_tree().paused = false
+		queue_free()
 	else: 
 		get_node(current_screen).visible = false
 		$wallet.visible = true
+		$ui/flip.visible = false
 		$ui/flip.visible = false
 		current_screen = "wallet"
 

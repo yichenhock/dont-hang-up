@@ -1,58 +1,39 @@
 extends Node
-var current_scene = null
-var states = ["menu", "playing", "paused", "ending"]
-var current_state = "menu"
-
-# var left_people_hanging = 0 # the amount of times player spent too long choosing an option
-# var hung_up_on_someone = 0 # the amount of times the player hangs up on somebody
-
 var phone_picked_up = false
 
 func _ready():
-#	change_state("phoneBooth")
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(Data.get_data("volume",0.8)))
 	Audio.play("rainOutside")
 	Audio.play("rainInside")
-	
-	$CanvasLayer/menu.visible = true
-	$CanvasLayer/pauseMenu.visible = false
-	$CanvasLayer/menu.modulate = Color(1.0,1.0,1.0,1.0)
-	
+	add_scene("menu")
+	$CanvasLayer/menu.connect("enter_pressed",self,"_on_menu_enter_pressed")
+	$CanvasLayer/inventory.visible = false
 	$phoneBooth.set_process_input(false)
 	$phoneBooth.set_interaction(false)
 
-func add_scene(new_scene): 
-	add_child($Scenes.get_resource(new_scene).instance())
-	
 func _unhandled_input(event):
-	if event.is_action_pressed("fullscreen_toggle"): 
+	if event.is_action_pressed("toggle_fullscreen"): 
 		OS.window_fullscreen = !OS.window_fullscreen
-		
 	if event.is_action_pressed("ui_cancel"): 
-		if $CanvasLayer/menu.visible == false: 
-			$CanvasLayer/pauseMenu.visible = true
+		add_scene("pauseMenu")
 
 func _on_menu_enter_pressed():
 	first_speech()
-	$phoneBooth.set_interaction(true)
-
-var first_part_done = false
 
 func first_speech(): # the "talking to self" speech the player does upon starting the game
 	var dialogue = Data.files["self_dialogues"]["001"]
 	$CanvasLayer/speechSelf.type_texts(dialogue)
 	
 func _on_speechSelf_self_dialogue_finished():
-	if not first_part_done: 
-		first_part_done = true
-		$phoneBooth.zoom_enabled = true
-		$phoneBooth.initialise()
+	add_scene("howToPlay")
+	$CanvasLayer/howToPlay.connect("window_closed",self,"initialise")
 
-#func change_state(new_scene_name):
-#	remove_child(current_scene)
-#	current_scene = $Scenes.get_resource(new_scene_name).instance()
-#	add_child(current_scene)
-#	#current_scene.connect("change_state",self,"change_state")
+func initialise(): 
+	$phoneBooth.zoom_enabled = true
+	$phoneBooth.initialise()
+	$CanvasLayer/inventory.visible = true
+	for i in range(1,5):
+		Data.set_data("wallet_coin"+str(i),true)
 
 func _on_phoneBooth_phone_call_begun(nodeID):
 	var dialogue_finished = false
@@ -65,7 +46,6 @@ func do_the_dialogue_thing(nodeID):
 		if $CanvasLayer/speechPhone.visible: 
 			$CanvasLayer/speechPhone.hide() # end of conversation - play hang up tone?
 		$phoneBooth/phone.end_call()
-		$phoneBooth/CanvasLayer/remainingTime.stop()
 		
 	elif $DialogueNode.type == "speech": 
 		$CanvasLayer/speechPhone.show()
@@ -83,7 +63,6 @@ func _on_speechPhone_line_started():
 func _on_speechOptions_pressed(nodeID):
 	if nodeID == null: 
 		Data.set_data("left_people_hanging", Data.get_data("left_people_hanging",0) + 1)
-		print(Data.get_data("left_people_hanging"))
 		
 		$CanvasLayer/speechPhone.show()
 		$CanvasLayer/speechPhone.type_text($DialogueNode.reply_on_timeout)
@@ -95,7 +74,6 @@ func _on_speechOptions_pressed(nodeID):
 func end_phone_call(): 
 	$CanvasLayer/speechPhone.hide()
 	$phoneBooth/phone.end_call()
-	$phoneBooth/CanvasLayer/remainingTime.stop()
 	Audio.stop_phone()
 
 func _on_phoneBooth_phone_picked_up():
@@ -105,12 +83,37 @@ func _on_phoneBooth_phone_hung_up():
 	phone_picked_up = false
 	$CanvasLayer/speechOptions.terminate_choices()
 	$CanvasLayer/speechPhone.hide()
-	$phoneBooth/CanvasLayer/remainingTime.stop()
 
-var window_overlay = true
+var window_overlay = false
+
 func _process(delta):
+	$mouse.position = get_viewport().get_mouse_position()
 	if window_overlay: 
 		$CanvasLayer/speechOptions.disable_choices(true)
+	$CanvasLayer/cursors.item_equipped = Data.get_data("equipped",null)
+		
+func equip_item(new_item): 
+	Data.set_data("equipped",new_item)
+	$CanvasLayer/cursors.item_equipped = Data.get_data("equipped",null)
+
+func _input(event):
+	if Input.is_action_just_pressed("click"):
+		if Data.get_data("equipped", null) == "coin": 
+			print($mouse.get_overlapping_areas())
+			var useable = false
+			for i in $mouse.get_overlapping_areas():
+				if i is CoinUse: 
+					useable = true
+				elif i is BlockerArea: 
+					useable = false
+					break
+			if useable: 
+				$CanvasLayer/description.set_text("used a coin")
+				Data.set_data("coins",Data.get_data("coins",0)-1)
+			else:
+				$CanvasLayer/description.set_text("can't use this here")
+				$CanvasLayer/inventory/holder/items/coins.num_coins += 1
+				equip_item(null)
 
 func _on_phoneBooth_window_overlay_opened():
 	window_overlay = true
@@ -125,15 +128,37 @@ func _on_phoneBooth_window_overlay_closed():
 func _on_phoneBooth_phone_dialed_unknown_number():
 	Audio.stop_phone()
 	$CanvasLayer/speechPhone.show()
-	$CanvasLayer/speechPhone.type_texts(["We're sorry. You have reached a number that has been disconnected or is no longer in service. ",
-								"If you feel that you have reached this recording in error, please check the number and try your call again. "])
+	$CanvasLayer/speechPhone.type_texts(["NUMBER NOT RECOGNISED."])
 	yield($CanvasLayer/speechPhone, "phone_dialogue_finished")
 	Audio.play_phone("hangUpSFX")
 	end_phone_call()
 
-func _on_phoneBooth_out_of_time(): # if no more possibility for more coins to be inserted, something special happens
-	$CanvasLayer/speechPhone.hide()
-	Audio.stop_phone()
+func _on_wallet_pressed():
+	if $CanvasLayer.has_node("mobile"): 
+		remove_child($CanvasLayer/mobile)
+	if !$CanvasLayer.has_node("wallet"):
+		add_scene("wallet")
+		$CanvasLayer/wallet.connect("coin_collected",self,"collect_coin")
+	
+func collect_coin(): 
+	Data.set_data("coins",Data.get_data("coins",0)+1)
+	$CanvasLayer/inventory/holder/items/coins.num_coins += 1
+	
+func _on_mobile_pressed():
+	if $CanvasLayer.has_node("wallet"): 
+		remove_child($CanvasLayer/wallet)
+	if !$CanvasLayer.has_node("mobile"): 
+		add_scene("mobile")
+	
+func add_scene(new_scene): 
+	$CanvasLayer.add_child($Scenes.get_resource(new_scene).instance())
 
-func _on_phoneBooth_mobile_clicked_first_time():
-	$CanvasLayer/speechSelf.type_texts(["Oh! That's my phone..."])
+func _on_coins_pressed():
+	equip_item("coin")
+	$CanvasLayer/inventory/holder/items/coins.num_coins -= 1
+
+func _on_phoneBooth_coin_collected():
+	$CanvasLayer/inventory/holder/items/coins.num_coins += 1
+
+func _on_notepad_pressed():
+	add_scene("notepad")

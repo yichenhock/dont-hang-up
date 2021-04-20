@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/Overlays/windowOverlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/graphics/mobile/mobile.png" type="Texture" id=2]
@@ -8,13 +8,26 @@
 [ext_resource path="res://shaders/godotboy.shader" type="Shader" id=6]
 [ext_resource path="res://assets/fonts/tres/mobile_menu.tres" type="DynamicFont" id=7]
 [ext_resource path="res://assets/fonts/Graph-35-pix.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/graphics/mobile/unselected.png" type="Texture" id=9]
 [ext_resource path="res://assets/graphics/mobile/battery_1bar.png" type="Texture" id=10]
 [ext_resource path="res://assets/graphics/mobile/no_network.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/Volter__28Goldfish_29.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://assets/fonts/mousetrap2.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://assets/graphics/mobile/battery_0bar.png" type="Texture" id=14]
-[ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://scenes/mobile_keypad.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/fonts/Squarewave-Bold.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://assets/graphics/mobile/selected.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/mobile/calendar.png" type="Texture" id=18]
+[ext_resource path="res://assets/graphics/mobile/call_history.png" type="Texture" id=19]
+[ext_resource path="res://assets/graphics/mobile/contacts.png" type="Texture" id=20]
+[ext_resource path="res://assets/graphics/mobile/games.png" type="Texture" id=21]
+[ext_resource path="res://assets/graphics/mobile/memo.png" type="Texture" id=22]
+[ext_resource path="res://assets/graphics/mobile/alarm.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/mobile/applications.png" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/mobile/settings.png" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/mobile/messages.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=28]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -57,18 +70,12 @@ font_data = ExtResource( 12 )
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 3 )
-shader_param/residual_image_rate = 0.2
-shader_param/dithering = 0.5
+shader_param/residual_image_rate = 0.1
+shader_param/dithering = 0.15
 shader_param/color_lcd = true
 shader_param/monochrome_light = Color( 0.537255, 0.627451, 0.347656, 1 )
 shader_param/monochrome_dark = Color( 0.196078, 0.227451, 0.145098, 1 )
-shader_param/steps = 4
-
-[sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 15 )
-
-[sub_resource type="DynamicFont" id=9]
-font_data = ExtResource( 16 )
+shader_param/steps = 20
 
 [node name="mobile" instance=ExtResource( 1 )]
 
@@ -209,6 +216,7 @@ autoplay = "low_battery_indicator"
 anims/low_battery_indicator = SubResource( 4 )
 
 [node name="menu" type="Control" parent="screen" index="1"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -230,7 +238,7 @@ margin_top = -1.0
 margin_right = 1.0
 margin_bottom = 28.0
 custom_fonts/font = SubResource( 5 )
-text = "Radio"
+text = "Call History"
 align = 1
 valign = 1
 __meta__ = {
@@ -260,7 +268,180 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GridContainer" type="GridContainer" parent="screen/menu" index="4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -47.5358
+margin_right = 71.0
+margin_bottom = 57.4642
+custom_constants/vseparation = 0
+custom_constants/hseparation = 8
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Call_History" type="TextureButton" parent="screen/menu/GridContainer" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Call_History" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Contacts" type="TextureButton" parent="screen/menu/GridContainer" index="1"]
+margin_left = 50.0
+margin_right = 92.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Contacts" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Calendar" type="TextureButton" parent="screen/menu/GridContainer" index="2"]
+margin_left = 100.0
+margin_right = 142.0
+margin_bottom = 35.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Calendar" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Games" type="TextureButton" parent="screen/menu/GridContainer" index="3"]
+margin_top = 35.0
+margin_right = 42.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Games" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Messages" type="TextureButton" parent="screen/menu/GridContainer" index="4"]
+margin_left = 50.0
+margin_top = 35.0
+margin_right = 92.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Messages" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Memo" type="TextureButton" parent="screen/menu/GridContainer" index="5"]
+margin_left = 100.0
+margin_top = 35.0
+margin_right = 142.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Memo" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Applications" type="TextureButton" parent="screen/menu/GridContainer" index="6"]
+margin_top = 70.0
+margin_right = 42.0
+margin_bottom = 105.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Applications" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alarms" type="TextureButton" parent="screen/menu/GridContainer" index="7"]
+margin_left = 50.0
+margin_top = 70.0
+margin_right = 92.0
+margin_bottom = 105.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Alarms" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="TextureButton" parent="screen/menu/GridContainer" index="8"]
+margin_left = 100.0
+margin_top = 70.0
+margin_right = 142.0
+margin_bottom = 105.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="screen/menu/GridContainer/Settings" index="0"]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="bootUp" type="Control" parent="screen" index="2"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -293,6 +474,7 @@ __meta__ = {
 }
 
 [node name="lcdShader" type="BackBufferCopy" parent="screen" index="3"]
+copy_mode = 2
 rect = Rect2( 0, 0, 160, 160 )
 __meta__ = {
 "_edit_lock_": true
@@ -306,6 +488,7 @@ margin_left = -1.0
 margin_top = 7.62939e-05
 margin_right = -1.0
 margin_bottom = 7.62939e-05
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -337,45 +520,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="key1" type="TextureButton" parent="keys/numbers" index="0"]
-margin_right = 69.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 69, 33 )
+[node name="key1" parent="keys/numbers" index="0" instance=ExtResource( 15 )]
+number = "1"
+letters = "O_O"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="keys/numbers/key1" index="0"]
-margin_left = 4.0
-margin_top = 6.0
-margin_right = 40.0
-margin_bottom = 20.0
-custom_constants/separation = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="key2" parent="keys/numbers" index="1" instance=ExtResource( 15 )]
+margin_left = 69.0
+margin_right = 138.0
+number = "2"
+letters = "ABC"
 
-[node name="number" type="Label" parent="keys/numbers/key1/HBoxContainer" index="0"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 0 )
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0.592157, 0.592157, 0.552941, 1 )
-text = "1"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="key3" parent="keys/numbers" index="2" instance=ExtResource( 15 )]
+margin_left = 138.0
+margin_right = 207.0
+number = "3"
+letters = "DEF"
 
-[node name="letters" type="Label" parent="keys/numbers/key1/HBoxContainer" index="1"]
-margin_left = 26.0
-margin_top = 3.0
-margin_right = 47.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 20, 0 )
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0.592157, 0.592157, 0.552941, 1 )
-text = "ABC"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="key4" parent="keys/numbers" index="3" instance=ExtResource( 15 )]
+margin_top = 33.0
+margin_bottom = 66.0
+number = "4"
+letters = "GHI"
+
+[node name="key5" parent="keys/numbers" index="4" instance=ExtResource( 15 )]
+margin_left = 69.0
+margin_top = 33.0
+margin_right = 138.0
+margin_bottom = 66.0
+number = "5"
+letters = "JKL"
+
+[node name="key6" parent="keys/numbers" index="5" instance=ExtResource( 15 )]
+margin_left = 138.0
+margin_top = 33.0
+margin_right = 207.0
+margin_bottom = 66.0
+number = "6"
+letters = "MNO"
+
+[node name="key7" parent="keys/numbers" index="6" instance=ExtResource( 15 )]
+margin_top = 66.0
+margin_bottom = 99.0
+number = "7"
+letters = "PQRS"
+
+[node name="key8" parent="keys/numbers" index="7" instance=ExtResource( 15 )]
+margin_left = 69.0
+margin_top = 66.0
+margin_right = 138.0
+margin_bottom = 99.0
+number = "8"
+letters = "TUV"
+
+[node name="key9" parent="keys/numbers" index="8" instance=ExtResource( 15 )]
+margin_left = 138.0
+margin_top = 66.0
+margin_right = 207.0
+margin_bottom = 99.0
+number = "9"
+letters = "WXYZ"
+
+[node name="key10" parent="keys/numbers" index="9" instance=ExtResource( 15 )]
+margin_top = 99.0
+margin_bottom = 132.0
+number = "*"
+
+[node name="key11" parent="keys/numbers" index="10" instance=ExtResource( 15 )]
+margin_left = 69.0
+margin_top = 99.0
+margin_right = 138.0
+margin_bottom = 132.0
+number = "0"
+letters = "+"
+
+[node name="key12" parent="keys/numbers" index="11" instance=ExtResource( 15 )]
+margin_left = 138.0
+margin_top = 99.0
+margin_right = 207.0
+margin_bottom = 132.0
+number = "#"
+
+[node name="back" parent="." index="4"]
+texture_normal = ExtResource( 27 )
+texture_hover = ExtResource( 28 )

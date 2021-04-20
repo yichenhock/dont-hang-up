@@ -1,6 +1,6 @@
 extends Control
 var n = 0
-var default_display = ["PT PAYPHONES","TO CALL LIFT HANDSET","PRESS × FOR TEXT SERVICES"]
+var default_display = ["PT PAYPHONES","TO CALL LIFT HANDSET","TEXT SERVICES\nOUT OF ORDER"]
 var display_default = true
 var receiving_call = false
 var taking_call = false
@@ -12,9 +12,7 @@ var free_calls = ["999","1808255"]
 
 signal picked_up(number) # if number is "0", that means a call is being recieved from the killer
 signal hang_up()
-signal coin_inserted()
 signal coin_collected()
-signal return_handle_pressed()
 
 func _ready():
 	$display.text = default_display[n]
@@ -23,6 +21,12 @@ func _on_displayTimer_timeout():
 	if display_default: 
 		n += 1
 		if n == len(default_display): 
+			if Data.get_data("coins_in_phone",0) > 0: 
+				$display.text = str(Data.get_data("coins_in_phone",0)) + " CALL(S) AVAILABLE"
+				return
+			else: 
+				n = 0
+		elif n > len(default_display): 
 			n = 0
 		$display.text = default_display[n]
 
@@ -41,7 +45,7 @@ func pick_up():
 	$hook.disabled = false
 	display_default = false
 	
-	if receiving_call: # you only ever recieve a call from the killer
+	if receiving_call: 
 		receiving_call = false
 		taking_call = true
 		time_elapsed = 0
@@ -82,7 +86,7 @@ func reset_phone():
 		$callTimer.stop()
 	$outgoingCallTimer.stop()
 	display_default = true
-	$display.text = default_display[n]
+	$display.text = default_display[0]
 	waiting_for_input = false
 	taking_call = false 
 	Audio.stop_phone()
@@ -100,28 +104,18 @@ func shake_handset():
 	$handsetPicked/handsetAnim.play("shake")
 	$handsetPicked/handsetAnim.queue("floating")
 
-func _on_insertCoin_mouse_entered():
-	if Data.get_data("coins", 0) != 0:
-		if not $insertCoin/coin.visible: 
-			$insertCoin/popUp/popUpAnim.play("show")
-	
-func _on_insertCoin_mouse_exited():
-	$insertCoin/popUp/popUpAnim.play("hide")
-	$insertCoin.pressed = false
-
 func _on_insertCoin_gui_input(event):
-	if Input.is_action_pressed("right_click"): 
-		if Data.get_data("coins", 0) != 0: 
+	if Input.is_action_just_pressed("click"): 
+		if Data.get_data("equipped",null) == "coin": 
 			$insertCoin/coin.visible = true
-			$insertCoin/popUp/popUpAnim.play("hide")
+			Data.set_data("equipped", null)
 			Audio.play("coinInsertSFX")
-	elif Input.is_action_pressed("click"):
-		if $insertCoin/coin.visible: 
+			$insertCoin/coinUse.monitorable = false
+		elif $insertCoin/coin.visible: # push the coin in 
 			$insertCoin/coin.visible = false
-			Audio.play("coinDropSFX")	
-			emit_signal("coin_inserted")
-	elif Input.is_action_just_released("click") or Input.is_action_just_released("right_click"): 
-		$insertCoin.pressed = false
+			Audio.play("coinDropSFX")
+			$insertCoin/coinUse.monitorable = true
+			Data.set_data("coins_in_phone",Data.get_data("coins_in_phone",0)+1)
 	
 func display_no_coins(time_ran_out = false): 
 	if time_ran_out: 
@@ -135,13 +129,13 @@ func display_no_coins(time_ran_out = false):
 	$display.text = ""
 	
 func _on_outgoingCallTimer_timeout():
-	if Data.get_data("remaining_time",0) == 0: 
-		if number_dialled in free_calls: 
-			start_call()
-		else: 
-			display_no_coins()
-	else: 
+	if number_dialled in free_calls: 
 		start_call()
+	elif Data.get_data("coins_in_phone",0) > 0: 
+		start_call() 
+		Data.set_data("coins_in_phone",Data.get_data("coins_in_phone",0)-1)
+	else: 
+		display_no_coins()
 		
 func start_call(): 
 	taking_call = true
@@ -177,12 +171,13 @@ func _on_key_pressed(): # key collected
 var coins_in_change_compartment = 0
 
 func _on_returnHandle_pressed():
-	if floor(Data.get_data("remaining_time",0)/60) > 0: 
-		emit_signal("return_handle_pressed")
+	if Data.get_data("coins_in_phone",0) > 0:
 		coins_in_change_compartment += 1
 		for coin in $coinChange.get_children(): 
 			coin.visible = false
 		$coinChange.get_node("coin"+str(coins_in_change_compartment)).visible = true
+		
+		Data.set_data("coins_in_phone",Data.get_data("coins_in_phone",0)-1)
 
 func _on_coinChange_pressed():
 	if coins_in_change_compartment > 0: 
@@ -192,9 +187,12 @@ func _on_coinChange_pressed():
 			coin.visible = false
 		if coins_in_change_compartment != 0:
 			$coinChange.get_node("coin"+str(coins_in_change_compartment)).visible = true
-		# Data.set_data("coins", Data.get_data("coins",0)+1)
+		Data.set_data("coins", Data.get_data("coins",0)+1)
 		emit_signal("coin_collected")
 		
 func _process(delta): 
 	$coinChange.visible = !$changeLid/lidClose.visible
-	# do similar with key only if its been dropped
+	if Data.get_data("equipped",null) == "coin":
+		$insertCoin.disabled = true
+	else: 
+		$insertCoin.disabled = false

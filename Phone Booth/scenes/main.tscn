@@ -1,29 +1,179 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=53 format=2]
 
-[ext_resource path="res://scenes/main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/ending.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/DialogueNode.gd" type="Script" id=7]
-[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=10]
-[ext_resource path="res://shaders/godotboy_screen.shader" type="Shader" id=11]
-[ext_resource path="res://assets/palettes/night.png" type="Texture" id=12]
-[ext_resource path="res://shaders/blur.shader" type="Shader" id=13]
-[ext_resource path="res://assets/palettes/red.png" type="Texture" id=14]
-[ext_resource path="res://scenes/menu/gameOver.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=16]
-[ext_resource path="res://shaders/rain.shader" type="Shader" id=17]
+[ext_resource path="res://scenes/inventory.gd" type="Script" id=1]
+[ext_resource path="res://scenes/main.gd" type="Script" id=2]
+[ext_resource path="res://scripts/DialogueNode.gd" type="Script" id=3]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=4]
+[ext_resource path="res://shaders/rain.shader" type="Shader" id=5]
+[ext_resource path="res://shaders/blur.shader" type="Shader" id=6]
+[ext_resource path="res://shaders/godotboy_screen.shader" type="Shader" id=7]
+[ext_resource path="res://assets/graphics/ui/notepad.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/ui/new_entry_indicator.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scenes/speechOptions.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/wallet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/speechPhone.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/mobile.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/howToPlay.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/inventory/invItem.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/speechSelf.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/textures/rain_noise.jpg" type="Texture" id=22]
+[ext_resource path="res://assets/palettes/night.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/ui/inventory-arrow.png" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/ui/inventory-arrow-hover.png" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/ui/inventory-tab.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/items/mobile_inv.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/items/coins_4.png" type="Texture" id=28]
+[ext_resource path="res://assets/graphics/items/coins_1.png" type="Texture" id=29]
+[ext_resource path="res://assets/graphics/items/coins_2.png" type="Texture" id=30]
+[ext_resource path="res://assets/graphics/items/coins_3.png" type="Texture" id=31]
+[ext_resource path="res://shaders/white_coin_outline.tres" type="Material" id=32]
+[ext_resource path="res://assets/graphics/wallet/wallet.png" type="Texture" id=33]
+[ext_resource path="res://scenes/description.gd" type="Script" id=34]
+[ext_resource path="res://scenes/coins_inv.gd" type="Script" id=35]
+[ext_resource path="res://scenes/cursors.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scenes/Overlays/notepad.tscn" type="PackedScene" id=37]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 17 )
+shader = ExtResource( 5 )
 shader_param/intensity = 0.05
-shader_param/noise = ExtResource( 16 )
+shader_param/noise = ExtResource( 22 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/outline = false
+shader_param/width = 1.0
+shader_param/outline_color = Color( 0.937255, 1, 0.913725, 1 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends TextureButton
+signal change_description(new_text)
+export(String) var description
+
+func _on_invItem_mouse_entered():
+	material.set_shader_param(\"outline\",true)
+	emit_signal(\"change_description\",description)
+
+func _on_invItem_mouse_exited():
+	material.set_shader_param(\"outline\",false)
+	emit_signal(\"change_description\",\"\")
+"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/outline = true
+shader_param/width = 1.0
+shader_param/outline_color = Color( 0.937255, 1, 0.913725, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 4 )
+shader_param/outline = false
+shader_param/width = 1.0
+shader_param/outline_color = Color( 0.937255, 1, 0.913725, 1 )
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends TextureButton
+signal change_description(new_text)
+export(String) var description
+
+func _on_invItem_mouse_entered():
+	material.set_shader_param(\"outline\",true)
+	emit_signal(\"change_description\",description)
+
+func _on_invItem_mouse_exited():
+	material.set_shader_param(\"outline\",false)
+	emit_signal(\"change_description\",\"\")
+"
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("holder:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 367, 106 ), Vector2( 435, 106 ), Vector2( 431, 106 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("holder/invBtn:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -64, 0 ), Vector2( 4, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("holder:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 431, 106 ), Vector2( 361, 106 ), Vector2( 367, 106 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("holder/invBtn:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -70, 0 ), Vector2( -64, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 35, 118 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 10, 20 )
+
+[sub_resource type="Animation" id=9]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("rectTop:rect_size")
@@ -109,24 +259,11 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 2 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("../CRT/CRTShader:material:shader_param/BarrelPower")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 3.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ 1.1, 1.0 ]
-}
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 11 )
-shader_param/palette = ExtResource( 14 )
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 7 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -153,110 +290,29 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 13 )
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 6 )
 shader_param/blur_amount = 0.0
 
-[sub_resource type="Shader" id=6]
-code = "shader_type canvas_item;
-
-uniform float screen_width = 1024;
-uniform float screen_height = 600;
-
-// Curvature
-uniform float BarrelPower =1.1;
-// Color bleeding
-uniform float color_bleeding = 1.2;
-uniform float bleeding_range_x = 3;
-uniform float bleeding_range_y = 3;
-// Scanline
-uniform float lines_distance = 4.0;
-uniform float scan_size = 2.0;
-uniform float scanline_alpha = 0.9;
-uniform float lines_velocity = 30.0;
-
-vec2 distort(vec2 p) 
-{
-	float angle = p.y / p.x;
-	float theta = atan(p.y,p.x);
-	float radius = pow(length(p), BarrelPower);
-	
-	p.x = radius * cos(theta);
-	p.y = radius * sin(theta);
-	
-	return 0.5 * (p + vec2(1.0,1.0));
-}
-
-void get_color_bleeding(inout vec4 current_color,inout vec4 color_left){
-	current_color = current_color*vec4(color_bleeding,0.5,1.0-color_bleeding,1);
-	color_left = color_left*vec4(1.0-color_bleeding,0.5,color_bleeding,1);
-}
-
-void get_color_scanline(vec2 uv,inout vec4 c,float time){
-	float line_row = floor((uv.y * screen_height/scan_size) + mod(time*lines_velocity, lines_distance));
-	float n = 1.0 - ceil((mod(line_row,lines_distance)/lines_distance));
-	c = c - n*c*(1.0 - scanline_alpha);
-	c.a = 1.0;
-}
-
-void fragment()
-{
-	vec2 xy = SCREEN_UV * 2.0;
-	xy.x -= 1.0;
-	xy.y -= 1.0;
-	
-	float d = length(xy);
-	if(d < 1.5){
-		xy = distort(xy);
-	}
-	else{
-		xy = SCREEN_UV;
-	}
-	
-	float pixel_size_x = 1.0/screen_width*bleeding_range_x;
-	float pixel_size_y = 1.0/screen_height*bleeding_range_y;
-	vec4 color_left = texture(SCREEN_TEXTURE,xy - vec2(pixel_size_x, pixel_size_y));
-	vec4 current_color = texture(SCREEN_TEXTURE,xy);
-	get_color_bleeding(current_color,color_left);
-	vec4 c = current_color+color_left;
-	get_color_scanline(xy,c,TIME);
-	COLOR = c;
-
-}"
-
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
-shader_param/screen_width = 450.0
-shader_param/screen_height = 750.0
-shader_param/BarrelPower = 1.0
-shader_param/color_bleeding = 1.2
-shader_param/bleeding_range_x = 0.15
-shader_param/bleeding_range_y = 0.15
-shader_param/lines_distance = 1.0
-shader_param/scan_size = 2.0
-shader_param/scanline_alpha = 1.0
-shader_param/lines_velocity = 10.0
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 1, 1 )
 
 [node name="main" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="DialogueNode" type="Node" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 3 )
 
-[node name="Scenes" type="ResourcePreloader" parent="."]
-resources = [ PoolStringArray( "ending" ), [ ExtResource( 3 ) ] ]
-
-[node name="background" parent="." instance=ExtResource( 5 )]
+[node name="background" parent="." instance=ExtResource( 14 )]
 pause_mode = 2
-palette = ExtResource( 12 )
+palette = ExtResource( 23 )
 
-[node name="phoneBooth" parent="." instance=ExtResource( 2 )]
+[node name="phoneBooth" parent="." instance=ExtResource( 15 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="rainShader" type="BackBufferCopy" parent="CanvasLayer"]
-visible = false
 rect = Rect2( 0, 0, 450, 750 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/rainShader"]
@@ -283,31 +339,197 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -378.0
 margin_right = -72.0
-margin_bottom = 21.0
+margin_bottom = 23.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 9 )]
+[node name="inventory" type="Control" parent="CanvasLayer"]
+anchor_left = -0.00222222
+anchor_right = 0.997778
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="notepad" type="TextureButton" parent="CanvasLayer/inventory"]
+material = SubResource( 2 )
+margin_left = 395.0
+margin_top = 32.0
+margin_right = 450.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 8 )
+script = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="indicator" type="TextureRect" parent="CanvasLayer/inventory/notepad"]
+visible = false
+margin_left = 38.0
+margin_top = 4.0
+margin_right = 49.0
+margin_bottom = 22.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="holder" type="TextureRect" parent="CanvasLayer/inventory"]
+material = SubResource( 4 )
+margin_left = 431.0
+margin_top = 106.0
+margin_right = 521.0
+margin_bottom = 341.0
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="invBtn" type="TextureButton" parent="CanvasLayer/inventory/holder"]
+margin_left = 1.0
+margin_top = 6.0
+margin_right = 22.0
+margin_bottom = 46.0
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 10.5, 0 )
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="VBoxContainer" parent="CanvasLayer/inventory/holder"]
+margin_left = 29.0
+margin_top = 15.0
+margin_right = 84.0
+margin_bottom = 133.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wallet" parent="CanvasLayer/inventory/holder/items" instance=ExtResource( 20 )]
+texture_normal = ExtResource( 33 )
+description = "my wallet"
+
+[node name="mobile" type="TextureButton" parent="CanvasLayer/inventory/holder/items"]
+material = SubResource( 5 )
+margin_top = 39.0
+margin_right = 55.0
+margin_bottom = 91.0
+texture_normal = ExtResource( 27 )
+script = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+description = "my phone"
+
+[node name="coins" type="TextureButton" parent="CanvasLayer/inventory/holder/items"]
+margin_top = 97.0
+margin_right = 55.0
+margin_bottom = 145.0
+rect_min_size = Vector2( 53, 48 )
+script = ExtResource( 35 )
+
+[node name="coins1" type="TextureRect" parent="CanvasLayer/inventory/holder/items/coins"]
+material = ExtResource( 32 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins2" type="TextureRect" parent="CanvasLayer/inventory/holder/items/coins"]
+visible = false
+material = ExtResource( 32 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins3" type="TextureRect" parent="CanvasLayer/inventory/holder/items/coins"]
+visible = false
+material = ExtResource( 32 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins4" type="TextureRect" parent="CanvasLayer/inventory/holder/items/coins"]
+visible = false
+material = ExtResource( 32 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/inventory"]
+anims/hideInv = SubResource( 7 )
+anims/showInv = SubResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/inventory"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/inventory/Area2D"]
+position = Vector2( 486, 224 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/inventory/Area2D"]
+position = Vector2( 441, 132 )
+shape = SubResource( 14 )
+
+[node name="description" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/description"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -199.0
+margin_top = -54.0
+margin_right = 199.0
+custom_fonts/font = ExtResource( 10 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CanvasLayer/description"]
+wait_time = 3.0
+one_shot = true
+
+[node name="speechPhone" parent="CanvasLayer" instance=ExtResource( 13 )]
 visible = false
 margin_left = 100.053
 margin_top = 250.888
 margin_right = 100.053
 margin_bottom = 250.888
 
-[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 11 )]
 
-[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 8 )]
-
-[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
-visible = false
-
-[node name="gameOver" parent="CanvasLayer" instance=ExtResource( 15 )]
-visible = false
-
-[node name="menu" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 21 )]
 
 [node name="firstTransit" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -337,10 +559,10 @@ __meta__ = {
 }
 
 [node name="transitAnim" type="AnimationPlayer" parent="CanvasLayer/firstTransit"]
-autoplay = "open"
-anims/open = SubResource( 2 )
+anims/open = SubResource( 9 )
 
 [node name="PaletteShader" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 copy_mode = 2
 rect = Rect2( 0, 0, 450, 750 )
@@ -349,7 +571,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/PaletteShader"]
-material = SubResource( 3 )
+material = SubResource( 10 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -360,9 +582,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PaletteShader"]
-anims/fadeIn = SubResource( 4 )
+anims/fadeIn = SubResource( 11 )
 
 [node name="blur" type="BackBufferCopy" parent="CanvasLayer"]
+visible = false
 scale = Vector2( 1.00702, 1.00457 )
 copy_mode = 2
 rect = Rect2( 0, 0, 450, 750 )
@@ -371,7 +594,7 @@ __meta__ = {
 }
 
 [node name="blur" type="ColorRect" parent="CanvasLayer/blur"]
-material = SubResource( 5 )
+material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -380,33 +603,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CRT" type="BackBufferCopy" parent="CanvasLayer"]
-copy_mode = 2
-rect = Rect2( 0, 0, 450, 750 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="cursors" parent="CanvasLayer" instance=ExtResource( 36 )]
 
-[node name="CRTShader" type="ColorRect" parent="CanvasLayer/CRT"]
-material = SubResource( 7 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="Scenes" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "howToPlay", "menu", "mobile", "notepad", "pauseMenu", "wallet" ), [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 37 ), ExtResource( 18 ), ExtResource( 12 ) ] ]
 
-[node name="Tween" type="Tween" parent="CanvasLayer"]
-[connection signal="mobile_clicked_first_time" from="phoneBooth" to="." method="_on_phoneBooth_mobile_clicked_first_time"]
-[connection signal="out_of_time" from="phoneBooth" to="." method="_on_phoneBooth_out_of_time"]
+[node name="mouse" type="Area2D" parent="."]
+position = Vector2( 431, 106 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse"]
+shape = SubResource( 15 )
+[connection signal="coin_collected" from="phoneBooth" to="." method="_on_phoneBooth_coin_collected"]
 [connection signal="phone_call_begun" from="phoneBooth" to="." method="_on_phoneBooth_phone_call_begun"]
 [connection signal="phone_dialed_unknown_number" from="phoneBooth" to="." method="_on_phoneBooth_phone_dialed_unknown_number"]
 [connection signal="phone_hung_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_hung_up"]
 [connection signal="phone_picked_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_picked_up"]
 [connection signal="window_overlay_closed" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_closed"]
 [connection signal="window_overlay_opened" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_opened"]
+[connection signal="change_description" from="CanvasLayer/inventory" to="CanvasLayer/description" method="set_text"]
+[connection signal="mouse_entered" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/inventory/notepad" to="." method="_on_notepad_pressed"]
+[connection signal="change_description" from="CanvasLayer/inventory/holder/items/wallet" to="CanvasLayer/description" method="set_text"]
+[connection signal="pressed" from="CanvasLayer/inventory/holder/items/wallet" to="." method="_on_wallet_pressed"]
+[connection signal="change_description" from="CanvasLayer/inventory/holder/items/mobile" to="CanvasLayer/description" method="set_text"]
+[connection signal="mouse_entered" from="CanvasLayer/inventory/holder/items/mobile" to="CanvasLayer/inventory/holder/items/mobile" method="_on_invItem_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/inventory/holder/items/mobile" to="CanvasLayer/inventory/holder/items/mobile" method="_on_invItem_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/inventory/holder/items/mobile" to="." method="_on_mobile_pressed"]
+[connection signal="change_description" from="CanvasLayer/inventory/holder/items/coins" to="CanvasLayer/description" method="set_text"]
+[connection signal="mouse_entered" from="CanvasLayer/inventory/holder/items/coins" to="CanvasLayer/inventory/holder/items/coins" method="_on_coins_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/inventory/holder/items/coins" to="CanvasLayer/inventory/holder/items/coins" method="_on_coins_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/inventory/holder/items/coins" to="." method="_on_coins_pressed"]
+[connection signal="area_entered" from="CanvasLayer/inventory/Area2D" to="CanvasLayer/inventory" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="CanvasLayer/inventory/Area2D" to="CanvasLayer/inventory" method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="CanvasLayer/description/Timer" to="CanvasLayer/description" method="_on_Timer_timeout"]
 [connection signal="line_started" from="CanvasLayer/speechPhone" to="." method="_on_speechPhone_line_started"]
 [connection signal="pressed" from="CanvasLayer/speechOptions" to="." method="_on_speechOptions_pressed"]
 [connection signal="self_dialogue_finished" from="CanvasLayer/speechSelf" to="." method="_on_speechSelf_self_dialogue_finished"]
-[connection signal="enter_pressed" from="CanvasLayer/menu" to="." method="_on_menu_enter_pressed"]

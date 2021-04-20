@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 2 )
+shader_param/outline = false
+shader_param/width = 1.0
+shader_param/outline_color = Color( 0.937255, 1, 0.913725, 1 )
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends TextureButton
+signal change_description(new_text)
+export(String) var description
+
+func _on_invItem_mouse_entered():
+	material.set_shader_param(\"outline\",true)
+	emit_signal(\"change_description\",description)
+
+func _on_invItem_mouse_exited():
+	material.set_shader_param(\"outline\",false)
+	emit_signal(\"change_description\",\"\")
+"
+
+[node name="invItem" type="TextureButton"]
+material = SubResource( 11 )
+margin_right = 55.0
+margin_bottom = 33.0
+script = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="." to="." method="_on_invItem_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_invItem_mouse_exited"]

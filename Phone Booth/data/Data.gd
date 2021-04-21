@@ -29,6 +29,11 @@ func set_data(key,val):
 	data[key] = val
 	print(str(key) + ": " + str(val))
 	
+func append_data_array(key,val): 
+	var updated_list = Data.get_data(key,[])
+	updated_list.push_back(val)
+	Data.set_data(key,updated_list)
+
 func save_data(): 
 	var save_file = File.new()
 	save_file.open(SAVE_PATH, File.WRITE)
@@ -41,19 +46,13 @@ func load_default_data():
 #	data.zone_completed = []
 #	data.zones_unlocked = [0]
 #	data.zones_just_unlocked = []
-
 #	var file = File.new()
-#
 #	if not file.file_exists(path): 
 #		reset_data() 
 #		return
-#
 #	file.open(path,file.READ)
-#
 #	var text = file.get_as_text()
-#
 #	data = parse_json(text)
-#
 #	file.close()
 	
 func dir_contents(path):

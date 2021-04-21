@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/graphics/wallet/wallet-inside.png" type="Texture" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://assets/graphics/wallet/receipt-back.png" type="Texture" id=44]
 [ext_resource path="res://assets/graphics/wallet/banknote-front.png" type="Texture" id=45]
 [ext_resource path="res://scenes/coinShine.gd" type="Script" id=46]
+[ext_resource path="res://scenes/numberClue.tscn" type="PackedScene" id=47]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shine"
@@ -371,6 +372,7 @@ margin_left = -225.0
 margin_top = -375.0
 margin_right = 225.0
 margin_bottom = 375.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -470,12 +472,14 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="front" type="TextureRect" parent="polaroid"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -491,7 +495,6 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="polaroid"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -505,6 +508,15 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="numberClue" parent="polaroid/back" instance=ExtResource( 47 )]
+margin_left = 32.1122
+margin_top = 275.888
+margin_right = 177.112
+margin_bottom = 311.888
+rect_rotation = -10.4073
+number = "8642091"
+description = "Is this the number of that girl?"
 
 [node name="polaroidScary" type="TextureRect" parent="polaroid"]
 visible = false
@@ -553,12 +565,14 @@ autostart = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="front" type="TextureRect" parent="receipt"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -626,6 +640,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="numberClue" parent="receipt/front" instance=ExtResource( 47 )]
+margin_left = 47.0
+margin_top = 333.0
+margin_right = 173.0
+margin_bottom = 345.0
+number = "8008294"
+description = "Might be able to contact the driver"
+
 [node name="back" type="TextureRect" parent="receipt"]
 visible = false
 anchor_left = 0.5
@@ -645,6 +667,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -908,12 +931,14 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="front" type="TextureRect" parent="railCard"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -951,16 +976,16 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="railCard/front/HBoxContainer"]
-margin_right = 112.0
-margin_bottom = 144.0
+margin_right = 122.0
+margin_bottom = 160.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="classticket" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_right = 112.0
-margin_bottom = 20.0
+margin_right = 122.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "ClassTicket type"
@@ -969,9 +994,9 @@ __meta__ = {
 }
 
 [node name="std" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 20.0
-margin_right = 112.0
-margin_bottom = 36.0
+margin_top = 24.0
+margin_right = 122.0
+margin_bottom = 40.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -981,9 +1006,9 @@ __meta__ = {
 }
 
 [node name="from" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 112.0
-margin_bottom = 56.0
+margin_top = 40.0
+margin_right = 122.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "From"
@@ -992,9 +1017,9 @@ __meta__ = {
 }
 
 [node name="warrington" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 112.0
-margin_bottom = 72.0
+margin_top = 64.0
+margin_right = 122.0
+margin_bottom = 80.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -1004,9 +1029,9 @@ __meta__ = {
 }
 
 [node name="to" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 112.0
-margin_bottom = 92.0
+margin_top = 80.0
+margin_right = 122.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "To"
@@ -1015,9 +1040,9 @@ __meta__ = {
 }
 
 [node name="cambridge" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 92.0
-margin_right = 112.0
-margin_bottom = 108.0
+margin_top = 104.0
+margin_right = 122.0
+margin_bottom = 120.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -1027,9 +1052,9 @@ __meta__ = {
 }
 
 [node name="coachSeats" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 108.0
-margin_right = 112.0
-margin_bottom = 128.0
+margin_top = 120.0
+margin_right = 122.0
+margin_bottom = 144.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "CoachSeats"
@@ -1038,9 +1063,9 @@ __meta__ = {
 }
 
 [node name="SEAT" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer"]
-margin_top = 128.0
-margin_right = 112.0
-margin_bottom = 144.0
+margin_top = 144.0
+margin_right = 122.0
+margin_bottom = 160.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -1050,9 +1075,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="railCard/front/HBoxContainer"]
-margin_left = 126.0
-margin_right = 334.0
-margin_bottom = 144.0
+margin_left = 136.0
+margin_right = 344.0
+margin_bottom = 160.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1060,12 +1085,12 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="railCard/front/HBoxContainer/VBoxContainer2"]
 margin_right = 208.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 custom_constants/separation = 40
 
 [node name="date" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_right = 87.0
-margin_bottom = 20.0
+margin_right = 114.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "Date of issue "
@@ -1074,9 +1099,9 @@ __meta__ = {
 }
 
 [node name="price" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 127.0
-margin_right = 154.0
-margin_bottom = 20.0
+margin_left = 154.0
+margin_right = 190.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "Price"
@@ -1085,9 +1110,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="railCard/front/HBoxContainer/VBoxContainer2"]
-margin_top = 20.0
+margin_top = 24.0
 margin_right = 208.0
-margin_bottom = 36.0
+margin_bottom = 40.0
 custom_constants/separation = 55
 
 [node name="date2" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2/HBoxContainer2"]
@@ -1114,9 +1139,9 @@ __meta__ = {
 }
 
 [node name="pNo" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
-margin_top = 36.0
+margin_top = 40.0
 margin_right = 208.0
-margin_bottom = 56.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "Pass'grs Number"
@@ -1125,9 +1150,9 @@ __meta__ = {
 }
 
 [node name="pNo2" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
-margin_top = 56.0
+margin_top = 64.0
 margin_right = 208.0
-margin_bottom = 72.0
+margin_bottom = 80.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -1137,9 +1162,9 @@ __meta__ = {
 }
 
 [node name="valid" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
-margin_top = 72.0
+margin_top = 80.0
 margin_right = 208.0
-margin_bottom = 92.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 text = "Valid at"
@@ -1148,9 +1173,9 @@ __meta__ = {
 }
 
 [node name="cambridge" type="Label" parent="railCard/front/HBoxContainer/VBoxContainer2"]
-margin_top = 92.0
+margin_top = 104.0
 margin_right = 208.0
-margin_bottom = 108.0
+margin_bottom = 120.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
@@ -1196,7 +1221,6 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="railCard"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1259,6 +1283,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="numberClue" parent="railCard/back/call2" instance=ExtResource( 47 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+number = "1808255"
+description = "This should be a free number to call"
+
 [node name="regCharity" type="Label" parent="railCard/back"]
 margin_left = 271.0
 margin_top = 79.5
@@ -1284,6 +1316,14 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="numberClue" parent="railCard/back/fineprint" instance=ExtResource( 47 )]
+margin_left = 55.0
+margin_top = 16.0
+margin_right = 88.0
+margin_bottom = 24.0
+number = "3452156"
+description = "Did I travel with this ticket?"
 
 [node name="Label3" type="Label" parent="railCard/back"]
 margin_left = 12.0
@@ -1314,6 +1354,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1467,40 +1508,40 @@ texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 6 )
 [connection signal="mouse_entered" from="wallet/idCard" to="wallet/idCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
 [connection signal="pressed" from="wallet/idCard" to="." method="item_pressed" binds= [ "idCard" ]]
+[connection signal="pressed" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
 [connection signal="mouse_entered" from="wallet/receipt" to="wallet/receipt" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
-[connection signal="pressed" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
 [connection signal="pressed" from="wallet/receipt" to="." method="item_pressed" binds= [ "receipt" ]]
+[connection signal="pressed" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
 [connection signal="mouse_entered" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
 [connection signal="pressed" from="wallet/OLDorganCard" to="." method="item_pressed" binds= [ "organCard" ]]
+[connection signal="pressed" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
 [connection signal="mouse_entered" from="wallet/railCard" to="wallet/railCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
 [connection signal="pressed" from="wallet/railCard" to="." method="item_pressed" binds= [ "railCard" ]]
+[connection signal="pressed" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
 [connection signal="mouse_entered" from="wallet/polaroid" to="wallet/polaroid" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
-[connection signal="pressed" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
 [connection signal="pressed" from="wallet/polaroid" to="." method="item_pressed" binds= [ "polaroid" ]]
+[connection signal="pressed" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
 [connection signal="mouse_entered" from="wallet/banknote" to="wallet/banknote" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
-[connection signal="pressed" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
 [connection signal="pressed" from="wallet/banknote" to="." method="item_pressed" binds= [ "banknote" ]]
+[connection signal="pressed" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
 [connection signal="timeout" from="polaroid/polaroidScary/Timer" to="polaroid/polaroidScary" method="_on_Timer_timeout"]
 [connection signal="mouse_entered" from="banknote/coin1" to="banknote/coin1" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin1" to="banknote/coin1" method="_on_coin_pressed"]
 [connection signal="pressed" from="banknote/coin1" to="." method="collect_coin"]
+[connection signal="pressed" from="banknote/coin1" to="banknote/coin1" method="_on_coin_pressed"]
 [connection signal="mouse_entered" from="banknote/coin2" to="banknote/coin2" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin2" to="banknote/coin2" method="_on_coin_pressed"]
 [connection signal="pressed" from="banknote/coin2" to="." method="collect_coin"]
+[connection signal="pressed" from="banknote/coin2" to="banknote/coin2" method="_on_coin_pressed"]
 [connection signal="mouse_entered" from="banknote/coin3" to="banknote/coin3" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin3" to="banknote/coin3" method="_on_coin_pressed"]
 [connection signal="pressed" from="banknote/coin3" to="." method="collect_coin"]
+[connection signal="pressed" from="banknote/coin3" to="banknote/coin3" method="_on_coin_pressed"]
 [connection signal="mouse_entered" from="banknote/coin4" to="banknote/coin4" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin4" to="banknote/coin4" method="_on_coin_pressed"]
 [connection signal="pressed" from="banknote/coin4" to="." method="collect_coin"]
+[connection signal="pressed" from="banknote/coin4" to="banknote/coin4" method="_on_coin_pressed"]
 [connection signal="pressed" from="ui/flip" to="." method="_on_flip_pressed"]
 [connection signal="pressed" from="ui/back" to="." method="_on_back_pressed"]

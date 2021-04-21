@@ -16,4 +16,5 @@ func _on_resume_pressed():
 func _on_quit_pressed():
 	get_tree().quit()
 
-
+func _on_howToPlay_pressed():
+	$CanvasLayer.add_child($ResourcePreloader.get_resource("howToPlay").instance())

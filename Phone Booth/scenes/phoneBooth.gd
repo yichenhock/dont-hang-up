@@ -15,6 +15,8 @@ signal coin_collected()
 signal window_overlay_opened()
 signal window_overlay_closed()
 
+signal notepad_open_request()
+
 func _ready():
 	$doorClosed.visible = true
 	$doorClosed.modulate = Color(1.0,1.0,1.0,1.0)
@@ -23,6 +25,7 @@ func _ready():
 
 func initialise(): 
 	set_interaction(true)
+	$doorAnim.play("handleShine")
 
 func set_interaction(can_interact): 
 	$blocker.visible = !can_interact
@@ -42,6 +45,10 @@ func _on_doorClosedHandle_pressed():
 	Audio.play("doorSFX")
 	Audio.stepInside()
 	set_process_input(true)
+	if Data.get_data("notepad_first_pressed",false) == false:
+		Data.set_data("directed_from_door",true)
+		yield($doorAnim,"animation_finished")
+		emit_signal("notepad_open_request")
 	
 func _unhandled_input(event):
 	if zoom_enabled: 

@@ -30,6 +30,11 @@ func item_pressed(next_screen):
 		$ui/flip.visible = true
 		get_node(current_screen).get_node("front").visible = true
 		get_node(current_screen).get_node("back").visible = false
-
+	
+	if current_screen == "idCard":
+		if Data.get_data("discovered_self",false)==false:
+			Data.set_data("description","Oh, that's me... guess the wallet and phone are mine too then")
+			Data.set_data("discovered_self",true)
+		
 func collect_coin():
 	emit_signal("coin_collected")

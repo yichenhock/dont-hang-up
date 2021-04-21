@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/graphics/ui/notepad.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=7]
 [ext_resource path="res://assets/graphics/ui/black_rect_border.png" type="Texture" id=8]
 [ext_resource path="res://scenes/howToPlay.gd" type="Script" id=9]
+[ext_resource path="res://assets/graphics/ui/c-btn.png" type="Texture" id=10]
 
 [node name="howToPlay" type="Control"]
 anchor_right = 1.0
@@ -25,7 +26,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -140.0
-margin_top = -165.0
+margin_top = -185.0
 margin_right = 140.0
 margin_bottom = 165.0
 texture = ExtResource( 8 )
@@ -33,28 +34,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="page1" type="GridContainer" parent="ColorRect"]
+[node name="page1" type="VBoxContainer" parent="ColorRect"]
 visible = false
 margin_left = 37.0
-margin_top = 36.0
-margin_right = 236.0
-margin_bottom = 195.0
-custom_constants/vseparation = 30
+margin_top = 26.0
+margin_right = 250.0
+margin_bottom = 252.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page1" type="GridContainer" parent="ColorRect/page1"]
+margin_right = 213.0
+margin_bottom = 228.0
+custom_constants/vseparation = 17
 custom_constants/hseparation = 30
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/page1"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/page1/page1"]
 margin_right = 17.0
 margin_bottom = 24.0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="ColorRect/page1"]
+[node name="Label" type="Label" parent="ColorRect/page1/page1"]
 margin_left = 47.0
-margin_right = 193.0
+margin_right = 213.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 text = "CLICK TO INTERACT"
@@ -62,18 +71,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect/page1"]
-margin_top = 54.0
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/page1/page1"]
+margin_top = 41.0
 margin_right = 17.0
-margin_bottom = 105.0
+margin_bottom = 92.0
 texture = ExtResource( 5 )
 stretch_mode = 4
 
-[node name="Label2" type="Label" parent="ColorRect/page1"]
+[node name="Label2" type="Label" parent="ColorRect/page1/page1"]
 margin_left = 47.0
-margin_top = 54.0
-margin_right = 193.0
-margin_bottom = 105.0
+margin_top = 41.0
+margin_right = 213.0
+margin_bottom = 92.0
 custom_fonts/font = ExtResource( 2 )
 text = "PRESS & HOLD Z TO
 ZOOM IN"
@@ -81,18 +90,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="ColorRect/page1"]
-margin_top = 135.0
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/page1/page1"]
+margin_top = 109.0
 margin_right = 17.0
-margin_bottom = 186.0
+margin_bottom = 160.0
 texture = ExtResource( 3 )
 stretch_mode = 4
 
-[node name="Label3" type="Label" parent="ColorRect/page1"]
+[node name="Label3" type="Label" parent="ColorRect/page1/page1"]
 margin_left = 47.0
-margin_top = 135.0
-margin_right = 193.0
-margin_bottom = 186.0
+margin_top = 109.0
+margin_right = 213.0
+margin_bottom = 160.0
 custom_fonts/font = ExtResource( 2 )
 text = "PRESS & HOLD X TO
 PICK UP THE PHONE"
@@ -100,17 +109,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/page1/page1"]
+margin_top = 177.0
+margin_right = 17.0
+margin_bottom = 228.0
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="Label4" type="Label" parent="ColorRect/page1/page1"]
+margin_left = 47.0
+margin_top = 177.0
+margin_right = 213.0
+margin_bottom = 228.0
+custom_fonts/font = ExtResource( 2 )
+text = "PRESS C TO SHOW/HIDE
+THE NOTEPAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="ColorRect/page1"]
+margin_top = 242.0
+margin_right = 213.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 206, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "PRESS ESC TO PAUSE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="page2" type="VBoxContainer" parent="ColorRect"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -128.0
-margin_right = 121.0
-margin_bottom = 65.0
-custom_constants/separation = 20
+margin_left = -121.0
+margin_top = -139.0
+margin_right = 120.0
+margin_bottom = 81.0
+custom_constants/separation = 26
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -166,9 +205,9 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="ColorRect/page2"]
-margin_top = 169.0
+margin_top = 175.0
 margin_right = 241.0
-margin_bottom = 220.0
+margin_bottom = 226.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.0784314, 0, 1 )
 text = "USE THESE CLUES TO
@@ -184,9 +223,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -38.5
-margin_top = 105.0
+margin_top = 124.0
 margin_right = 39.5
-margin_bottom = 134.0
+margin_bottom = 153.0
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 __meta__ = {

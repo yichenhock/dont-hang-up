@@ -10,6 +10,10 @@ func _ready():
 	$CanvasLayer/inventory.visible = false
 	$phoneBooth.set_process_input(false)
 	$phoneBooth.set_interaction(false)
+	
+	#if the game has been opened for the first time: 
+	$CanvasLayer/black.visible = true
+	$CanvasLayer/black.modulate = Color(1.0,1.0,1.0,1.0)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_fullscreen"): 
@@ -25,9 +29,16 @@ func first_speech(): # the "talking to self" speech the player does upon startin
 	$CanvasLayer/speechSelf.type_texts(dialogue)
 	
 func _on_speechSelf_self_dialogue_finished():
-	add_scene("howToPlay")
-	$CanvasLayer/howToPlay.connect("window_closed",self,"initialise")
+	if Data.get_data("first_speech",false)==false: 
+		add_scene("howToPlay")
+		$CanvasLayer/howToPlay.connect("window_closed",self,"initialise")
+		Data.set_data("first_speech",true)
 
+func _on_speechSelf_fade_in_request(rest_of_text):
+	$CanvasLayer/black/AnimationPlayer.play("fadeOut")
+	yield($CanvasLayer/black/AnimationPlayer,"animation_finished")
+	$CanvasLayer/speechSelf.type_texts(rest_of_text)
+	
 func initialise(): 
 	$phoneBooth.zoom_enabled = true
 	$phoneBooth.initialise()
@@ -90,6 +101,8 @@ func _process(delta):
 	$mouse.position = get_viewport().get_mouse_position()
 	if window_overlay: 
 		$CanvasLayer/speechOptions.disable_choices(true)
+	else: 
+		$CanvasLayer/speechOptions.disable_choices(false)
 	$CanvasLayer/cursors.item_equipped = Data.get_data("equipped",null)
 		
 func equip_item(new_item): 
@@ -108,12 +121,17 @@ func _input(event):
 					useable = false
 					break
 			if useable: 
-				$CanvasLayer/description.set_text("used a coin")
+				Data.set_data("description","used a coin")
 				Data.set_data("coins",Data.get_data("coins",0)-1)
 			else:
-				$CanvasLayer/description.set_text("can't use this here")
+				Data.set_data("description","can't use this here")
 				$CanvasLayer/inventory/holder/items/coins.num_coins += 1
 				equip_item(null)
+	if Input.is_action_just_pressed("C"): 
+		if $CanvasLayer/notepad.visible: 
+			$CanvasLayer/notepad.visible = false
+		else: 
+			_on_notepad_pressed()
 
 func _on_phoneBooth_window_overlay_opened():
 	window_overlay = true
@@ -161,4 +179,14 @@ func _on_phoneBooth_coin_collected():
 	$CanvasLayer/inventory/holder/items/coins.num_coins += 1
 
 func _on_notepad_pressed():
-	add_scene("notepad")
+	if Data.get_data("notepad_first_pressed",false) == false:
+		if Data.get_data("directed_from_door",false) == true:
+			$CanvasLayer/speechSelf.type_texts(["I should use something to keep my thoughts together..."])
+		else:
+			$CanvasLayer/speechSelf.type_texts(["I suppose I can use this to keep my thoughts together..."])
+		Data.set_data("notepad_first_pressed",true)
+		yield($CanvasLayer/speechSelf,"self_dialogue_finished")
+		$CanvasLayer/notepad.show()
+		yield(self,"tree_entered")
+	else: 
+		$CanvasLayer/notepad.show()

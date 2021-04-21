@@ -1,10 +1,10 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/Overlays/windowOverlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/graphics/mobile/mobile.png" type="Texture" id=2]
 [ext_resource path="res://shaders/lcd_shader.shader" type="Shader" id=3]
-[ext_resource path="res://assets/graphics/mobile/steins-gate-kurisu.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/palettes/nymph.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/wallet/polaroid-front.png" type="Texture" id=4]
+[ext_resource path="res://assets/palettes/kirokaze.png" type="Texture" id=5]
 [ext_resource path="res://shaders/godotboy.shader" type="Shader" id=6]
 [ext_resource path="res://assets/fonts/tres/mobile_menu.tres" type="DynamicFont" id=7]
 [ext_resource path="res://assets/fonts/Graph-35-pix.ttf" type="DynamicFontData" id=8]
@@ -26,8 +26,6 @@
 [ext_resource path="res://assets/graphics/mobile/applications.png" type="Texture" id=24]
 [ext_resource path="res://assets/graphics/mobile/settings.png" type="Texture" id=25]
 [ext_resource path="res://assets/graphics/mobile/messages.png" type="Texture" id=26]
-[ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=27]
-[ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=28]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -107,7 +105,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="homeScreen" type="Control" parent="screen" index="0"]
+[node name="home" type="Control" parent="screen" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -115,26 +113,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="wallpaper" type="TextureRect" parent="screen/homeScreen" index="0"]
+[node name="wallpaper" type="TextureRect" parent="screen/home" index="0"]
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -22.0
+margin_top = -42.6917
+margin_right = 34.0
+margin_bottom = 156.308
 texture = ExtResource( 4 )
-expand = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="banner" type="ColorRect" parent="screen/homeScreen" index="1"]
+[node name="banner" type="ColorRect" parent="screen/home" index="1"]
 anchor_right = 1.0
-margin_top = 21.0287
-margin_bottom = 56.0287
+margin_left = -1.0
+margin_top = 21.0
+margin_bottom = 56.0
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="time" type="Label" parent="screen/homeScreen" index="2"]
+[node name="time" type="Label" parent="screen/home" index="2"]
 margin_left = 84.0
 margin_top = 27.7994
 margin_right = 149.0
@@ -146,7 +149,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="date" type="Label" parent="screen/homeScreen" index="3"]
+[node name="date" type="Label" parent="screen/home" index="3"]
 margin_left = 8.0
 margin_top = 25.0215
 margin_right = 48.0
@@ -158,7 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="menu" type="Label" parent="screen/homeScreen" index="4"]
+[node name="menu" type="Label" parent="screen/home" index="4"]
 margin_left = 7.0
 margin_top = 133.05
 margin_right = 43.0
@@ -169,7 +172,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="contacts" type="Label" parent="screen/homeScreen" index="5"]
+[node name="contacts" type="Label" parent="screen/home" index="5"]
 margin_left = 90.0
 margin_top = 133.05
 margin_right = 154.0
@@ -181,7 +184,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="noNetwork" type="TextureRect" parent="screen/homeScreen" index="6"]
+[node name="noNetwork" type="TextureRect" parent="screen/home" index="6"]
 margin_left = 2.0
 margin_top = 3.97141
 margin_right = 23.0
@@ -191,7 +194,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="battery0bar" type="TextureRect" parent="screen/homeScreen" index="7"]
+[node name="battery0bar" type="TextureRect" parent="screen/home" index="7"]
 margin_left = 132.0
 margin_top = 3.97141
 margin_right = 158.0
@@ -201,7 +204,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="battery1bar" type="TextureRect" parent="screen/homeScreen" index="8"]
+[node name="battery1bar" type="TextureRect" parent="screen/home" index="8"]
 margin_left = 132.0
 margin_top = 3.97141
 margin_right = 158.0
@@ -211,7 +214,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/homeScreen" index="9"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/home" index="9"]
 autoplay = "low_battery_indicator"
 anims/low_battery_indicator = SubResource( 4 )
 
@@ -473,7 +476,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lcdShader" type="BackBufferCopy" parent="screen" index="3"]
+[node name="leftBtn" type="TextureButton" parent="screen" index="3"]
+margin_left = 2.0
+margin_top = 138.0
+margin_right = 66.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rightBtn" type="TextureButton" parent="screen" index="4"]
+margin_left = 86.0
+margin_top = 138.05
+margin_right = 157.0
+margin_bottom = 160.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lcdShader" type="BackBufferCopy" parent="screen" index="5"]
 copy_mode = 2
 rect = Rect2( 0, 0, 160, 160 )
 __meta__ = {
@@ -599,7 +620,5 @@ margin_top = 99.0
 margin_right = 207.0
 margin_bottom = 132.0
 number = "#"
-
-[node name="back" parent="." index="4"]
-texture_normal = ExtResource( 27 )
-texture_hover = ExtResource( 28 )
+[connection signal="pressed" from="screen/leftBtn" to="." method="_on_leftBtn_pressed"]
+[connection signal="pressed" from="screen/rightBtn" to="." method="_on_rightBtn_pressed"]

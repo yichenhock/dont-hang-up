@@ -2,6 +2,7 @@ tool
 extends Control
 signal line_finished() 
 signal self_dialogue_finished()
+signal fade_in_request(rest_of_text)
 
 var dialogue = []
 var n = 0
@@ -30,16 +31,22 @@ var clicked = false
 func _process(delta): 
 	$speechBubble/indicator.rect_position.x = $speechBubble.rect_position.x + $speechBubble.rect_size.x - 50
 	
-	if Input.is_action_pressed("click"): 
+	if Input.is_action_just_pressed("click"): 
 		if not clicked: 
 			clicked = true
 			if dialogue.size() != 0 and not typing_text: 
 				n+=1
 				if n == dialogue.size(): 
 					dialogue = []
-					n = 0
 					emit_signal("self_dialogue_finished")
 					hide()
+				elif dialogue[n]=="[fade_in]": 
+					var remaining_texts = []
+					for i in range(n+1,dialogue.size()):
+						remaining_texts.push_back(dialogue[i])
+					emit_signal("fade_in_request",remaining_texts)
+					hide()
+					dialogue = []
 				else: 
 					type_text(dialogue[n])
 			elif typing_text: 
@@ -69,14 +76,8 @@ func resize_speech():
 	
 	if $dialogue.visible_characters== -1: 
 		set_speech_size($dialogue.text.length(),font_height)
-#		$speechBubble.rect_size.y = 45 + fmod($dialogue.text.length(),32)*font_height
-#		if $dialogue.text.length() < 33: 
-#			$speechBubble.rect_size.x = $dialogue.text.length() * 10.5 + 22.0
-#		else: 
-#			$speechBubble.rect_size.x = 33 * 10.5 + 22.0
 	else: 
 		set_speech_size($dialogue.visible_characters,font_height)
-#		$speechBubble.rect_size.x = $dialogue.visible_characters * 10.5 + 22.0
 
 func set_speech_size(char_displayed, font_height): 
 	$speechBubble.rect_size.y = 45 + floor(char_displayed/36)*font_height

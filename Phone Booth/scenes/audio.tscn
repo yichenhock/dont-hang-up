@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/music/sfx/phone-ring.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://assets/music/sfx/metal_thud.wav" type="AudioStream" id=31]
 [ext_resource path="res://assets/music/bgm/Spirit_Freed.wav" type="AudioStream" id=32]
 [ext_resource path="res://assets/music/bgm/Decision.ogg" type="AudioStream" id=33]
+[ext_resource path="res://assets/music/sfx/writing.ogg" type="AudioStream" id=34]
 
 [node name="Audio" type="Node"]
 pause_mode = 2
@@ -190,3 +191,10 @@ bus = "SFX"
 [node name="metalThudSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 bus = "SFX"
+
+[node name="writingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+
+[node name="writingSFXTimer" type="Timer" parent="writingSFX"]
+one_shot = true
+[connection signal="timeout" from="writingSFX/writingSFXTimer" to="." method="_on_writingSFXTimer_timeout"]

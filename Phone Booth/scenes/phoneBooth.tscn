@@ -1,10 +1,13 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/interactableAreas/blockerArea.gd" type="Script" id=1]
+[ext_resource path="res://scenes/rainShader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/booth-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://scenes/phone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/graphics/dooropened.png" type="Texture" id=5]
+[ext_resource path="res://scenes/numberClue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/phoneBooth.gd" type="Script" id=7]
+[ext_resource path="res://assets/graphics/door-handle-shine-Sheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/graphics/door.png" type="Texture" id=9]
 [ext_resource path="res://assets/graphics/items/paperclip.png" type="Texture" id=15]
 [ext_resource path="res://scenes/Overlays/tartCard.tscn" type="PackedScene" id=20]
@@ -168,10 +171,10 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 152.238, 317.511 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("doorClosed:modulate")
 tracks/0/interp = 1
@@ -233,7 +236,24 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
+resource_name = "handleShine"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("doorClosed/handleShine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("doorClosed:modulate")
 tracks/0/interp = 1
@@ -364,6 +384,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="numberClue" parent="booth/1Coin1Minute" instance=ExtResource( 6 )]
+margin_left = 48.0
+margin_top = 37.0
+margin_right = 62.0
+margin_bottom = 44.0
+number = "999"
+description = "they should be able to help, surely"
+
 [node name="houcrux" type="TextureRect" parent="booth"]
 modulate = Color( 1, 1, 1, 0.427451 )
 margin_left = 241.412
@@ -385,11 +413,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="numberClue" parent="booth/kalm" instance=ExtResource( 6 )]
+margin_left = 21.0
+margin_top = 69.0
+margin_right = 45.0
+margin_bottom = 75.0
+number = "6940298"
+description = "i'm not sure how i feel about this poster"
+
 [node name="suicideAdRipped" type="TextureRect" parent="booth"]
 margin_left = 206.123
 margin_top = 250.385
 margin_right = 255.123
 margin_bottom = 317.385
+mouse_filter = 2
 texture = ExtResource( 43 )
 __meta__ = {
 "_edit_lock_": true,
@@ -401,11 +438,20 @@ margin_left = 206.123
 margin_top = 250.385
 margin_right = 255.123
 margin_bottom = 317.385
+mouse_filter = 0
 texture = ExtResource( 34 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="numberClue" parent="booth/suicideAd" instance=ExtResource( 6 )]
+margin_left = 15.0
+margin_top = 57.0
+margin_right = 45.0
+margin_bottom = 64.0
+number = "1808255"
+description = "I don't think i want to kill myself just yet"
 
 [node name="suicideRip" type="TextureButton" parent="booth"]
 margin_left = 217.0
@@ -428,6 +474,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="numberClue" parent="booth/teleAd" instance=ExtResource( 6 )]
+margin_left = 11.0
+margin_top = 87.0
+margin_right = 44.0
+margin_bottom = 93.0
+description = "This might be helpful"
+
 [node name="smiley" type="TextureRect" parent="booth"]
 margin_left = 240.0
 margin_top = 402.0
@@ -449,6 +502,14 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="numberClue" parent="booth/callMe" instance=ExtResource( 6 )]
+margin_left = -1.0
+margin_top = 4.0
+margin_right = 31.0
+margin_bottom = 21.0
+number = "1438246"
+description = "It literally just says \"call me\" huh"
 
 [node name="crumpledPaper" type="TextureButton" parent="booth"]
 margin_left = 241.121
@@ -475,6 +536,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 41 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -568,7 +630,6 @@ __meta__ = {
 }
 
 [node name="doorClosed" type="TextureRect" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 mouse_filter = 0
 texture = ExtResource( 9 )
@@ -577,33 +638,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="handleShine" type="Sprite" parent="doorClosed"]
+position = Vector2( 91, 374 )
+texture = ExtResource( 8 )
+hframes = 5
+
 [node name="doorClosedHandle" type="TextureButton" parent="doorClosed"]
 margin_left = 84.0
 margin_top = 342.0
 margin_right = 99.0
 margin_bottom = 406.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="blockerArea" type="Area2D" parent="doorClosed"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doorClosed/blockerArea"]
 position = Vector2( 223.678, 406.893 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="doorAnim" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 7 )
-anims/open = SubResource( 8 )
+anims/close = SubResource( 8 )
+anims/handleShine = SubResource( 11 )
+anims/open = SubResource( 10 )
 
 [node name="blocker" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="rainShader" parent="." instance=ExtResource( 2 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=1]
+
+[node name="Label" type="Label"]
+margin_top = 45.0
+margin_right = 338.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "999"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

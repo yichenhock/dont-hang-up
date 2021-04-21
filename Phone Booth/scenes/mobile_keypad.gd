@@ -13,9 +13,10 @@ func set_letters(new_letters):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ColorRect.visible = false
 
+func _on_key_button_down():
+	$ColorRect.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_key_button_up():
+	$ColorRect.visible = false

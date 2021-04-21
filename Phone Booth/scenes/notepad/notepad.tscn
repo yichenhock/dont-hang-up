@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/notepad.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/graphics/notepad/quest-selected.png" type="Texture" id=9]
 [ext_resource path="res://assets/graphics/notepad/phone-selected.png" type="Texture" id=10]
 [ext_resource path="res://assets/graphics/notepad/phone-bookmark-sheet.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/tres/Notepen-Large.tres" type="DynamicFont" id=12]
+[ext_resource path="res://scenes/notepad/notepad_number_entry.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "firstPage"
@@ -63,15 +65,15 @@ __meta__ = {
 }
 
 [node name="quest" type="Sprite" parent="."]
-position = Vector2( 294, 599 )
+position = Vector2( 294, 598.007 )
 texture = ExtResource( 8 )
 hframes = 2
 
 [node name="qBookmark" type="TextureButton" parent="quest"]
 margin_left = -15.0
-margin_top = 1.0
+margin_top = 0.00714111
 margin_right = 15.0
-margin_bottom = 42.0
+margin_bottom = 41.0071
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,9 +129,9 @@ __meta__ = {
 [node name="questSelect" type="TextureRect" parent="."]
 visible = false
 margin_left = 279.0
-margin_top = 547.0
+margin_top = 546.007
 margin_right = 309.0
-margin_bottom = 641.0
+margin_bottom = 640.007
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -165,6 +167,90 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="page1" type="VBoxContainer" parent="text"]
+visible = false
+margin_left = 71.0
+margin_top = 180.0
+margin_right = 409.0
+margin_bottom = 548.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="text/page1"]
+margin_right = 338.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "Find out how to get out of here"
+
+[node name="Label2" type="Label" parent="text/page1"]
+margin_top = 45.0
+margin_right = 338.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "- where am i?"
+
+[node name="Label3" type="Label" parent="text/page1"]
+margin_top = 90.0
+margin_right = 338.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "- contact family"
+
+[node name="page7" type="VBoxContainer" parent="text"]
+margin_left = 71.0
+margin_top = 180.0
+margin_right = 409.0
+margin_bottom = 548.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="numbers" type="Label" parent="text/page7"]
+margin_right = 338.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
+text = "Numbers"
+
+[node name="page8" type="VBoxContainer" parent="text"]
+visible = false
+margin_left = 71.0
+margin_top = 180.0
+margin_right = 409.0
+margin_bottom = 548.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page9" type="VBoxContainer" parent="text"]
+visible = false
+margin_left = 71.0
+margin_top = 180.0
+margin_right = 409.0
+margin_bottom = 548.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="page10" type="VBoxContainer" parent="text"]
+visible = false
+margin_left = 71.0
+margin_top = 180.0
+margin_right = 409.0
+margin_bottom = 548.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="back" parent="." instance=ExtResource( 6 )]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -176,6 +262,21 @@ margin_right = 39.0
 margin_bottom = -61.2009
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 5 )
+
+[node name="blocker" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [ PoolStringArray( "notepad_number_entry" ), [ ExtResource( 13 ) ] ]
 [connection signal="mouse_entered" from="quest/qBookmark" to="." method="_on_qBookmark_mouse_entered"]
 [connection signal="mouse_exited" from="quest/qBookmark" to="." method="_on_qBookmark_mouse_exited"]
 [connection signal="pressed" from="quest/qBookmark" to="." method="_on_qBookmark_pressed"]

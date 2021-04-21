@@ -60,3 +60,12 @@ func stepOutside():
 	$Tween.interpolate_property($rainInside, "volume_db",0,-50,1,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($rainOutside, "volume_db",-50,0,0.6,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 	$Tween.start()
+
+func play_writingSFX():
+	randomize()
+	var random_point = rand_range(0,$writingSFX.stream.get_length())
+	$writingSFX.play(random_point)
+	$writingSFX/writingSFXTimer.start(1.5)
+
+func _on_writingSFXTimer_timeout():
+	$writingSFX.stop()

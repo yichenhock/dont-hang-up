@@ -1,13 +1,17 @@
 extends Control
 var current_screen = "wallet"
-signal window_closed()
 signal coin_collected()
+	
+func _process(delta):
+	if visible:
+		if Data.get_data("window_overlay",false) == false:
+			Data.set_data("window_overlay",true)
 	
 func _on_back_pressed():
 	Audio.play("menuClickSFX")
 	if current_screen == "wallet": 
 		visible = false
-		emit_signal("window_closed")
+		Data.set_data("window_overlay",false)
 		get_tree().paused = false
 		queue_free()
 	else: 

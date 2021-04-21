@@ -168,7 +168,6 @@ __meta__ = {
 }
 
 [node name="page1" type="VBoxContainer" parent="text"]
-visible = false
 margin_left = 71.0
 margin_top = 180.0
 margin_right = 409.0
@@ -183,7 +182,7 @@ margin_right = 338.0
 margin_bottom = 31.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
-text = "Find out how to get out of here"
+text = "find out how to get out of here"
 
 [node name="Label2" type="Label" parent="text/page1"]
 margin_top = 45.0
@@ -202,6 +201,7 @@ custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
 text = "- contact family"
 
 [node name="page7" type="VBoxContainer" parent="text"]
+visible = false
 margin_left = 71.0
 margin_top = 180.0
 margin_right = 409.0
@@ -216,7 +216,7 @@ margin_right = 338.0
 margin_bottom = 31.0
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
-text = "Numbers"
+text = "numbers:"
 
 [node name="page8" type="VBoxContainer" parent="text"]
 visible = false

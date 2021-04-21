@@ -9,10 +9,9 @@ func _ready():
 	Audio.play_bgm("menuBGM")
 	$main/danglingPhone.position = $main/Title/cableStart.global_position
 	$main.visible = true
-	$phonebook.visible = false
-	$options.visible = false
-	$credits.visible = false
-
+	for i in $CanvasLayer.get_children():
+		i.visible = false
+		
 func _on_enter_pressed():
 	$AnimationPlayer.play("fadeOut")
 	yield($AnimationPlayer, "animation_finished")
@@ -20,19 +19,14 @@ func _on_enter_pressed():
 	emit_signal("enter_pressed")
 	queue_free()
 
-func _on_phonebook_pressed():
-	$main.visible = false
-	$phonebook.show()
-	current_screen = "phonebook"
-
 func _on_options_pressed():
 	$main.visible = false
-	$options.show()
+	$CanvasLayer/options.show()
 	current_screen = "options"
 
 func _on_credits_pressed():
 	$main.visible = false
-	$credits.show()
+	$CanvasLayer/credits.show()
 	current_screen = "credits"
 	
 func _on_leave_pressed():
@@ -43,14 +37,5 @@ func _process(delta):
 	$chromaticAbberation/ColorRect.material.set_shader_param("amount",offset_amount)
 
 func _on_back_pressed():
-	get_node(current_screen).hide()
+	get_node("CanvasLayer/"+current_screen).hide()
 	$main.visible = true
-
-func _on_ig_pressed():
-	OS.shell_open("https://www.instagram.com/chen_dll/")
-
-func _on_twt_pressed():
-	OS.shell_open("https://twitter.com/chen_dll")
-
-func _on_kofi_pressed():
-	OS.shell_open("https://ko-fi.com/chen_dll")

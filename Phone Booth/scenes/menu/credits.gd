@@ -1,16 +1,19 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func show(): 
-	$bookAnim.play("show")
-	$back.visible = true
+	visible = true
 
 func hide(): 
-	$bookAnim.play("hide")
-
+	visible = false
 
 func _on_back_pressed():
-	$back.visible = false
+	hide()
+
+func _on_ig_pressed():
+	OS.shell_open("https://www.instagram.com/chen_dll/")
+
+func _on_twt_pressed():
+	OS.shell_open("https://twitter.com/chen_dll")
+
+func _on_kofi_pressed():
+	OS.shell_open("https://ko-fi.com/chen_dll")

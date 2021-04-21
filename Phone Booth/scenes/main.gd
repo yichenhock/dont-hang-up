@@ -95,14 +95,18 @@ func _on_phoneBooth_phone_hung_up():
 	$CanvasLayer/speechOptions.terminate_choices()
 	$CanvasLayer/speechPhone.hide()
 
-var window_overlay = false
-
 func _process(delta):
 	$mouse.position = get_viewport().get_mouse_position()
-	if window_overlay: 
-		$CanvasLayer/speechOptions.disable_choices(true)
-	else: 
-		$CanvasLayer/speechOptions.disable_choices(false)
+	
+	var window_overlay = Data.get_data("window_overlay", false)
+	$CanvasLayer/speechOptions.disable_choices(window_overlay)
+	$mouse.monitorable = !window_overlay
+	$phoneBooth.zoom_enabled = !window_overlay
+	if window_overlay:
+		$CanvasLayer/speechPhone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	else:
+		$CanvasLayer/speechPhone.mouse_filter = Control.MOUSE_FILTER_PASS
+	
 	$CanvasLayer/cursors.item_equipped = Data.get_data("equipped",null)
 		
 func equip_item(new_item): 
@@ -130,18 +134,9 @@ func _input(event):
 	if Input.is_action_just_pressed("C"): 
 		if $CanvasLayer/notepad.visible: 
 			$CanvasLayer/notepad.visible = false
+			Data.set_data("window_overlay",false)
 		else: 
 			_on_notepad_pressed()
-
-func _on_phoneBooth_window_overlay_opened():
-	window_overlay = true
-	$CanvasLayer/speechOptions.disable_choices(true)
-	$CanvasLayer/speechPhone.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-func _on_phoneBooth_window_overlay_closed():
-	window_overlay = false
-	$CanvasLayer/speechOptions.disable_choices(false)
-	$CanvasLayer/speechPhone.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _on_phoneBooth_phone_dialed_unknown_number():
 	Audio.stop_phone()

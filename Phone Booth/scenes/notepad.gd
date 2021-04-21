@@ -12,6 +12,7 @@ func _ready():
 	
 func show(): 
 	visible = true
+	Data.set_data("window_overlay",true)
 	update_notepad()
 	#current_page = Data.get_data("current_page",1)
 	set_page_layout()
@@ -50,7 +51,7 @@ func update_notepad():
 		if not page_entry in new_info_on_pages:
 			new_info_on_pages.push_back(str(page_entry))
 		new_entry.set_name(str(n))
-		new_entry.text = str(n).insert(3," ") + ": " + phone_dict[str(n)]
+		new_entry.text = str(n).insert(3," ") + " - " + phone_dict[str(n)]
 		Data.append_data_array("numbers_in_notepad",n)
 		
 	Data.set_data("numbers_to_add",[])
@@ -100,11 +101,9 @@ func set_bookmark_states():
 		$phone.visible = false
 
 func _on_back_pressed():
-	#Data.set_data("current_page",current_page)
 	Audio.play("menuClickSFX")
 	visible = false
-	emit_signal("window_closed")
-	#queue_free()
+	Data.set_data("window_overlay",false)
 
 func _on_nextPage_mouse_entered():
 	$corner.frame = 1

@@ -19,3 +19,7 @@ func _on_menuOption_mouse_exited():
 	$optionAnim.stop()
 	$option.visible = true
 	release_focus()
+
+func _on_menuOption_focus_exited():
+	$optionAnim.stop()
+	$option.visible = true

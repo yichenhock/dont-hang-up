@@ -656,8 +656,6 @@ shape = SubResource( 16 )
 [connection signal="phone_dialed_unknown_number" from="phoneBooth" to="." method="_on_phoneBooth_phone_dialed_unknown_number"]
 [connection signal="phone_hung_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_hung_up"]
 [connection signal="phone_picked_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_picked_up"]
-[connection signal="window_overlay_closed" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_closed"]
-[connection signal="window_overlay_opened" from="phoneBooth" to="." method="_on_phoneBooth_window_overlay_opened"]
 [connection signal="change_description" from="CanvasLayer/inventory" to="CanvasLayer2/description" method="set_text"]
 [connection signal="mouse_entered" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_exited"]

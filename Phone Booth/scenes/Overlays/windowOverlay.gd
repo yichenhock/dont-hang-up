@@ -1,5 +1,4 @@
 extends Control
-signal window_closed()
 
 var current_screen = "home"
 var btn_config = [null,null]
@@ -10,10 +9,15 @@ var screen_btns = {"home":["menu",null],
 func _ready():
 	btn_config = screen_btns[current_screen]
 
+func _process(delta):
+	if visible: 
+		if Data.get_data("window_overlay",false)==false:
+			Data.set_data("window_overlay",true)
+
 func _on_back_pressed():
 	Audio.play("menuClickSFX")
 	visible = false
-	emit_signal("window_closed")
+	Data.set_data("window_overlay",false)
 	queue_free()
 
 func switch_screen(screen): 

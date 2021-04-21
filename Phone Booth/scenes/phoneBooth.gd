@@ -1,7 +1,6 @@
 extends Node2D
 var zoom_enabled = false
 var camera_following_cursor = false
-#var coins_collected = 0
 var taking_call = false
 var phone_picked_up = false
 
@@ -11,17 +10,12 @@ signal phone_call_begun(nodeID)
 signal phone_dialed_unknown_number()
 
 signal coin_collected()
-
-signal window_overlay_opened()
-signal window_overlay_closed()
-
 signal notepad_open_request()
 
 func _ready():
 	$doorClosed.visible = true
 	$doorClosed.modulate = Color(1.0,1.0,1.0,1.0)
 	$doorOpened.visible = false
-#	Data.set_data("coins", coins_collected)
 
 func initialise(): 
 	set_interaction(true)
@@ -79,31 +73,16 @@ func _process(delta):
 		$Camera2D.offset = get_viewport().get_mouse_position()*0.5 + get_viewport().size*0.25
 	else: 
 		$Camera2D.offset = get_viewport().size*0.5
-
-func enable_zoom(): 
-	zoom_enabled = true
-	
-func on_window_closed(): 
-	emit_signal("window_overlay_closed")
-	zoom_enabled = true
 	
 func add_scene(new_scene): 
 	$CanvasLayer.add_child($Scenes.get_resource(new_scene).instance())
 
 func _on_tartCard_pressed():
 	add_scene("tartCard")
-	zoom_enabled = false
-	emit_signal("window_overlay_opened")
-	yield(self,"tree_entered")
-	$CanvasLayer/tartCard.connect("window_closed",self,"on_window_closed")
 
 func _on_crumpledPaper_pressed():
 	add_scene("crumpledPaper")
 	Audio.play("uncrumpleSFX")
-	zoom_enabled = false
-	emit_signal("window_overlay_opened")
-	yield(self,"tree_entered")
-	$CanvasLayer/crumpledPaper.connect("window_closed",self,"on_window_closed")
 
 func _on_phone_picked_up(number):
 	zoom_enabled = false

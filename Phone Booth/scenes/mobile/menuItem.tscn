@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/graphics/mobile/call_history.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/mobile/unselected.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/mobile/selected.png" type="Texture" id=3]
+[ext_resource path="res://scenes/mobile/mobile_menu_item.gd" type="Script" id=4]
+
+
+[node name="menuItem" type="TextureButton"]
+margin_right = 42.0
+margin_bottom = 35.0
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 4 )
+icon_img = ExtResource( 1 )
+icon_name = "Call History"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 42.0
+margin_bottom = 35.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="." to="." method="_on_menuItem_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_menuItem_pressed"]

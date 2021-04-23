@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/numberClue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/tres/mousetrap-contacts.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/mobile/mobile_contact.gd" type="Script" id=3]
+[ext_resource path="res://assets/graphics/mobile/mobile-icon.png" type="Texture" id=4]
+
+[node name="contact" type="Label"]
+margin_right = 153.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 153, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = " s"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+contact_name = "s"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.2, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="numberClue" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 59.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="mobileIcon" type="TextureRect" parent="."]
+margin_left = 18.0
+margin_top = 33.0
+margin_right = 26.0
+margin_bottom = 45.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="TextureButton" to="." method="_on_TextureButton_focus_entered"]
+[connection signal="focus_exited" from="TextureButton" to="." method="_on_TextureButton_focus_exited"]

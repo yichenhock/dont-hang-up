@@ -1,6 +1,9 @@
 extends Control
 var hidden = true
-signal change_description(new_text)
+
+func _process(delta): 
+	if $Area2D.monitoring != visible: 
+		$Area2D.monitoring = visible
 
 func hide_inv(): 
 	if hidden == false: 
@@ -10,7 +13,7 @@ func hide_inv():
 
 func _on_Area2D_area_entered(area):
 	if hidden: 
-		emit_signal("change_description","Inventory")
+		Data.set_data("description","Inventory")
 		$holder.material.set_shader_param("outline",true)
 		$AnimationPlayer.play("showInv")
 		yield($AnimationPlayer,"animation_finished")
@@ -18,6 +21,7 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
 	if !hidden: 
+		Data.set_data("description","")
 		emit_signal("change_description","")
 		$holder.material.set_shader_param("outline",false)
 		$AnimationPlayer.play("hideInv")

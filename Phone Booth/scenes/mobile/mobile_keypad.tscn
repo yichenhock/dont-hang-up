@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Squarewave-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/mobile/mobile_keypad.gd" type="Script" id=3]
+
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 3
+
+[node name="key" type="TextureButton"]
+margin_right = 69.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 69, 33 )
+shortcut_in_tooltip = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 20.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="number" type="Label" parent="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.552941, 1 )
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="letters" type="Label" parent="HBoxContainer"]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 46.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 20, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.552941, 1 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -13.5
+margin_right = 32.5
+margin_bottom = 14.5
+color = Color( 0.827451, 0.878431, 0.909804, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="." to="." method="_on_key_button_down"]
+[connection signal="button_up" from="." to="." method="_on_key_button_up"]

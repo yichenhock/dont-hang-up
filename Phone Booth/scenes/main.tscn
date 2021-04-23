@@ -15,7 +15,7 @@
 [ext_resource path="res://scenes/backgrounds/background.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/phoneBooth.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/menu/menu.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/mobile.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/mobile/mobile.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/menu/pauseMenu.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/howToPlay.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/inventory/invItem.tscn" type="PackedScene" id=20]
@@ -532,6 +532,7 @@ margin_bottom = 250.888
 [node name="speechOptions" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [node name="speechSelf" parent="CanvasLayer" instance=ExtResource( 21 )]
+visible = false
 
 [node name="OLDfirstTransit" type="Control" parent="CanvasLayer"]
 visible = false
@@ -656,7 +657,6 @@ shape = SubResource( 16 )
 [connection signal="phone_dialed_unknown_number" from="phoneBooth" to="." method="_on_phoneBooth_phone_dialed_unknown_number"]
 [connection signal="phone_hung_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_hung_up"]
 [connection signal="phone_picked_up" from="phoneBooth" to="." method="_on_phoneBooth_phone_picked_up"]
-[connection signal="change_description" from="CanvasLayer/inventory" to="CanvasLayer2/description" method="set_text"]
 [connection signal="mouse_entered" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/inventory/notepad" to="CanvasLayer/inventory/notepad" method="_on_invItem_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/inventory/notepad" to="." method="_on_notepad_pressed"]

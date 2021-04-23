@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/speechSelf.gd" type="Script" id=1]
 [ext_resource path="res://scenes/customLabel.tscn" type="PackedScene" id=2]
@@ -13,25 +13,7 @@ shader_param/outline = true
 shader_param/width = 1.0
 shader_param/outline_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "float"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("indicator:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 346, 26 ), Vector2( 346, 30 ) ]
-}
-
 [node name="speechSelf" type="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -67,17 +49,15 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -25.0
-margin_top = -19.0
+margin_top = -17.9935
 margin_right = -10.0
-margin_bottom = -11.0
+margin_bottom = -9.99353
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="indicatorAnim" type="AnimationPlayer" parent="speechBubble"]
-autoplay = "float"
-anims/float = SubResource( 2 )
+[node name="Tween" type="Tween" parent="speechBubble"]
 
 [node name="dialogue" parent="." instance=ExtResource( 2 )]
 margin_left = 36.0
@@ -90,5 +70,6 @@ custom_colors/default_color = Color( 0.0588235, 0.0823529, 0.0901961, 1 )
 bbcode_enabled = true
 text = "Maybe I can call for help in this phonebooth, although I don't have any coins..."
 delay = 0.05
+[connection signal="tween_completed" from="speechBubble/Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="character_displayed" from="dialogue" to="." method="_on_dialogue_character_displayed"]
 [connection signal="fully_displayed" from="dialogue" to="." method="_on_dialogue_fully_displayed"]

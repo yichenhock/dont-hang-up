@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/interactableAreas/blockerArea.gd" type="Script" id=1]
 [ext_resource path="res://scenes/rainShader.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/phoneBooth.gd" type="Script" id=7]
 [ext_resource path="res://assets/graphics/door-handle-shine-Sheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/graphics/door.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/staticBoothDecor/cig-butts.png" type="Texture" id=10]
 [ext_resource path="res://assets/graphics/items/paperclip.png" type="Texture" id=15]
 [ext_resource path="res://scenes/Overlays/tartCard.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/Overlays/crumpledPaper.tscn" type="PackedScene" id=21]
@@ -236,7 +237,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "handleShine"
 length = 5.0
 loop = true
@@ -392,6 +393,16 @@ margin_bottom = 44.0
 number = "999"
 description = "they should be able to help, surely"
 
+[node name="cigButt" type="TextureRect" parent="booth"]
+margin_left = 197.0
+margin_top = 353.0
+margin_right = 226.0
+margin_bottom = 372.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="houcrux" type="TextureRect" parent="booth"]
 modulate = Color( 1, 1, 1, 0.427451 )
 margin_left = 241.412
@@ -445,11 +456,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="numberClue" parent="booth/suicideAd" instance=ExtResource( 6 )]
-margin_left = 15.0
-margin_top = 57.0
-margin_right = 45.0
-margin_bottom = 64.0
+[node name="numberClue" parent="booth" instance=ExtResource( 6 )]
+margin_left = 221.123
+margin_top = 307.385
+margin_right = 251.123
+margin_bottom = 314.385
 number = "1808255"
 description = "I don't think i want to kill myself just yet"
 
@@ -512,10 +523,10 @@ number = "1438246"
 description = "It literally just says \"call me\" huh"
 
 [node name="crumpledPaper" type="TextureButton" parent="booth"]
-margin_left = 241.121
-margin_top = 354.768
-margin_right = 254.121
-margin_bottom = 368.768
+margin_left = 241.0
+margin_top = 355.0
+margin_right = 256.0
+margin_bottom = 372.0
 texture_normal = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -668,7 +679,7 @@ __meta__ = {
 
 [node name="doorAnim" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 8 )
-anims/handleShine = SubResource( 11 )
+anims/handleShine = SubResource( 9 )
 anims/open = SubResource( 10 )
 
 [node name="blocker" type="Control" parent="."]

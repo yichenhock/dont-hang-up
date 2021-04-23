@@ -190,6 +190,7 @@ bus = "SFX"
 
 [node name="metalThudSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
+volume_db = -8.0
 bus = "SFX"
 
 [node name="writingSFX" type="AudioStreamPlayer" parent="."]

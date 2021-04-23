@@ -11,9 +11,23 @@ export var delay = 0.05 setget set_delay
 
 export(String) var blip_sfx = "" setget set_blip_sfx
 
+var indicator_up = false
+
 func _ready():
 	$speechBubble/indicator.visible = false
+	
+	var indicator_position_y = $speechBubble.rect_global_position.y + $speechBubble.rect_size.y - 19
+	$speechBubble/Tween.interpolate_property($speechBubble/indicator,"rect_global_position:y",indicator_position_y,indicator_position_y+4,0.2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	$speechBubble/Tween.start()
 	hide()
+
+func _on_Tween_tween_completed(object, key):
+	var indicator_position_y = $speechBubble.rect_global_position.y + $speechBubble.rect_size.y - 19
+	if indicator_up: 
+		$speechBubble/Tween.interpolate_property($speechBubble/indicator,"rect_global_position:y",indicator_position_y+4,indicator_position_y,0.2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	else:
+		$speechBubble/Tween.interpolate_property($speechBubble/indicator,"rect_global_position:y",indicator_position_y,indicator_position_y+4,0.2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	indicator_up=!indicator_up
 
 func hide(): 
 	visible = false
@@ -30,6 +44,7 @@ var clicked = false
 
 func _process(delta): 
 	$speechBubble/indicator.rect_position.x = $speechBubble.rect_position.x + $speechBubble.rect_size.x - 50
+	#$speechBubble/indicator.rect_position.y = 26
 	
 	if Input.is_action_just_pressed("click"): 
 		if not clicked: 

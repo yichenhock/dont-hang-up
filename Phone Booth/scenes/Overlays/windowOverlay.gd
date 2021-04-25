@@ -5,12 +5,20 @@ var btn_config = [null,null]
 
 var screen_btns = {"home":["menu","contacts"],
 					"menu":["call history","home"],
+					"call history":[null,"menu"],
 					"contacts":[null,"home"],
-					"messages":[null,"menu"]
+					"calendar":[null,null],
+					"games":[null,null],
+					"messages":["textlog","menu"],
+					"textlog":[null,"messages"],
+					"memo":[null,"menu"],
+					"radio":[null,"menu"],
+					"gallery":[null,"menu"],
+					"settings":[null,"menu"]
 					}
 
 func _ready():
-	switch_screen("home")
+	switch_screen("textlog")
 
 func _process(delta):
 	if visible: 
@@ -41,10 +49,13 @@ func _on_leftBtn_pressed():
 		switch_screen(btn_config[0])
 
 func _on_rightBtn_pressed():
-	print("right pressed")
 	if btn_config[1] != null: 
 		switch_screen(btn_config[1])
 
 func _on_menu_change_destination(next_screen):
 	screen_btns["menu"] = [next_screen,"home"]
 	screen_btns["contacts"] = [null,"menu"]
+
+func _on_declineCall_pressed():
+	#if not taking call
+	switch_screen("home")

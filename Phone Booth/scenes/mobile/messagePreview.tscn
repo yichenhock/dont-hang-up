@@ -45,6 +45,9 @@ color = Color( 0.2, 0.2, 0.2, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 [connection signal="focus_entered" from="." to="." method="_on_messagePreview_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_messagePreview_focus_exited"]
-[connection signal="pressed" from="." to="." method="_on_messagePreview_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

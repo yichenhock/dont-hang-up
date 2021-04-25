@@ -479,7 +479,6 @@ __meta__ = {
 }
 
 [node name="front" type="TextureRect" parent="polaroid"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -495,6 +494,7 @@ __meta__ = {
 }
 
 [node name="back" type="TextureRect" parent="polaroid"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1508,40 +1508,40 @@ texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 6 )
 [connection signal="mouse_entered" from="wallet/idCard" to="wallet/idCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/idCard" to="." method="item_pressed" binds= [ "idCard" ]]
 [connection signal="pressed" from="wallet/idCard" to="wallet/idCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/idCard" to="." method="item_pressed" binds= [ "idCard" ]]
 [connection signal="mouse_entered" from="wallet/receipt" to="wallet/receipt" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
-[connection signal="pressed" from="wallet/receipt" to="." method="item_pressed" binds= [ "receipt" ]]
 [connection signal="pressed" from="wallet/receipt" to="wallet/receipt" method="mouse_exited"]
+[connection signal="pressed" from="wallet/receipt" to="." method="item_pressed" binds= [ "receipt" ]]
 [connection signal="mouse_entered" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/OLDorganCard" to="." method="item_pressed" binds= [ "organCard" ]]
 [connection signal="pressed" from="wallet/OLDorganCard" to="wallet/OLDorganCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/OLDorganCard" to="." method="item_pressed" binds= [ "organCard" ]]
 [connection signal="mouse_entered" from="wallet/railCard" to="wallet/railCard" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
-[connection signal="pressed" from="wallet/railCard" to="." method="item_pressed" binds= [ "railCard" ]]
 [connection signal="pressed" from="wallet/railCard" to="wallet/railCard" method="mouse_exited"]
+[connection signal="pressed" from="wallet/railCard" to="." method="item_pressed" binds= [ "railCard" ]]
 [connection signal="mouse_entered" from="wallet/polaroid" to="wallet/polaroid" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
-[connection signal="pressed" from="wallet/polaroid" to="." method="item_pressed" binds= [ "polaroid" ]]
 [connection signal="pressed" from="wallet/polaroid" to="wallet/polaroid" method="mouse_exited"]
+[connection signal="pressed" from="wallet/polaroid" to="." method="item_pressed" binds= [ "polaroid" ]]
 [connection signal="mouse_entered" from="wallet/banknote" to="wallet/banknote" method="mouse_entered"]
 [connection signal="mouse_exited" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
-[connection signal="pressed" from="wallet/banknote" to="." method="item_pressed" binds= [ "banknote" ]]
 [connection signal="pressed" from="wallet/banknote" to="wallet/banknote" method="mouse_exited"]
+[connection signal="pressed" from="wallet/banknote" to="." method="item_pressed" binds= [ "banknote" ]]
 [connection signal="timeout" from="polaroid/polaroidScary/Timer" to="polaroid/polaroidScary" method="_on_Timer_timeout"]
 [connection signal="mouse_entered" from="banknote/coin1" to="banknote/coin1" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin1" to="." method="collect_coin"]
 [connection signal="pressed" from="banknote/coin1" to="banknote/coin1" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin1" to="." method="collect_coin"]
 [connection signal="mouse_entered" from="banknote/coin2" to="banknote/coin2" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin2" to="." method="collect_coin"]
 [connection signal="pressed" from="banknote/coin2" to="banknote/coin2" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin2" to="." method="collect_coin"]
 [connection signal="mouse_entered" from="banknote/coin3" to="banknote/coin3" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin3" to="." method="collect_coin"]
 [connection signal="pressed" from="banknote/coin3" to="banknote/coin3" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin3" to="." method="collect_coin"]
 [connection signal="mouse_entered" from="banknote/coin4" to="banknote/coin4" method="_on_coin_mouse_entered"]
-[connection signal="pressed" from="banknote/coin4" to="." method="collect_coin"]
 [connection signal="pressed" from="banknote/coin4" to="banknote/coin4" method="_on_coin_pressed"]
+[connection signal="pressed" from="banknote/coin4" to="." method="collect_coin"]
 [connection signal="pressed" from="ui/flip" to="." method="_on_flip_pressed"]
 [connection signal="pressed" from="ui/back" to="." method="_on_back_pressed"]

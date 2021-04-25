@@ -12,7 +12,7 @@ func _ready():
 	
 func show(): 
 	visible = true
-	Data.set_data("window_overlay",true)
+	#Data.set_data("window_overlay",true)
 	update_notepad()
 	#current_page = Data.get_data("current_page",1)
 	set_page_layout()
@@ -103,7 +103,7 @@ func set_bookmark_states():
 func _on_back_pressed():
 	Audio.play("menuClickSFX")
 	visible = false
-	Data.set_data("window_overlay",false)
+	#Data.set_data("window_overlay",false)
 
 func _on_nextPage_mouse_entered():
 	$corner.frame = 1

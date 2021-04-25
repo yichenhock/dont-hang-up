@@ -490,6 +490,7 @@ margin_left = 11.0
 margin_top = 87.0
 margin_right = 44.0
 margin_bottom = 93.0
+number = "0834514"
 description = "This might be helpful"
 
 [node name="smiley" type="TextureRect" parent="booth"]

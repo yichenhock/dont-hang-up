@@ -1,12 +1,22 @@
 extends TextureButton
-export(String) var sender_name
-export(String) var latest_message
+export(String) var sender_name setget set_sender_name
+#export(String) var latest_message
+var latest_message = ""
 var max_characters = 14
 var scrolling_text
+signal message_selected(sender_name)
 
-func _ready():
+func set_sender_name(new_name): 
+	sender_name = new_name
+	get_last_message(Data.text_log_nodes[sender_name])
 	set_static_preview()
 	reset_scrolling_text()
+
+func get_last_message(nodeID): 
+	if Data.text_logs[nodeID].has("children"): 
+		get_last_message(Data.text_logs[nodeID]["children"][0])
+	else: 
+		latest_message = Data.text_logs[nodeID]["#text"]
 
 func reset_scrolling_text(): 
 	scrolling_text = latest_message
@@ -39,3 +49,7 @@ func _on_Timer_timeout():
 	scrolling_text.erase(0,1)
 	scrolling_text = scrolling_text + first_character
 	set_text(scrolling_text.left(max_characters))
+
+
+func _on_messagePreview_pressed():
+	emit_signal("message_selected",sender_name)

@@ -10,16 +10,27 @@ var files = {}
 var phone_dialogues = {}
 var number_nodes = {}
 
+var text_logs = {}
+var text_log_nodes = {}
+
 const DIALOGUE_PATH = "res://data/files/"
 
 func _ready(): 
 	load_files()
-	phone_dialogues = format_dialogues()
+	phone_dialogues = format_nodetree("phone_dialogues")
+	number_nodes = get_first_below_root(phone_dialogues)
 	
-	var num_nodes = phone_dialogues["n0"]["children"] #start node, children contains nodeID for nodes with numbers
-	for id in num_nodes: 
-		number_nodes [phone_dialogues[id]["#text"]] = id
+	text_logs = format_nodetree("text_logs")
+	text_log_nodes = get_first_below_root(text_logs)
 	
+
+func get_first_below_root(dict): 
+	var node_id = {}
+	var node_text = dict["n0"]["children"] #start node, children contains nodeID for nodes with numbers
+	for id in node_text: 
+		node_id [dict[id]["#text"]] = id
+	return node_id
+
 func get_data(key,default = null):
 	if data.has(key): 
 		return data[key]
@@ -85,8 +96,8 @@ func load_files():
 		files[path] = data
 		file.close()
 	
-func format_dialogues(): 
-	var dialogue_data = files["phone_dialogues"]["graphml"]["graph"]
+func format_nodetree(file_name): 
+	var dialogue_data = files[file_name]["graphml"]["graph"]
 	var edges = dialogue_data["edge"]
 	var nodes = dialogue_data["node"]
 	var node_dict = {}
@@ -100,4 +111,3 @@ func format_dialogues():
 		else: 
 			node_dict[edge["@source"]]["children"] = [edge["@target"]]
 	return node_dict
-

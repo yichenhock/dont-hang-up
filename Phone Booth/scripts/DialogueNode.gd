@@ -11,9 +11,6 @@ var choices = {}
 var speech_text = null
 var nodeID_speech = null
 
-func _ready():
-	pass # Replace with function body.
-
 func initialise_default(): 
 	reply_on_timeout = "Hello...?"
 	type = null

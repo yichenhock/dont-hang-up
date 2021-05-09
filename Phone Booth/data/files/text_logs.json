@@ -1,0 +1,1765 @@
+{
+  "graphml": {
+    "graph": {
+      "@id": "G",
+      "data": {},
+      "node": [
+        {
+          "@id": "n0",
+          "data": {
+            "@color": "#FFFFFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "START"
+          }
+        },
+        {
+          "@id": "n1",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "mum"
+          }
+        },
+        {
+          "@id": "n2",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "george"
+          }
+        },
+        {
+          "@id": "n3",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "pizza mains"
+          }
+        },
+        {
+          "@id": "n4",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Your delivery is ready to be collected.  "
+          }
+        },
+        {
+          "@id": "n5",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "bro are you free for movie night, ambers coming over"
+          }
+        },
+        {
+          "@id": "n6",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "depends what movie"
+          }
+        },
+        {
+          "@id": "n7",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "are you home?"
+          }
+        },
+        {
+          "@id": "n8",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i'm bringing Eccles round on sunday is that ok"
+          }
+        },
+        {
+          "@id": "n9",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Yeah I'm away for the week do whatever"
+          }
+        },
+        {
+          "@id": "n10",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n11",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "pancake <3"
+          }
+        },
+        {
+          "@id": "n12",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "3042941"
+          }
+        },
+        {
+          "@id": "n13",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Pisces, it may be that you're feeling a little bit insecure where one relationship is concerned. It's only a passing cloud, so just give yourself a shake. "
+          }
+        },
+        {
+          "@id": "n14",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Pisces, you feel like you are stuck repeating the same mundane tasks everyday. You could benefit from getting out more and making some friends. "
+          }
+        },
+        {
+          "@id": "n15",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "that was a really good movie:')"
+          }
+        },
+        {
+          "@id": "n16",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n17",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Pisces, prepare to find yourself in a sticky situation which will seem impalpable at first. Do not waste your time or energy on those who do not have the foresight to understand your ideas. If you have to, go ahead and push forward on your own. You will be rewarded for your efforts. "
+          }
+        },
+        {
+          "@id": "n18",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n19",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "You are now subscribed to Happy Horoscopes! Text UNALIGNED to unsubscribe. "
+          }
+        },
+        {
+          "@id": "n20",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Pisces"
+          }
+        },
+        {
+          "@id": "n21",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n22",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n23",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Your delivery is ready to be collected.  "
+          }
+        },
+        {
+          "@id": "n24",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n25",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Your delivery is ready to be collected.  "
+          }
+        },
+        {
+          "@id": "n26",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "love to watch it again with you sometime :D x"
+          }
+        },
+        {
+          "@id": "n27",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "er, yea well let me know when george is free to join us too, three's a crowd init"
+          }
+        },
+        {
+          "@id": "n28",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "right yeah, will do, see ya xx"
+          }
+        },
+        {
+          "@id": "n29",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "night"
+          }
+        },
+        {
+          "@id": "n30",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hope you sleep well:') x"
+          }
+        },
+        {
+          "@id": "n31",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n32",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hey whats up x"
+          }
+        },
+        {
+          "@id": "n33",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "dance of the gloliath i think"
+          }
+        },
+        {
+          "@id": "n34",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "trailer looked really lame man. you better be buying pizza"
+          }
+        },
+        {
+          "@id": "n35",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n36",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yeah of course!! thanks i owe you"
+          }
+        },
+        {
+          "@id": "n37",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "what for"
+          }
+        },
+        {
+          "@id": "n38",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "actually nvm i don't care"
+          }
+        },
+        {
+          "@id": "n39",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "wtf george"
+          }
+        },
+        {
+          "@id": "n40",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n41",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "haha what's up"
+          }
+        },
+        {
+          "@id": "n42",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "amber told me you slept with her"
+          }
+        },
+        {
+          "@id": "n43",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "you mean she slept with me haha"
+          }
+        },
+        {
+          "@id": "n44",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "movie night tomorrow? george is coming "
+          }
+        },
+        {
+          "@id": "n45",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "oh great! i'm free then:)"
+          }
+        },
+        {
+          "@id": "n46",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "can't wait to see you xx"
+          }
+        },
+        {
+          "@id": "n47",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n48",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "but you knew i liked her!"
+          }
+        },
+        {
+          "@id": "n49",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "she didn't like you"
+          }
+        },
+        {
+          "@id": "n50",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i really hate you"
+          }
+        },
+        {
+          "@id": "n51",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "not my problem"
+          }
+        },
+        {
+          "@id": "n52",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "how are you feeling? i dont remember much from last night haha xx"
+          }
+        },
+        {
+          "@id": "n53",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yeah im fine"
+          }
+        },
+        {
+          "@id": "n54",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "please don't text me again, i'm not interested in you"
+          }
+        },
+        {
+          "@id": "n55",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "you ok? x"
+          }
+        },
+        {
+          "@id": "n56",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i really liked the part where the tornadoes came in randomly lmao"
+          }
+        },
+        {
+          "@id": "n57",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i mean in the movie"
+          }
+        },
+        {
+          "@id": "n58",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "haha"
+          }
+        },
+        {
+          "@id": "n59",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "wanna hang out again on friday?"
+          }
+        },
+        {
+          "@id": "n60",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "sorry dom, i don't like you in that way"
+          }
+        },
+        {
+          "@id": "n61",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "what do you mean"
+          }
+        },
+        {
+          "@id": "n62",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "it's really obvious and it makes me feel uncomfortable"
+          }
+        },
+        {
+          "@id": "n63",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "what??? did you get my brother or something "
+          }
+        },
+        {
+          "@id": "n64",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "also i think i have a thing with george so..."
+          }
+        },
+        {
+          "@id": "n65",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "you slept with him didnt you"
+          }
+        },
+        {
+          "@id": "n66",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i take that as a yes then"
+          }
+        },
+        {
+          "@id": "n67",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n68",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "ur a skank amber"
+          }
+        },
+        {
+          "@id": "n69",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n70",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i'm sorry i didn't mean anything i said"
+          }
+        },
+        {
+          "@id": "n71",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i really love you"
+          }
+        },
+        {
+          "@id": "n72",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "why won't you reply to me"
+          }
+        },
+        {
+          "@id": "n73",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n74",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n75",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hey hows it going xx"
+          }
+        },
+        {
+          "@id": "n76",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hi"
+          }
+        },
+        {
+          "@id": "n77",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n78",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n79",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n80",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i'm going back to uni this week, booked the train tickets"
+          }
+        },
+        {
+          "@id": "n81",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "on the way mum, in the taxi now"
+          }
+        },
+        {
+          "@id": "n82",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "I don't even know where you are"
+          }
+        },
+        {
+          "@id": "n83",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "the driver took me in the complete opposite direction!!"
+          }
+        },
+        {
+          "@id": "n84",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i'm getting off asap, phone's about to die though"
+          }
+        },
+        {
+          "@id": "n85",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "can you help me call a taxi?"
+          }
+        },
+        {
+          "@id": "n86",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "I don't have the time for your pranks Dom"
+          }
+        },
+        {
+          "@id": "n87",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "Hello?"
+          }
+        },
+        {
+          "@id": "n88",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n89",
+          "data": {
+            "@color": "#FFCC00",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "eccles"
+          }
+        },
+        {
+          "@id": "n90",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hey i'm coming round this weekend?"
+          }
+        },
+        {
+          "@id": "n91",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yeah! can't wait!"
+          }
+        },
+        {
+          "@id": "n92",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n93",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "soooo tell me about that girl you mentioned"
+          }
+        },
+        {
+          "@id": "n94",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "amber? :0"
+          }
+        },
+        {
+          "@id": "n95",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yea, what's her horoscope?"
+          }
+        },
+        {
+          "@id": "n96",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "oh i think it's gemini"
+          }
+        },
+        {
+          "@id": "n97",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "oof damn"
+          }
+        },
+        {
+          "@id": "n98",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "what?"
+          }
+        },
+        {
+          "@id": "n99",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "gemini and libras came top in this week's hh issue"
+          }
+        },
+        {
+          "@id": "n100",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "for incompatibility with your sign lmao"
+          }
+        },
+        {
+          "@id": "n101",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "its a load of bull any lol"
+          }
+        },
+        {
+          "@id": "n102",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yea well it said you'd feel unsupported emotionally, especially if amber cheats on you or something"
+          }
+        },
+        {
+          "@id": "n103",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "but ur not even dating her so i guess that's fine"
+          }
+        },
+        {
+          "@id": "n104",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "haha sure, whats hh again?"
+          }
+        },
+        {
+          "@id": "n105",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "oh, happy horoscopes? its super good"
+          }
+        },
+        {
+          "@id": "n106",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "ah okay, i'll check it out!"
+          }
+        },
+        {
+          "@id": "n107",
+          "data": {
+            "@color": "#FFCC99",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "divider"
+          }
+        },
+        {
+          "@id": "n108",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "sure that wasn't a problem with you?"
+          }
+        },
+        {
+          "@id": "n109",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i don't think she likes me"
+          }
+        },
+        {
+          "@id": "n110",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "me? the heck did i do?"
+          }
+        },
+        {
+          "@id": "n111",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "hh predicted some pretty unfortunate stuff for aries, basically said you had tendencies to be a bit... overwhelming"
+          }
+        },
+        {
+          "@id": "n112",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "oh, yeah, same thing"
+          }
+        },
+        {
+          "@id": "n113",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i'm pisces btw..."
+          }
+        },
+        {
+          "@id": "n114",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "i thought you were supposed to be supportive?"
+          }
+        },
+        {
+          "@id": "n115",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "like how friends are supposed to be"
+          }
+        },
+        {
+          "@id": "n116",
+          "data": {
+            "@color": "#CCFFCC",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "yea, sorry"
+          }
+        }
+      ],
+      "edge": [
+        {
+          "@id": "e0",
+          "@source": "n0",
+          "@target": "n1",
+          "data": {}
+        },
+        {
+          "@id": "e1",
+          "@source": "n0",
+          "@target": "n2",
+          "data": {}
+        },
+        {
+          "@id": "e2",
+          "@source": "n0",
+          "@target": "n3",
+          "data": {}
+        },
+        {
+          "@id": "e3",
+          "@source": "n5",
+          "@target": "n6",
+          "data": {}
+        },
+        {
+          "@id": "e4",
+          "@source": "n1",
+          "@target": "n7",
+          "data": {}
+        },
+        {
+          "@id": "e5",
+          "@source": "n8",
+          "@target": "n9",
+          "data": {}
+        },
+        {
+          "@id": "e6",
+          "@source": "n7",
+          "@target": "n10",
+          "data": {}
+        },
+        {
+          "@id": "e7",
+          "@source": "n10",
+          "@target": "n8",
+          "data": {}
+        },
+        {
+          "@id": "e8",
+          "@source": "n0",
+          "@target": "n11",
+          "data": {}
+        },
+        {
+          "@id": "e9",
+          "@source": "n0",
+          "@target": "n12",
+          "data": {}
+        },
+        {
+          "@id": "e10",
+          "@source": "n11",
+          "@target": "n15",
+          "data": {}
+        },
+        {
+          "@id": "e11",
+          "@source": "n13",
+          "@target": "n16",
+          "data": {}
+        },
+        {
+          "@id": "e12",
+          "@source": "n16",
+          "@target": "n14",
+          "data": {}
+        },
+        {
+          "@id": "e13",
+          "@source": "n14",
+          "@target": "n18",
+          "data": {}
+        },
+        {
+          "@id": "e14",
+          "@source": "n18",
+          "@target": "n17",
+          "data": {}
+        },
+        {
+          "@id": "e15",
+          "@source": "n12",
+          "@target": "n20",
+          "data": {}
+        },
+        {
+          "@id": "e16",
+          "@source": "n20",
+          "@target": "n19",
+          "data": {}
+        },
+        {
+          "@id": "e17",
+          "@source": "n19",
+          "@target": "n21",
+          "data": {}
+        },
+        {
+          "@id": "e18",
+          "@source": "n21",
+          "@target": "n13",
+          "data": {}
+        },
+        {
+          "@id": "e19",
+          "@source": "n4",
+          "@target": "n22",
+          "data": {}
+        },
+        {
+          "@id": "e20",
+          "@source": "n23",
+          "@target": "n24",
+          "data": {}
+        },
+        {
+          "@id": "e21",
+          "@source": "n22",
+          "@target": "n23",
+          "data": {}
+        },
+        {
+          "@id": "e22",
+          "@source": "n24",
+          "@target": "n25",
+          "data": {}
+        },
+        {
+          "@id": "e23",
+          "@source": "n3",
+          "@target": "n4",
+          "data": {}
+        },
+        {
+          "@id": "e24",
+          "@source": "n26",
+          "@target": "n27",
+          "data": {}
+        },
+        {
+          "@id": "e25",
+          "@source": "n27",
+          "@target": "n28",
+          "data": {}
+        },
+        {
+          "@id": "e26",
+          "@source": "n28",
+          "@target": "n29",
+          "data": {}
+        },
+        {
+          "@id": "e27",
+          "@source": "n29",
+          "@target": "n30",
+          "data": {}
+        },
+        {
+          "@id": "e28",
+          "@source": "n30",
+          "@target": "n31",
+          "data": {}
+        },
+        {
+          "@id": "e29",
+          "@source": "n31",
+          "@target": "n32",
+          "data": {}
+        },
+        {
+          "@id": "e30",
+          "@source": "n2",
+          "@target": "n5",
+          "data": {}
+        },
+        {
+          "@id": "e31",
+          "@source": "n6",
+          "@target": "n33",
+          "data": {}
+        },
+        {
+          "@id": "e32",
+          "@source": "n33",
+          "@target": "n34",
+          "data": {}
+        },
+        {
+          "@id": "e33",
+          "@source": "n32",
+          "@target": "n35",
+          "data": {}
+        },
+        {
+          "@id": "e34",
+          "@source": "n34",
+          "@target": "n36",
+          "data": {}
+        },
+        {
+          "@id": "e35",
+          "@source": "n36",
+          "@target": "n37",
+          "data": {}
+        },
+        {
+          "@id": "e36",
+          "@source": "n37",
+          "@target": "n38",
+          "data": {}
+        },
+        {
+          "@id": "e37",
+          "@source": "n38",
+          "@target": "n40",
+          "data": {}
+        },
+        {
+          "@id": "e38",
+          "@source": "n40",
+          "@target": "n39",
+          "data": {}
+        },
+        {
+          "@id": "e39",
+          "@source": "n39",
+          "@target": "n41",
+          "data": {}
+        },
+        {
+          "@id": "e40",
+          "@source": "n41",
+          "@target": "n42",
+          "data": {}
+        },
+        {
+          "@id": "e41",
+          "@source": "n42",
+          "@target": "n43",
+          "data": {}
+        },
+        {
+          "@id": "e42",
+          "@source": "n35",
+          "@target": "n44",
+          "data": {}
+        },
+        {
+          "@id": "e43",
+          "@source": "n44",
+          "@target": "n45",
+          "data": {}
+        },
+        {
+          "@id": "e44",
+          "@source": "n45",
+          "@target": "n46",
+          "data": {}
+        },
+        {
+          "@id": "e45",
+          "@source": "n46",
+          "@target": "n47",
+          "data": {}
+        },
+        {
+          "@id": "e46",
+          "@source": "n43",
+          "@target": "n48",
+          "data": {}
+        },
+        {
+          "@id": "e47",
+          "@source": "n48",
+          "@target": "n49",
+          "data": {}
+        },
+        {
+          "@id": "e48",
+          "@source": "n49",
+          "@target": "n50",
+          "data": {}
+        },
+        {
+          "@id": "e49",
+          "@source": "n50",
+          "@target": "n51",
+          "data": {}
+        },
+        {
+          "@id": "e50",
+          "@source": "n47",
+          "@target": "n52",
+          "data": {}
+        },
+        {
+          "@id": "e51",
+          "@source": "n15",
+          "@target": "n26",
+          "data": {}
+        },
+        {
+          "@id": "e52",
+          "@source": "n52",
+          "@target": "n55",
+          "data": {}
+        },
+        {
+          "@id": "e53",
+          "@source": "n55",
+          "@target": "n53",
+          "data": {}
+        },
+        {
+          "@id": "e54",
+          "@source": "n53",
+          "@target": "n56",
+          "data": {}
+        },
+        {
+          "@id": "e55",
+          "@source": "n56",
+          "@target": "n57",
+          "data": {}
+        },
+        {
+          "@id": "e56",
+          "@source": "n57",
+          "@target": "n58",
+          "data": {}
+        },
+        {
+          "@id": "e57",
+          "@source": "n58",
+          "@target": "n59",
+          "data": {}
+        },
+        {
+          "@id": "e58",
+          "@source": "n59",
+          "@target": "n60",
+          "data": {}
+        },
+        {
+          "@id": "e59",
+          "@source": "n60",
+          "@target": "n61",
+          "data": {}
+        },
+        {
+          "@id": "e60",
+          "@source": "n61",
+          "@target": "n62",
+          "data": {}
+        },
+        {
+          "@id": "e61",
+          "@source": "n62",
+          "@target": "n64",
+          "data": {}
+        },
+        {
+          "@id": "e62",
+          "@source": "n64",
+          "@target": "n54",
+          "data": {}
+        },
+        {
+          "@id": "e63",
+          "@source": "n54",
+          "@target": "n63",
+          "data": {}
+        },
+        {
+          "@id": "e64",
+          "@source": "n63",
+          "@target": "n65",
+          "data": {}
+        },
+        {
+          "@id": "e65",
+          "@source": "n65",
+          "@target": "n67",
+          "data": {}
+        },
+        {
+          "@id": "e66",
+          "@source": "n67",
+          "@target": "n66",
+          "data": {}
+        },
+        {
+          "@id": "e67",
+          "@source": "n66",
+          "@target": "n68",
+          "data": {}
+        },
+        {
+          "@id": "e68",
+          "@source": "n68",
+          "@target": "n69",
+          "data": {}
+        },
+        {
+          "@id": "e69",
+          "@source": "n69",
+          "@target": "n70",
+          "data": {}
+        },
+        {
+          "@id": "e70",
+          "@source": "n70",
+          "@target": "n71",
+          "data": {}
+        },
+        {
+          "@id": "e71",
+          "@source": "n71",
+          "@target": "n73",
+          "data": {}
+        },
+        {
+          "@id": "e72",
+          "@source": "n73",
+          "@target": "n72",
+          "data": {}
+        },
+        {
+          "@id": "e73",
+          "@source": "n72",
+          "@target": "n74",
+          "data": {}
+        },
+        {
+          "@id": "e74",
+          "@source": "n74",
+          "@target": "n75",
+          "data": {}
+        },
+        {
+          "@id": "e75",
+          "@source": "n75",
+          "@target": "n77",
+          "data": {}
+        },
+        {
+          "@id": "e76",
+          "@source": "n77",
+          "@target": "n76",
+          "data": {}
+        },
+        {
+          "@id": "e77",
+          "@source": "n9",
+          "@target": "n78",
+          "data": {}
+        },
+        {
+          "@id": "e78",
+          "@source": "n78",
+          "@target": "n80",
+          "data": {}
+        },
+        {
+          "@id": "e79",
+          "@source": "n80",
+          "@target": "n79",
+          "data": {}
+        },
+        {
+          "@id": "e80",
+          "@source": "n79",
+          "@target": "n81",
+          "data": {}
+        },
+        {
+          "@id": "e81",
+          "@source": "n83",
+          "@target": "n84",
+          "data": {}
+        },
+        {
+          "@id": "e82",
+          "@source": "n84",
+          "@target": "n85",
+          "data": {}
+        },
+        {
+          "@id": "e83",
+          "@source": "n85",
+          "@target": "n82",
+          "data": {}
+        },
+        {
+          "@id": "e84",
+          "@source": "n82",
+          "@target": "n87",
+          "data": {}
+        },
+        {
+          "@id": "e85",
+          "@source": "n87",
+          "@target": "n88",
+          "data": {}
+        },
+        {
+          "@id": "e86",
+          "@source": "n88",
+          "@target": "n86",
+          "data": {}
+        },
+        {
+          "@id": "e87",
+          "@source": "n0",
+          "@target": "n89",
+          "data": {}
+        },
+        {
+          "@id": "e88",
+          "@source": "n89",
+          "@target": "n90",
+          "data": {}
+        },
+        {
+          "@id": "e89",
+          "@source": "n90",
+          "@target": "n91",
+          "data": {}
+        },
+        {
+          "@id": "e90",
+          "@source": "n91",
+          "@target": "n92",
+          "data": {}
+        },
+        {
+          "@id": "e91",
+          "@source": "n92",
+          "@target": "n93",
+          "data": {}
+        },
+        {
+          "@id": "e92",
+          "@source": "n93",
+          "@target": "n94",
+          "data": {}
+        },
+        {
+          "@id": "e93",
+          "@source": "n94",
+          "@target": "n95",
+          "data": {}
+        },
+        {
+          "@id": "e94",
+          "@source": "n95",
+          "@target": "n96",
+          "data": {}
+        },
+        {
+          "@id": "e95",
+          "@source": "n96",
+          "@target": "n97",
+          "data": {}
+        },
+        {
+          "@id": "e96",
+          "@source": "n97",
+          "@target": "n98",
+          "data": {}
+        },
+        {
+          "@id": "e97",
+          "@source": "n98",
+          "@target": "n99",
+          "data": {}
+        },
+        {
+          "@id": "e98",
+          "@source": "n99",
+          "@target": "n100",
+          "data": {}
+        },
+        {
+          "@id": "e99",
+          "@source": "n100",
+          "@target": "n101",
+          "data": {}
+        },
+        {
+          "@id": "e100",
+          "@source": "n101",
+          "@target": "n102",
+          "data": {}
+        },
+        {
+          "@id": "e101",
+          "@source": "n102",
+          "@target": "n103",
+          "data": {}
+        },
+        {
+          "@id": "e102",
+          "@source": "n103",
+          "@target": "n104",
+          "data": {}
+        },
+        {
+          "@id": "e103",
+          "@source": "n104",
+          "@target": "n105",
+          "data": {}
+        },
+        {
+          "@id": "e104",
+          "@source": "n105",
+          "@target": "n106",
+          "data": {}
+        },
+        {
+          "@id": "e105",
+          "@source": "n106",
+          "@target": "n107",
+          "data": {}
+        },
+        {
+          "@id": "e106",
+          "@source": "n107",
+          "@target": "n109",
+          "data": {}
+        },
+        {
+          "@id": "e107",
+          "@source": "n109",
+          "@target": "n108",
+          "data": {}
+        },
+        {
+          "@id": "e108",
+          "@source": "n108",
+          "@target": "n110",
+          "data": {}
+        },
+        {
+          "@id": "e109",
+          "@source": "n110",
+          "@target": "n111",
+          "data": {}
+        },
+        {
+          "@id": "e110",
+          "@source": "n111",
+          "@target": "n113",
+          "data": {}
+        },
+        {
+          "@id": "e111",
+          "@source": "n113",
+          "@target": "n112",
+          "data": {}
+        },
+        {
+          "@id": "e112",
+          "@source": "n112",
+          "@target": "n114",
+          "data": {}
+        },
+        {
+          "@id": "e113",
+          "@source": "n114",
+          "@target": "n115",
+          "data": {}
+        },
+        {
+          "@id": "e114",
+          "@source": "n115",
+          "@target": "n116",
+          "data": {}
+        },
+        {
+          "@id": "e115",
+          "@source": "n81",
+          "@target": "n83",
+          "data": [
+            {},
+            {}
+          ]
+        }
+      ]
+    },
+    "data": {}
+  }
+}

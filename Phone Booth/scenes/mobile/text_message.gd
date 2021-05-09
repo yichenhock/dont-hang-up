@@ -1,14 +1,15 @@
 extends Control
 export(bool) var is_left_message = true # recieved message
-export(String) var message = ""
+export(String) var message = "" setget set_message
 
 var max_width = 140
 
-func _ready():
+func set_message(new_message): 
+	message = new_message
+	$Label.text = message
 	set_bubble_size()
 	
 func set_bubble_size(): 
-	$Label.text = message
 	
 	$Label/bubbleL.visible = is_left_message
 	$Label/bubbleL.rect_size.x = max_width

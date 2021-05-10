@@ -25,8 +25,10 @@ func expand():
 	$ColorRect.color = Color(0.25,0.25,0.46,1.0)
 	text = " " + contact_name + "\n   " + contact_number
 	$mobileIcon.visible = true
+	rect_min_size.y = 46
 	
 func contract():
 	$ColorRect.color = Color(0.20,0.20,0.20,1.0)
 	text = " " + contact_name
 	$mobileIcon.visible = false
+	rect_min_size.y = 31

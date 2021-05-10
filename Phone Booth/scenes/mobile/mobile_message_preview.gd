@@ -8,6 +8,8 @@ signal message_selected(sender_name)
 
 func set_sender_name(new_name): 
 	sender_name = new_name
+	if sender_name == "3042941":
+		$numberClue.visible = true
 	get_last_message(Data.text_log_nodes[sender_name])
 	set_static_preview()
 	reset_scrolling_text()
@@ -49,7 +51,6 @@ func _on_Timer_timeout():
 	scrolling_text.erase(0,1)
 	scrolling_text = scrolling_text + first_character
 	set_text(scrolling_text.left(max_characters))
-
 
 func _on_messagePreview_pressed():
 	emit_signal("message_selected",sender_name)

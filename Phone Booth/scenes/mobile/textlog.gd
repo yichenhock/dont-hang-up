@@ -11,6 +11,8 @@ func display_messages(sender):
 	if not sender == null: 
 		$sender.text = sender
 		clear_texts()
+		if sender == "3042941":
+			$numberClue.visible = true
 		current_node = identify_next_node(Data.text_log_nodes[sender])
 		add_entry(current_node)
 

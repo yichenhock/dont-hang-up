@@ -16,3 +16,8 @@ func _on_menuItem_pressed():
 
 func _on_menuItem_focus_entered():
 	emit_signal("icon_selected",icon_name)
+
+func hide(): 
+	disabled = true
+	$TextureRect.visible = false
+	icon_name = ""

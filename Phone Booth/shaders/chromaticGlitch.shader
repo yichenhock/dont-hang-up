@@ -1,114 +1,52 @@
+/*
+	Glitch Effect Shader by Yui Kinomoto @arlez80
+
+	MIT License
+*/
+
 shader_type canvas_item;
 
-uniform vec2 mouse_position;
-uniform vec2 screen_size;
+// 振動の強さ
+uniform float shake_power = 0.03;
+// 振動率
+uniform float shake_rate : hint_range( 0.0, 1.0 ) = 0.2;
+// 振動速度
+uniform float shake_speed = 5.0;
+// 振動ブロックサイズ
+uniform float shake_block_size = 30.5;
+// 色の分離率
+uniform float shake_color_rate : hint_range( 0.0, 1.0 ) = 0.01;
 
-float sat( float t ) {
-	return clamp( t, 0.0, 1.0 );
-}
-
-//vec2 sat( vec2 t ) {
-//	return clamp( t, 0.0, 1.0 );
-//}
-
-//remaps inteval [a;b] to [0;1]
-float remap  ( float t, float a, float b ) {
-	return sat( (t - a) / (b - a) );
-}
-
-//note: /\ t=[0;0.5;1], y=[0;1;0]
-float linterp( float t ) {
-	return sat( 1.0 - abs( 2.0*t - 1.0 ) );
-}
-
-vec3 spectrum_offset( float t ) {
-    float t0 = 3.0 * t - 1.5;
-	return clamp( vec3( -t0, 1.0-abs(t0), t0), 0.0, 1.0);
-    /*
-	vec3 ret;
-	float lo = step(t,0.5);
-	float hi = 1.0-lo;
-	float w = linterp( remap( t, 1.0/6.0, 5.0/6.0 ) );
-	float neg_w = 1.0-w;
-	ret = vec3(lo,1.0,hi) * vec3(neg_w, w, neg_w);
-	return pow( ret, vec3(1.0/2.2) );
-*/
-}
-
-//note: [0;1]
-float rand( vec2 n ) {
-  return fract(sin(dot(n.xy, vec2(12.9898, 78.233)))* 43758.5453);
-}
-
-//note: [-1;1]
-float srand( vec2 n ) {
-	return rand(n) * 2.0 - 1.0;
-}
-
-float mytrunc( float x, float num_levels )
+float random( float seed )
 {
-	return floor(x*num_levels) / num_levels;
+	return fract( 543.2543 * sin( dot( vec2( seed, seed ), vec2( 3525.46, -54.3415 ) ) ) );
 }
-//vec2 mytrunc( vec2 x, float num_levels )
-//{
-//	return floor(x*num_levels) / num_levels;
-//}
 
-// void mainImage( out vec4 COLOR, in vec2 FRAGCOORD )
-void fragment()
+void fragment( )
 {
-    float aspect = screen_size.x / screen_size.y;
-	vec2 uv = FRAGCOORD.xy / screen_size.xy;
-    uv.y = 1.0 - uv.y;
-	
-	float time = mod(TIME, 32.0); // + modelmat[0].x + modelmat[0].z;
+	float enable_shift = float(
+		random( trunc( TIME * shake_speed ) )
+	<	shake_rate
+	);
 
-	// float GLITCH = 0.1 + iMouse.x / iResolution.x;
-	float GLITCH = 0.1 + mouse_position.x / screen_size.x;
-	
-    //float rdist = length( (uv - vec2(0.5,0.5))*vec2(aspect, 1.0) )/1.4;
-    //GLITCH *= rdist;
-    
-	float gnm = sat( GLITCH );
-	float rnd0 = rand( mytrunc( vec2(time, time), 6.0 ) );
-	float r0 = sat((1.0-gnm)*0.7 + rnd0);
-	float rnd1 = rand( vec2(mytrunc( uv.x, 10.0*r0 ), time) ); //horz
-	//float r1 = 1.0f - sat( (1.0f-gnm)*0.5f + rnd1 );
-	float r1 = 0.5 - 0.5 * gnm + rnd1;
-	r1 = 1.0 - max( 0.0, ((r1<1.0) ? r1 : 0.9999999) ); //note: weird ass bug on old drivers
-	float rnd2 = rand( vec2(mytrunc( uv.y, 40.0*r1 ), time) ); //vert
-	float r2 = sat( rnd2 );
+	vec2 fixed_uv = SCREEN_UV;
+	fixed_uv.x += (
+		random(
+			( trunc( SCREEN_UV.y * shake_block_size ) / shake_block_size )
+		+	TIME
+		) - 0.5
+	) * shake_power * enable_shift;
 
-	float rnd3 = rand( vec2(mytrunc( uv.y, 10.0*r0 ), time) );
-	float r3 = (1.0-sat(rnd3+0.8)) - 0.1;
-
-	float pxrnd = rand( uv + time );
-
-	float ofs = 0.05 * r2 * GLITCH * ( rnd0 > 0.5 ? 1.0 : -1.0 );
-	ofs += 0.5 * pxrnd * ofs;
-
-	uv.y += 0.1 * r3 * GLITCH;
-
-    uniform int NUM_SAMPLES = 10;
-    uniform float RCP_NUM_SAMPLES_F = 1.0 / float(NUM_SAMPLES);
-    
-	vec4 sum = vec4(0.0);
-	vec3 wsum = vec3(0.0);
-	for( int i=0; i<NUM_SAMPLES; ++i )
-	{
-		float t = float(i) * RCP_NUM_SAMPLES_F;
-		uv.x = sat( uv.x + ofs * t );
-		vec4 samplecol = texture( iChannel0, uv, -10.0 );
-		vec3 s = spectrum_offset( t );
-		samplecol.rgb = samplecol.rgb * s;
-		sum += samplecol;
-		wsum += s;
-	}
-	sum.rgb /= wsum;
-	sum.a *= RCP_NUM_SAMPLES_F;
-
-    //COLOR = vec4( sum.bbb, 1.0 ); return;
-    
-	COLOR.a = sum.a;
-	COLOR.rgb = sum.rgb; // * outcol0.a;
+	vec4 pixel_color = textureLod( SCREEN_TEXTURE, fixed_uv, 0.0 );
+	pixel_color.r = mix(
+		pixel_color.r
+	,	textureLod( SCREEN_TEXTURE, fixed_uv + vec2( shake_color_rate, 0.0 ), 0.0 ).r
+	,	enable_shift
+	);
+	pixel_color.b = mix(
+		pixel_color.b
+	,	textureLod( SCREEN_TEXTURE, fixed_uv + vec2( -shake_color_rate, 0.0 ), 0.0 ).b
+	,	enable_shift
+	);
+	COLOR = pixel_color;
 }

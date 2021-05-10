@@ -7,8 +7,10 @@
 [ext_resource path="res://assets/graphics/ui/btn4-hover.png" type="Texture" id=5]
 [ext_resource path="res://scenes/menu/danglingPhone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/tres/mousetrap.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/graphics/ui/btn5-hover.png" type="Texture" id=8]
 [ext_resource path="res://scenes/CRT.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/fonts/tres/pixelplay.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/graphics/ui/btn5.png" type="Texture" id=11]
 [ext_resource path="res://scenes/backBtn.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/graphics/ui/btn4.png" type="Texture" id=13]
 [ext_resource path="res://assets/graphics/notepad/notepad-base.png" type="Texture" id=14]
@@ -20,8 +22,6 @@
 [ext_resource path="res://assets/graphics/ui/vol-slider.png" type="Texture" id=21]
 [ext_resource path="res://assets/graphics/ui/checkbox.png" type="Texture" id=22]
 [ext_resource path="res://assets/graphics/ui/checkbox-ticked.png" type="Texture" id=23]
-[ext_resource path="res://assets/graphics/ui/btn3.png" type="Texture" id=24]
-[ext_resource path="res://assets/graphics/ui/btn3-hover.png" type="Texture" id=25]
 [ext_resource path="res://assets/graphics/ui/twt.png" type="Texture" id=26]
 [ext_resource path="res://assets/graphics/ui/kofi.png" type="Texture" id=27]
 [ext_resource path="res://assets/graphics/ui/ig-hover.png" type="Texture" id=28]
@@ -44,7 +44,7 @@ margin_top = 1.14439
 margin_bottom = 1.0876
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.439216, 0.34902, 0.317647, 1 )
+bg_color = Color( 0.701961, 0.733333, 0.643137, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -55,7 +55,7 @@ corner_radius_top_left = 1
 corner_radius_bottom_left = 1
 corner_detail = 1
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -261,9 +261,8 @@ __meta__ = {
 }
 
 [node name="options" type="Label" parent="CanvasLayer/options/notepad/table"]
-margin_top = -1.0
 margin_right = 303.0
-margin_bottom = 42.0
+margin_bottom = 43.0
 rect_min_size = Vector2( 0, 43 )
 custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
@@ -392,8 +391,8 @@ margin_left = 84.0
 margin_top = -186.3
 margin_right = 158.0
 margin_bottom = -165.3
-texture_normal = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -459,9 +458,8 @@ __meta__ = {
 }
 
 [node name="credits" type="Label" parent="CanvasLayer/credits/notepad/table"]
-margin_top = -1.0
 margin_right = 308.0
-margin_bottom = 42.0
+margin_bottom = 43.0
 rect_min_size = Vector2( 0, 43 )
 custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.384314, 0.388235, 0.384314, 1 )
@@ -548,7 +546,7 @@ texture_normal = ExtResource( 13 )
 texture_hover = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fadeOut = SubResource( 17 )
+anims/fadeOut = SubResource( 5 )
 
 [node name="CRT" parent="." instance=ExtResource( 9 )]
 
@@ -565,5 +563,5 @@ anims/fadeOut = SubResource( 17 )
 [connection signal="pressed" from="CanvasLayer/credits/notepad/table/HBoxContainer/ig" to="CanvasLayer/credits" method="_on_ig_pressed"]
 [connection signal="pressed" from="CanvasLayer/credits/notepad/table/HBoxContainer/twt" to="CanvasLayer/credits" method="_on_twt_pressed"]
 [connection signal="pressed" from="CanvasLayer/credits/notepad/table/HBoxContainer/kofi" to="CanvasLayer/credits" method="_on_kofi_pressed"]
-[connection signal="pressed" from="CanvasLayer/credits/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/credits/back" to="CanvasLayer/credits" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/credits/back" to="." method="_on_back_pressed"]

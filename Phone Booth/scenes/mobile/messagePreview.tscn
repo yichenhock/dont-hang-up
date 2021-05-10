@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/graphics/mobile/read-msg-icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/tres/mousetrap-contacts.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/mobile/mobile_message_preview.gd" type="Script" id=3]
+[ext_resource path="res://scenes/numberClue.tscn" type="PackedScene" id=4]
 
 [node name="messagePreview" type="TextureButton"]
 margin_right = 153.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 153, 55 )
+margin_bottom = 49.0
+rect_min_size = Vector2( 153, 49 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -28,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 153, 0 )
 custom_fonts/font = ExtResource( 2 )
-text = "   mum
+text = "   1234567
  don't come bac..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,6 +47,15 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="numberClue" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = 29.0
+margin_top = 3.0
+margin_right = 99.0
+margin_bottom = 20.0
+number = "3042941"
+description = "I don't believe in horoscopes"
 [connection signal="focus_entered" from="." to="." method="_on_messagePreview_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_messagePreview_focus_exited"]
 [connection signal="pressed" from="." to="." method="_on_messagePreview_pressed"]

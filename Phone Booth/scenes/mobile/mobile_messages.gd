@@ -10,5 +10,9 @@ func _ready():
 		message_preview.sender_name = k
 		message_preview.connect("message_selected",self,"change_msg_destination")
 
+func set_focus(): 
+	$ScrollContainer/VBoxContainer.get_child(0).grab_focus()
+	change_msg_destination("mum")
+	
 func change_msg_destination(sender_name): 
 	emit_signal("change_textlogs",sender_name)

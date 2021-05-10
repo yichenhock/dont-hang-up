@@ -7,15 +7,17 @@
 
 [node name="contact" type="Label"]
 margin_right = 153.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 153, 0 )
+margin_bottom = 31.0
+rect_min_size = Vector2( 153, 31 )
 custom_fonts/font = ExtResource( 2 )
-text = " s"
+text = " 1"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-contact_name = "s"
+contact_name = "1"
+contact_number = "a"
+number_description = "w"
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchor_right = 1.0
@@ -44,9 +46,9 @@ margin_bottom = 0.0
 
 [node name="mobileIcon" type="TextureRect" parent="."]
 margin_left = 18.0
-margin_top = 33.0
+margin_top = 27.0
 margin_right = 26.0
-margin_bottom = 45.0
+margin_bottom = 39.0
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

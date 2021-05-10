@@ -24,7 +24,7 @@ func set_bubble_size():
 	if !is_left_message:
 		$Label.rect_position.x += 20
 		$Label.rect_size.x -= 12
-		$Label/bubbleR.margin_left = 0
+		$Label/bubbleR.margin_left = -12
 		$Label/bubbleR.margin_right = -10
 		#$Label/bubbleR.rect_position.x = -5
 	
@@ -32,8 +32,11 @@ func set_bubble_size():
 	
 	if $Label.get_line_count() == 1: 
 		if is_left_message:
-			$Label/bubbleL.rect_size.x = 10 + ceil(message.length()*8)
+			$Label/bubbleL.rect_size.x = min(10 + ceil(message.length()*8),max_width-12)
+			#$Label/bubbleL.rect_size.x = 10 + ceil(message.length()*8)
 		elif !is_left_message:
 			$Label.align = Label.ALIGN_RIGHT
-			$Label/bubbleR.rect_size.x = 10 + ceil(message.length()*8)
-			$Label/bubbleR.rect_position.x = max_width - $Label/bubbleR.rect_size.x - 12
+			$Label/bubbleR.rect_size.x = min(10 + ceil(message.length()*8),max_width-12)
+			#$Label/bubbleR.rect_size.x = 10 + ceil(message.length()*8)
+	
+	$Label/bubbleR.rect_position.x = max_width - $Label/bubbleR.rect_size.x - 12

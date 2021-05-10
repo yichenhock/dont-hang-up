@@ -28,7 +28,7 @@
             "@color": "#FFCC00",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "george"
+            "#text": "pancake<3"
           }
         },
         {
@@ -109,7 +109,7 @@
             "@color": "#FFCC00",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "pancake <3"
+            "#text": "3042941"
           }
         },
         {
@@ -118,7 +118,7 @@
             "@color": "#FFCC00",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "3042941"
+            "#text": "George"
           }
         },
         {
@@ -127,7 +127,7 @@
             "@color": "#CCFFCC",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "Pisces, it may be that you're feeling a little bit insecure where one relationship is concerned. It's only a passing cloud, so just give yourself a shake. "
+            "#text": "Pisces, it may be that you're feeling a little bit insecure where one relationship is concerned. It's only a passing cloud, so just give yourself a shake."
           }
         },
         {
@@ -136,7 +136,7 @@
             "@color": "#CCFFCC",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "Pisces, you feel like you are stuck repeating the same mundane tasks everyday. You could benefit from getting out more and making some friends. "
+            "#text": "Pisces, you feel like you are stuck repeating the same mundane tasks everyday. You could benefit from getting out more and making some friends."
           }
         },
         {
@@ -163,7 +163,7 @@
             "@color": "#CCFFCC",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "Pisces, prepare to find yourself in a sticky situation which will seem impalpable at first. Do not waste your time or energy on those who do not have the foresight to understand your ideas. If you have to, go ahead and push forward on your own. You will be rewarded for your efforts. "
+            "#text": "Pisces, prepare to find yourself in a sticky situation which will seem impalpable at first. Do not waste your time or energy on those who do not have the foresight to understand your ideas. If you have to, go ahead and push forward on your own. You will be rewarded for your efforts."
           }
         },
         {
@@ -181,7 +181,7 @@
             "@color": "#CCFFCC",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "You are now subscribed to Happy Horoscopes! Text UNALIGNED to unsubscribe. "
+            "#text": "You are now subscribed to Happy Horoscopes! Text UNALIGNED to unsubscribe."
           }
         },
         {
@@ -865,7 +865,7 @@
             "@color": "#CCFFCC",
             "@transparent": "false",
             "@visible": "true",
-            "#text": "yea, what's her horoscope?"
+            "#text": "yea, what's her star sign?"
           }
         },
         {
@@ -1056,6 +1056,15 @@
             "@visible": "true",
             "#text": "yea, sorry"
           }
+        },
+        {
+          "@id": "n117",
+          "data": {
+            "@color": "#99CCFF",
+            "@transparent": "false",
+            "@visible": "true",
+            "#text": "fuck u"
+          }
         }
       ],
       "edge": [
@@ -1068,691 +1077,706 @@
         {
           "@id": "e1",
           "@source": "n0",
-          "@target": "n2",
-          "data": {}
-        },
-        {
-          "@id": "e2",
-          "@source": "n0",
           "@target": "n3",
           "data": {}
         },
         {
-          "@id": "e3",
+          "@id": "e2",
           "@source": "n5",
           "@target": "n6",
           "data": {}
         },
         {
-          "@id": "e4",
+          "@id": "e3",
           "@source": "n1",
           "@target": "n7",
           "data": {}
         },
         {
-          "@id": "e5",
+          "@id": "e4",
           "@source": "n8",
           "@target": "n9",
           "data": {}
         },
         {
-          "@id": "e6",
+          "@id": "e5",
           "@source": "n7",
           "@target": "n10",
           "data": {}
         },
         {
-          "@id": "e7",
+          "@id": "e6",
           "@source": "n10",
           "@target": "n8",
           "data": {}
         },
         {
-          "@id": "e8",
-          "@source": "n0",
-          "@target": "n11",
-          "data": {}
-        },
-        {
-          "@id": "e9",
-          "@source": "n0",
-          "@target": "n12",
-          "data": {}
-        },
-        {
-          "@id": "e10",
-          "@source": "n11",
-          "@target": "n15",
-          "data": {}
-        },
-        {
-          "@id": "e11",
+          "@id": "e7",
           "@source": "n13",
           "@target": "n16",
           "data": {}
         },
         {
-          "@id": "e12",
+          "@id": "e8",
           "@source": "n16",
           "@target": "n14",
           "data": {}
         },
         {
-          "@id": "e13",
+          "@id": "e9",
           "@source": "n14",
           "@target": "n18",
           "data": {}
         },
         {
-          "@id": "e14",
+          "@id": "e10",
           "@source": "n18",
           "@target": "n17",
           "data": {}
         },
         {
-          "@id": "e15",
-          "@source": "n12",
-          "@target": "n20",
-          "data": {}
-        },
-        {
-          "@id": "e16",
+          "@id": "e11",
           "@source": "n20",
           "@target": "n19",
           "data": {}
         },
         {
-          "@id": "e17",
+          "@id": "e12",
           "@source": "n19",
           "@target": "n21",
           "data": {}
         },
         {
-          "@id": "e18",
+          "@id": "e13",
           "@source": "n21",
           "@target": "n13",
           "data": {}
         },
         {
-          "@id": "e19",
+          "@id": "e14",
           "@source": "n4",
           "@target": "n22",
           "data": {}
         },
         {
-          "@id": "e20",
+          "@id": "e15",
           "@source": "n23",
           "@target": "n24",
           "data": {}
         },
         {
-          "@id": "e21",
+          "@id": "e16",
           "@source": "n22",
           "@target": "n23",
           "data": {}
         },
         {
-          "@id": "e22",
+          "@id": "e17",
           "@source": "n24",
           "@target": "n25",
           "data": {}
         },
         {
-          "@id": "e23",
+          "@id": "e18",
           "@source": "n3",
           "@target": "n4",
           "data": {}
         },
         {
-          "@id": "e24",
+          "@id": "e19",
           "@source": "n26",
           "@target": "n27",
           "data": {}
         },
         {
-          "@id": "e25",
+          "@id": "e20",
           "@source": "n27",
           "@target": "n28",
           "data": {}
         },
         {
-          "@id": "e26",
+          "@id": "e21",
           "@source": "n28",
           "@target": "n29",
           "data": {}
         },
         {
-          "@id": "e27",
+          "@id": "e22",
           "@source": "n29",
           "@target": "n30",
           "data": {}
         },
         {
-          "@id": "e28",
+          "@id": "e23",
           "@source": "n30",
           "@target": "n31",
           "data": {}
         },
         {
-          "@id": "e29",
+          "@id": "e24",
           "@source": "n31",
           "@target": "n32",
           "data": {}
         },
         {
-          "@id": "e30",
-          "@source": "n2",
-          "@target": "n5",
-          "data": {}
-        },
-        {
-          "@id": "e31",
+          "@id": "e25",
           "@source": "n6",
           "@target": "n33",
           "data": {}
         },
         {
-          "@id": "e32",
+          "@id": "e26",
           "@source": "n33",
           "@target": "n34",
           "data": {}
         },
         {
-          "@id": "e33",
+          "@id": "e27",
           "@source": "n32",
           "@target": "n35",
           "data": {}
         },
         {
-          "@id": "e34",
+          "@id": "e28",
           "@source": "n34",
           "@target": "n36",
           "data": {}
         },
         {
-          "@id": "e35",
+          "@id": "e29",
           "@source": "n36",
           "@target": "n37",
           "data": {}
         },
         {
-          "@id": "e36",
+          "@id": "e30",
           "@source": "n37",
           "@target": "n38",
           "data": {}
         },
         {
-          "@id": "e37",
+          "@id": "e31",
           "@source": "n38",
           "@target": "n40",
           "data": {}
         },
         {
-          "@id": "e38",
+          "@id": "e32",
           "@source": "n40",
           "@target": "n39",
           "data": {}
         },
         {
-          "@id": "e39",
+          "@id": "e33",
           "@source": "n39",
           "@target": "n41",
           "data": {}
         },
         {
-          "@id": "e40",
+          "@id": "e34",
           "@source": "n41",
           "@target": "n42",
           "data": {}
         },
         {
-          "@id": "e41",
+          "@id": "e35",
           "@source": "n42",
           "@target": "n43",
           "data": {}
         },
         {
-          "@id": "e42",
+          "@id": "e36",
           "@source": "n35",
           "@target": "n44",
           "data": {}
         },
         {
-          "@id": "e43",
+          "@id": "e37",
           "@source": "n44",
           "@target": "n45",
           "data": {}
         },
         {
-          "@id": "e44",
+          "@id": "e38",
           "@source": "n45",
           "@target": "n46",
           "data": {}
         },
         {
-          "@id": "e45",
+          "@id": "e39",
           "@source": "n46",
           "@target": "n47",
           "data": {}
         },
         {
-          "@id": "e46",
+          "@id": "e40",
           "@source": "n43",
           "@target": "n48",
           "data": {}
         },
         {
-          "@id": "e47",
+          "@id": "e41",
           "@source": "n48",
           "@target": "n49",
           "data": {}
         },
         {
-          "@id": "e48",
+          "@id": "e42",
           "@source": "n49",
           "@target": "n50",
           "data": {}
         },
         {
-          "@id": "e49",
+          "@id": "e43",
           "@source": "n50",
           "@target": "n51",
           "data": {}
         },
         {
-          "@id": "e50",
+          "@id": "e44",
           "@source": "n47",
           "@target": "n52",
           "data": {}
         },
         {
-          "@id": "e51",
+          "@id": "e45",
           "@source": "n15",
           "@target": "n26",
           "data": {}
         },
         {
-          "@id": "e52",
+          "@id": "e46",
           "@source": "n52",
           "@target": "n55",
           "data": {}
         },
         {
-          "@id": "e53",
+          "@id": "e47",
           "@source": "n55",
           "@target": "n53",
           "data": {}
         },
         {
-          "@id": "e54",
+          "@id": "e48",
           "@source": "n53",
           "@target": "n56",
           "data": {}
         },
         {
-          "@id": "e55",
+          "@id": "e49",
           "@source": "n56",
           "@target": "n57",
           "data": {}
         },
         {
-          "@id": "e56",
+          "@id": "e50",
           "@source": "n57",
           "@target": "n58",
           "data": {}
         },
         {
-          "@id": "e57",
+          "@id": "e51",
           "@source": "n58",
           "@target": "n59",
           "data": {}
         },
         {
-          "@id": "e58",
+          "@id": "e52",
           "@source": "n59",
           "@target": "n60",
           "data": {}
         },
         {
-          "@id": "e59",
+          "@id": "e53",
           "@source": "n60",
           "@target": "n61",
           "data": {}
         },
         {
-          "@id": "e60",
+          "@id": "e54",
           "@source": "n61",
           "@target": "n62",
           "data": {}
         },
         {
-          "@id": "e61",
+          "@id": "e55",
           "@source": "n62",
           "@target": "n64",
           "data": {}
         },
         {
-          "@id": "e62",
+          "@id": "e56",
           "@source": "n64",
           "@target": "n54",
           "data": {}
         },
         {
-          "@id": "e63",
+          "@id": "e57",
           "@source": "n54",
           "@target": "n63",
           "data": {}
         },
         {
-          "@id": "e64",
+          "@id": "e58",
           "@source": "n63",
           "@target": "n65",
           "data": {}
         },
         {
-          "@id": "e65",
+          "@id": "e59",
           "@source": "n65",
           "@target": "n67",
           "data": {}
         },
         {
-          "@id": "e66",
+          "@id": "e60",
           "@source": "n67",
           "@target": "n66",
           "data": {}
         },
         {
-          "@id": "e67",
+          "@id": "e61",
           "@source": "n66",
           "@target": "n68",
           "data": {}
         },
         {
-          "@id": "e68",
+          "@id": "e62",
           "@source": "n68",
           "@target": "n69",
           "data": {}
         },
         {
-          "@id": "e69",
+          "@id": "e63",
           "@source": "n69",
           "@target": "n70",
           "data": {}
         },
         {
-          "@id": "e70",
+          "@id": "e64",
           "@source": "n70",
           "@target": "n71",
           "data": {}
         },
         {
-          "@id": "e71",
+          "@id": "e65",
           "@source": "n71",
           "@target": "n73",
           "data": {}
         },
         {
-          "@id": "e72",
+          "@id": "e66",
           "@source": "n73",
           "@target": "n72",
           "data": {}
         },
         {
-          "@id": "e73",
+          "@id": "e67",
           "@source": "n72",
           "@target": "n74",
           "data": {}
         },
         {
-          "@id": "e74",
+          "@id": "e68",
           "@source": "n74",
           "@target": "n75",
           "data": {}
         },
         {
-          "@id": "e75",
+          "@id": "e69",
           "@source": "n75",
           "@target": "n77",
           "data": {}
         },
         {
-          "@id": "e76",
+          "@id": "e70",
           "@source": "n77",
           "@target": "n76",
           "data": {}
         },
         {
-          "@id": "e77",
+          "@id": "e71",
           "@source": "n9",
           "@target": "n78",
           "data": {}
         },
         {
-          "@id": "e78",
+          "@id": "e72",
           "@source": "n78",
           "@target": "n80",
           "data": {}
         },
         {
-          "@id": "e79",
+          "@id": "e73",
           "@source": "n80",
           "@target": "n79",
           "data": {}
         },
         {
-          "@id": "e80",
+          "@id": "e74",
           "@source": "n79",
           "@target": "n81",
           "data": {}
         },
         {
-          "@id": "e81",
+          "@id": "e75",
           "@source": "n83",
           "@target": "n84",
           "data": {}
         },
         {
-          "@id": "e82",
+          "@id": "e76",
           "@source": "n84",
           "@target": "n85",
           "data": {}
         },
         {
-          "@id": "e83",
+          "@id": "e77",
           "@source": "n85",
           "@target": "n82",
           "data": {}
         },
         {
-          "@id": "e84",
+          "@id": "e78",
           "@source": "n82",
           "@target": "n87",
           "data": {}
         },
         {
-          "@id": "e85",
+          "@id": "e79",
           "@source": "n87",
           "@target": "n88",
           "data": {}
         },
         {
-          "@id": "e86",
+          "@id": "e80",
           "@source": "n88",
           "@target": "n86",
           "data": {}
         },
         {
-          "@id": "e87",
+          "@id": "e81",
           "@source": "n0",
           "@target": "n89",
           "data": {}
         },
         {
-          "@id": "e88",
+          "@id": "e82",
           "@source": "n89",
           "@target": "n90",
           "data": {}
         },
         {
-          "@id": "e89",
+          "@id": "e83",
           "@source": "n90",
           "@target": "n91",
           "data": {}
         },
         {
-          "@id": "e90",
+          "@id": "e84",
           "@source": "n91",
           "@target": "n92",
           "data": {}
         },
         {
-          "@id": "e91",
+          "@id": "e85",
           "@source": "n92",
           "@target": "n93",
           "data": {}
         },
         {
-          "@id": "e92",
+          "@id": "e86",
           "@source": "n93",
           "@target": "n94",
           "data": {}
         },
         {
-          "@id": "e93",
+          "@id": "e87",
           "@source": "n94",
           "@target": "n95",
           "data": {}
         },
         {
-          "@id": "e94",
+          "@id": "e88",
           "@source": "n95",
           "@target": "n96",
           "data": {}
         },
         {
-          "@id": "e95",
+          "@id": "e89",
           "@source": "n96",
           "@target": "n97",
           "data": {}
         },
         {
-          "@id": "e96",
+          "@id": "e90",
           "@source": "n97",
           "@target": "n98",
           "data": {}
         },
         {
-          "@id": "e97",
+          "@id": "e91",
           "@source": "n98",
           "@target": "n99",
           "data": {}
         },
         {
-          "@id": "e98",
+          "@id": "e92",
           "@source": "n99",
           "@target": "n100",
           "data": {}
         },
         {
-          "@id": "e99",
+          "@id": "e93",
           "@source": "n100",
           "@target": "n101",
           "data": {}
         },
         {
-          "@id": "e100",
+          "@id": "e94",
           "@source": "n101",
           "@target": "n102",
           "data": {}
         },
         {
-          "@id": "e101",
+          "@id": "e95",
           "@source": "n102",
           "@target": "n103",
           "data": {}
         },
         {
-          "@id": "e102",
+          "@id": "e96",
           "@source": "n103",
           "@target": "n104",
           "data": {}
         },
         {
-          "@id": "e103",
+          "@id": "e97",
           "@source": "n104",
           "@target": "n105",
           "data": {}
         },
         {
-          "@id": "e104",
+          "@id": "e98",
           "@source": "n105",
           "@target": "n106",
           "data": {}
         },
         {
-          "@id": "e105",
+          "@id": "e99",
           "@source": "n106",
           "@target": "n107",
           "data": {}
         },
         {
-          "@id": "e106",
+          "@id": "e100",
           "@source": "n107",
           "@target": "n109",
           "data": {}
         },
         {
-          "@id": "e107",
+          "@id": "e101",
           "@source": "n109",
           "@target": "n108",
           "data": {}
         },
         {
-          "@id": "e108",
+          "@id": "e102",
           "@source": "n108",
           "@target": "n110",
           "data": {}
         },
         {
-          "@id": "e109",
+          "@id": "e103",
           "@source": "n110",
           "@target": "n111",
           "data": {}
         },
         {
-          "@id": "e110",
+          "@id": "e104",
           "@source": "n111",
           "@target": "n113",
           "data": {}
         },
         {
-          "@id": "e111",
+          "@id": "e105",
           "@source": "n113",
           "@target": "n112",
           "data": {}
         },
         {
-          "@id": "e112",
+          "@id": "e106",
           "@source": "n112",
           "@target": "n114",
           "data": {}
         },
         {
-          "@id": "e113",
+          "@id": "e107",
           "@source": "n114",
           "@target": "n115",
           "data": {}
         },
         {
-          "@id": "e114",
+          "@id": "e108",
           "@source": "n115",
           "@target": "n116",
           "data": {}
         },
         {
-          "@id": "e115",
+          "@id": "e109",
           "@source": "n81",
           "@target": "n83",
+          "data": {}
+        },
+        {
+          "@id": "e110",
+          "@source": "n2",
+          "@target": "n15",
+          "data": {}
+        },
+        {
+          "@id": "e111",
+          "@source": "n0",
+          "@target": "n2",
+          "data": {}
+        },
+        {
+          "@id": "e112",
+          "@source": "n17",
+          "@target": "n117",
+          "data": {}
+        },
+        {
+          "@id": "e113",
+          "@source": "n11",
+          "@target": "n20",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e114",
+          "@source": "n12",
+          "@target": "n5",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e115",
+          "@source": "n0",
+          "@target": "n11",
+          "data": [
+            {},
+            {}
+          ]
+        },
+        {
+          "@id": "e116",
+          "@source": "n0",
+          "@target": "n12",
           "data": [
             {},
             {}

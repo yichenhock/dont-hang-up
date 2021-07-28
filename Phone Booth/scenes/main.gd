@@ -64,6 +64,11 @@ func do_the_dialogue_thing(nodeID):
 		yield($CanvasLayer/speechPhone,"phone_dialogue_finished")
 		do_the_dialogue_thing($DialogueNode.nodeID_speech)
 		
+	elif $DialogueNode.type == "self_speech":
+		$CanvasLayer/speechSelf.type_texts([$DialogueNode.speech_text])
+		yield($CanvasLayer/speechSelf,"self_dialogue_finished")
+		do_the_dialogue_thing($DialogueNode.nodeID_speech)
+		
 	elif $DialogueNode.type == "choice": 
 		if phone_picked_up: 
 			$CanvasLayer/speechOptions.show_options($DialogueNode.choices)

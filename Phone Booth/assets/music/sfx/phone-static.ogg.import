@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phone-static.ogg-f419e2df5db89f26b0bfdf5eeffdcff1.oggstr"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-static.ogg"
+dest_files=[ "res://.import/phone-static.ogg-f419e2df5db89f26b0bfdf5eeffdcff1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

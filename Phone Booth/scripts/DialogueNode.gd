@@ -5,6 +5,7 @@ var reply_on_timeout = "Hello...?"
 var type = null # speech, choice, flag, reply on timeout, number
 var types = {	"#CCFFCC":"speech", 
 				"#99CCFF":"choice",
+				"#CCFFFF":"self_speech",
 				"#FF99CC":"reply_on_timeout",
 				"#CC99FF":"flag"}
 var choices = {}
@@ -27,15 +28,15 @@ func identify_next_node(nodeID):
 				type = types[Data.phone_dialogues[nID]["@color"]]
 				if type == "choice": 
 					choices[nID] = Data.phone_dialogues[nID]["#text"]
-				elif type == "speech": 
+				elif type == "speech" or type == "self_speech": 
 					speech_text = Data.phone_dialogues[nID]["#text"]
 					nodeID_speech = nID
 
-func format_dialogue(dialogue): # detect some special stuff in the dialogue and reformat it
-	var regex = RegEx.new()
-	regex.compile("\\d+")
-	if "[" in dialogue and "]" in dialogue: 
-		print("list detected")
-	var formatted_dialogue = ""
-	#return formatted_dialogue
-	return dialogue
+#func format_dialogue(dialogue): # detect some special stuff in the dialogue and reformat it
+#	var regex = RegEx.new()
+#	regex.compile("\\d+")
+#	if "[" in dialogue and "]" in dialogue: 
+#		print("list detected")
+#	var formatted_dialogue = ""
+#	#return formatted_dialogue
+#	return dialogue

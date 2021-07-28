@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phone-ring.ogg-9901c38d7d1db51002f3af831944c219.oggstr"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-ring.ogg"
+dest_files=[ "res://.import/phone-ring.ogg-9901c38d7d1db51002f3af831944c219.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -4,7 +4,8 @@
 [ext_resource path="res://assets/videos/trees_bg.ogv" type="VideoStream" id=2]
 [ext_resource path="res://assets/palettes/clouds.png" type="Texture" id=3]
 [ext_resource path="res://scenes/backgrounds/background.gd" type="Script" id=6]
-[ext_resource path="res://shaders/godotboy.shader" type="Shader" id=7]
+[ext_resource path="res://shaders/palette.shader" type="Shader" id=7]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )

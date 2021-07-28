@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phone-dial.ogg-65fb29ca7e98f1c6be28f96abf30c82c.oggstr"
+
+[deps]
+
+source_file="res://assets/music/sfx/phone-dial.ogg"
+dest_files=[ "res://.import/phone-dial.ogg-65fb29ca7e98f1c6be28f96abf30c82c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

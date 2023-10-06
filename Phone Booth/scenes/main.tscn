@@ -651,7 +651,6 @@ position = Vector2( 431, 106 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mouse"]
 shape = SubResource( 16 )
-
 [connection signal="coin_collected" from="phoneBooth" to="." method="_on_phoneBooth_coin_collected"]
 [connection signal="notepad_open_request" from="phoneBooth" to="." method="_on_notepad_pressed"]
 [connection signal="phone_call_begun" from="phoneBooth" to="." method="_on_phoneBooth_phone_call_begun"]
